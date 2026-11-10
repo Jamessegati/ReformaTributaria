@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reforma Tributária do Consumo — impacto nos clientes da Conceitus (treinamento in loco)</title>
+<style>
+:root{
+  --azul:#1F5FA8; --azul-esc:#1F3F66; --azul-cl:#DDEBF7; --papel:#FBFCFE; --tinta:#1B2430; --cinza:#5B6675; --linha:#C9D5E3;
+  --ok:#1E6B45; --ok-bg:#E3F3EA; --pr:#8A5A00; --pr-bg:#FFF1D6; --ck:#9B2C2C; --ck-bg:#FBE4E4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font:16px/1.6 "IBM Plex Sans","Segoe UI",system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+header.capa{background:var(--azul-esc);color:#fff;padding:56px 0 44px}
+header.capa .sel{display:inline-block;border:1px solid #6E92C0;color:#BFD4EE;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:2px}
+header.capa h1{font-size:38px;line-height:1.15;margin:18px 0 10px;font-weight:600;max-width:820px}
+header.capa p{margin:6px 0;color:#D6E3F4;max-width:760px}
+header.capa .meta{margin-top:22px;font-size:14px;color:#A9C2E4}
+nav.toc{background:var(--azul-cl);border-bottom:1px solid var(--linha)}
+nav.toc .wrap{padding-top:18px;padding-bottom:18px}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--azul-esc);text-transform:uppercase;letter-spacing:.06em}
+nav.toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:36px;font-size:15px}
+nav.toc li{break-inside:avoid;padding:2px 0}
+nav.toc a{color:var(--azul-esc);text-decoration:none}
+nav.toc a:hover{text-decoration:underline}
+nav.toc b{color:var(--azul);font-weight:600;display:inline-block;min-width:26px}
+section.bloco{padding:44px 0 8px;border-top:1px solid var(--linha)}
+section.bloco:first-of-type{border-top:0}
+.rotulo{font-size:13px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--azul)}
+h2.t{font-size:28px;line-height:1.2;margin:4px 0 6px;color:var(--azul-esc);font-weight:600}
+h3{font-size:19px;margin:30px 0 8px;color:var(--azul-esc);font-weight:600}
+h4{font-size:16px;margin:20px 0 6px;color:var(--azul);font-weight:600}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:3px 0}
+.lede{font-size:18px;color:#2C3846;max-width:800px}
+.ficha{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--linha);border:1px solid var(--linha);margin:18px 0}
+.ficha div{background:#fff;padding:10px 14px}
+.ficha small{display:block;color:var(--cinza);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.ficha span{font-weight:600;color:var(--azul-esc)}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px;background:#fff}
+th{background:var(--azul-esc);color:#fff;text-align:left;font-weight:600;padding:8px 10px}
+td{border-bottom:1px solid var(--linha);padding:7px 10px;vertical-align:top}
+tr:nth-child(even) td{background:#F5F8FC}
+td.n,th.n{text-align:right;white-space:nowrap}
+.caixa{border-left:4px solid var(--azul);background:var(--azul-cl);padding:12px 16px;margin:16px 0}
+.caixa.aten{border-color:#B7791F;background:#FFF6E0}
+.caixa.erro{border-color:#B83232;background:#FDECEC}
+.caixa.ex{border-color:var(--ok);background:#EAF6EF}
+.caixa b.tt{display:block;font-size:12px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:3px}
+.b{display:inline-block;font-size:11.5px;font-weight:600;padding:1px 7px;border-radius:2px;vertical-align:middle;white-space:nowrap}
+.b.ok{background:var(--ok-bg);color:var(--ok)}
+.b.pr{background:var(--pr-bg);color:var(--pr)}
+.b.ck{background:var(--ck-bg);color:var(--ck)}
+.f{display:inline-block;font:12px/1.4 "IBM Plex Mono",Consolas,monospace;background:#fff;border:1px solid var(--linha);color:var(--azul-esc);padding:0 6px;border-radius:2px;margin-left:3px;white-space:nowrap}
+.sala{border:1px dashed var(--azul);padding:12px 16px;margin:20px 0;background:#fff}
+.sala b.tt{color:var(--azul);font-size:12px;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:4px}
+details{margin:6px 0}
+summary{cursor:pointer;color:var(--azul);font-weight:600}
+code{font:13.5px "IBM Plex Mono",Consolas,monospace;background:#EEF3F9;padding:1px 5px;border-radius:2px}
+.linha-tempo{border-left:3px solid var(--azul);margin:16px 0 16px 8px;padding-left:18px}
+.linha-tempo div{margin:0 0 12px;position:relative}
+.linha-tempo div:before{content:"";position:absolute;left:-26px;top:7px;width:11px;height:11px;background:#fff;border:3px solid var(--azul);border-radius:50%}
+.linha-tempo b{color:var(--azul-esc)}
+footer{border-top:1px solid var(--linha);margin-top:48px;padding:28px 0 60px;color:var(--cinza);font-size:14px}
+@media (max-width:760px){nav.toc ol{columns:1}header.capa h1{font-size:28px}}
+@media print{
+  @page{size:A4;margin:16mm 14mm}
+  body{font-size:11pt;background:#fff}
+  header.capa{background:#fff;color:#000;padding:0 0 10px;border-bottom:2px solid #1F3F66}
+  header.capa h1,header.capa p,header.capa .meta,header.capa .sel{color:#1F3F66}
+  nav.toc{background:#fff}
+  section.bloco{page-break-before:always;border-top:0;padding-top:0}
+  section.bloco:first-of-type{page-break-before:auto}
+  .caixa,.sala,table,.ficha{break-inside:avoid}
+  .wrap{max-width:none;padding:0}
+  a{color:inherit;text-decoration:none}
+  details{display:block} details>*{display:block}
+}
+.videos{margin:26px 0 10px;border:1px solid var(--linha);background:var(--azul-cl);padding:14px 18px}
+.videos h4{margin:0 0 6px;color:var(--azul-esc)}
+.videos .aviso{font-size:13.5px;color:var(--cinza);margin:0 0 10px}
+.videos details{background:#fff;border:1px solid var(--linha);margin:8px 0;padding:8px 12px}
+.videos summary{cursor:pointer;font-weight:600;color:var(--azul-esc)}
+.videos .quadro{position:relative;padding-bottom:56.25%;height:0;margin-top:10px;background:#0b1320}
+.videos .quadro iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.videos .quadro .nao{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;padding:16px;text-align:center}
+.videos a{color:var(--azul)}
+@media print{.videos .quadro{display:none}}
+</style>
+</head>
+<body>
+
+<header class="capa">
+  <div class="wrap">
+    <span class="sel">Conceitus Contabilidade · material interno · 04/11/2026</span>
+    <h1>Reforma Tributária do Consumo: o que muda para os nossos clientes</h1>
+    <p>Roteiro de treinamento presencial com onze casos da carteira: transportadora, locação de imóveis, atacado e varejo de alimentos, clínica médica, holdings, estoque e saldos, Simples híbrido, lista de reduções, filiais, notas de débito e crédito e Imposto Seletivo.</p>
+    <p class="meta">Duração prevista: cerca de 5 horas, em um ou dois encontros. Fontes: curso oficial da Receita Federal (módulos 1 a 17, jul–set/2026), manuais do piloto e da plataforma da CBS, cadastro e Score do escritório.</p>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <h2>Neste material</h2>
+    <ol>
+      <li><b>0</b><a href="#base">Como ler, base comum e calendário</a></li>
+      <li><b>1</b><a href="#delps">DELPS: transportadora</a></li>
+      <li><b>2</b><a href="#locacao">Prime e Campestre: aluguel de imóveis</a></li>
+      <li><b>3</b><a href="#cerrado">Cerrado Alimentos: atacado e varejo</a></li>
+      <li><b>4</b><a href="#med">Med Fernandes: clínica no Simples</a></li>
+      <li><b>5</b><a href="#holding">Holdings: como ficam os aluguéis</a></li>
+      <li><b>6</b><a href="#marlon">Marlon (final 171): estoques e saldos</a></li>
+      <li><b>7</b><a href="#softweb">Softweb: Simples puro ou híbrido</a></li>
+      <li><b>8</b><a href="#reducoes">Quem tem redução de alíquota</a></li>
+      <li><b>9</b><a href="#filiais">Filiais: Hungria e Comercial CE</a></li>
+      <li><b>10</b><a href="#notas">Notas de débito e crédito, juros e descontos</a></li>
+      <li><b>11</b><a href="#haxpao">Haxpao: refresco em pó e Imposto Seletivo</a></li>
+      <li><b>12</b><a href="#acao">Plano de ação e pendências</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ======================= 0 ======================= -->
+<section class="bloco" id="base">
+  <div class="rotulo">Bloco 0 · 40 min</div>
+  <h2 class="t">Como ler, base comum e calendário</h2>
+  <p class="lede">Os onze casos usam as mesmas regras. Este bloco fixa o vocabulário, as datas que importam ao escritório e o código de confiança que aparece ao lado de cada afirmação.</p>
+
+  <h3>Etiquetas de confiança</h3>
+  <table>
+    <tr><td><span class="b ok">Conferido</span></td><td>Está nos módulos ou manuais da Receita (pasta REFORMA), ou no texto de lei citado. O artigo ou módulo aparece ao lado.</td></tr>
+    <tr><td><span class="b pr">Premissa</span></td><td>Dado do nosso cadastro, do Score ou leitura nossa a validar com o cliente ou com o contrato.</td></tr>
+    <tr><td><span class="b ck">A confirmar</span></td><td>Não consegui fechar na fonte. Não ensine como regra até conferir.</td></tr>
+  </table>
+
+  <div class="caixa aten"><b class="tt">Limites deste material</b>
+    A apostila de 09/2025 é anterior à LC 227/2026. Onde só ela sustenta um ponto, a etiqueta é <span class="b pr">Premissa</span> ou <span class="b ck">A confirmar</span>. As alíquotas do Imposto Seletivo e do IBS pleno (2029 em diante) ainda não estão fixadas nas fontes que li. Os exemplos numéricos usam a alíquota de 2027–2028 e servem para raciocinar, não para precificar.
+  </div>
+
+  <h3>Linha do tempo</h3>
+  <div class="linha-tempo">
+    <div><b>2026 · teste.</b> CBS 0,9% e IBS 0,1% no documento fiscal, compensados com PIS/Cofins; quem cumpre as obrigações acessórias fica dispensado de recolher a alíquota de teste. <span class="b ok">Conferido</span><span class="f">Mód. 1-1</span></div>
+    <div><b>2027 · CBS plena.</b> PIS/Cofins deixam de existir; IBS a 0,05% estadual + 0,05% municipal; a CBS cobrada fica 0,1 ponto abaixo da referência em 2027 e 2028; Imposto Seletivo entra em vigor; IPI cai a zero para quase todos os produtos. <span class="b ok">Conferido</span><span class="f">Mód. 1-1, 17-1, art. 344 e 347 LC 214</span></div>
+    <div><b>2029 a 2032 · IBS sobe, ICMS e ISS descem.</b> ICMS e ISS a 90%, 80%, 70% e 60% das alíquotas de 2028; IBS a 10%, 20%, 30% e 40%. <span class="b ok">Conferido</span><span class="f">Mód. 1-1, 3-1</span></div>
+    <div><b>2033.</b> ICMS e ISS extintos; IBS pleno. <span class="b ok">Conferido</span></div>
+  </div>
+
+  <h3>Alíquota de referência da CBS</h3>
+  <p>O TCU calculou em 28/10/2026 a alíquota de referência da CBS para 2027: 11,3468%, arredondada para <b>11,3%</b>. A fixação final é do Senado, até 15/12/2026. Em 2027 e 2028 a cobrança efetiva fica 0,1 ponto abaixo (≈ 11,2%), e o IBS de teste soma 0,1%. Por isso os exemplos deste material usam <b>11,3% no total</b>. <span class="b ok">Conferido</span> em notícias de 28–30/10/2026 (Poder360, Migalhas, Mattos Filho). A alíquota pode ser alterada por lei específica da União, então é referência, não promessa.</p>
+
+  <h3>Cinco ideias que explicam quase tudo</h3>
+  <ol>
+    <li><b>Incide em operação onerosa</b> (compra e venda, locação, serviço, mútuo oneroso, arrendamento). Não incide em transferência entre estabelecimentos do mesmo titular, dividendos, alienação de participação societária e rendimentos financeiros. <span class="f">LC 214 art. 4º e 6º</span> <span class="b ok">Conferido</span></li>
+    <li><b>Base de cálculo:</b> valor integral cobrado pelo fornecedor. Juros, multas, acréscimos, encargos e descontos concedidos sob condição <i>entram</i> na base. Desconto incondicional (consta da nota e não depende de evento posterior) <i>não entra</i>. IBS, CBS, ICMS, ISS, PIS e Cofins ficam fora da base (cálculo “por fora”). <span class="f">art. 12 e 13</span> <span class="b ok">Conferido</span></li>
+    <li><b>Crédito financeiro e só depois que o fornecedor pagar.</b> O crédito do adquirente é apropriado depois que o débito do fornecedor foi extinto: compensação, pagamento, recolhimento na liquidação (split payment), recolhimento pelo adquirente ou pagamento pelo responsável. <span class="f">art. 27</span> <span class="b ok">Conferido</span></li>
+    <li><b>Apuração consolidada por contribuinte (CNPJ raiz), não por filial.</b> Débitos e créditos de todos os estabelecimentos entram numa apuração só; pagamento e pedido de ressarcimento ficam centralizados em um estabelecimento. <span class="f">art. 42</span> <span class="b ok">Conferido</span></li>
+    <li><b>Destino.</b> O imposto vai para o local da operação: em bens, onde o fornecimento termina; em serviço de transporte de carga, o local da entrega ao destinatário que consta no documento fiscal; em imóvel, onde o imóvel está. <span class="f">art. 11</span> <span class="b ok">Conferido</span></li>
+  </ol>
+
+  <h3>Tabela de alíquotas efetivas, 2027–2028 (referência 11,3%)</h3>
+  <table>
+    <tr><th>Tratamento</th><th>Redução</th><th class="n">Alíquota IBS+CBS</th><th>Onde aparece nos casos</th></tr>
+    <tr><td>Regra geral (cClassTrib 000001)</td><td>0%</td><td class="n">11,30%</td><td>Frete (DELPS), serviços de gestão, itens do atacado fora dos anexos</td></tr>
+    <tr><td>Profissões regulamentadas (art. 127)</td><td>30%</td><td class="n">7,91%</td><td>Sociedades de advogados, contabilidade, engenharia</td></tr>
+    <tr><td>Saúde (Anexo III), alimentos do Anexo VII, higiene (Anexo VIII), insumos agro (Anexo IX), medicamentos</td><td>60%</td><td class="n">4,52%</td><td>Med Fernandes, Cerrado, Marlon</td></tr>
+    <tr><td>Operações imobiliárias (venda, construção)</td><td>50%</td><td class="n">5,65%</td><td>Campestre (se vender), holdings que vendem imóvel</td></tr>
+    <tr><td>Locação, cessão onerosa e arrendamento de imóvel</td><td>70%</td><td class="n">3,39%</td><td>Prime, Campestre, holdings</td></tr>
+    <tr><td>Transporte coletivo intermunicipal e interestadual de passageiros</td><td>40%</td><td class="n">6,78%</td><td>Não é o caso da DELPS (carga)</td></tr>
+    <tr><td>Cesta Básica Nacional (Anexo I) e hortifrúti, frutas e ovos (Anexo XV)</td><td>100%</td><td class="n">0,00%</td><td>Cerrado, Marlon</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)">Fontes: apostila 09/2025 (lista de reduções), Mód. 10-4 (transporte coletivo), Mód. 13-1 (imóveis). <span class="b ok">Conferido</span></p>
+
+  <h3>Datas que o escritório precisa guardar</h3>
+  <table>
+    <tr><th>Data</th><th>O que acontece</th><th>Quem é afetado</th></tr>
+    <tr><td>03/11 a 20/12/2026</td><td>Janela de cancelamento da opção pelo Simples ou pelo regime regular de IBS/CBS (Resolução CGSN 194/2026)</td><td>Optantes do Simples <span class="b pr">Premissa</span></td></tr>
+    <tr><td>15/12/2026</td><td>Prazo do Senado para fixar a alíquota de referência da CBS</td><td>Todos</td></tr>
+    <tr><td>31/12/2026</td><td>Data do estoque de abertura (inventário) e das operações a que se aplica PIS/Cofins</td><td>Atacado, varejo, indústria</td></tr>
+    <tr><td>17/02/2027</td><td>Entrega da EFD-Contribuições de dez/2026 com todos os saldos credores de PIS/Cofins</td><td>Lucro Real com saldo credor</td></tr>
+    <tr><td>Até 30/06/2027</td><td>Apuração e apropriação do crédito presumido do estoque de abertura</td><td>Presumido; bens monofásicos ou com ST</td></tr>
+    <tr><td>Março/2027</td><td>Próxima janela do Simples para optar pelo regime regular, valendo a partir de julho</td><td>Optantes do Simples <span class="b pr">Premissa</span></td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)">Fontes: Mód. 5-4 (EFD-Contribuições, estoque, saldos), Mód. 8-2 e 8-3 (Simples). <span class="b ok">Conferido</span> exceto a Resolução CGSN 194, citada pelo curso anterior do escritório.</p>
+
+  <h3>Nossa carteira em números</h3>
+  <p>Consulta ao Database5 em 04/11/2026: <b>195 CNPJs de clientes ativos</b> (filiais contam como CNPJ próprio). Regime atual: Simples 78, SIMEI 6, Lucro Real trimestral 58, Presumido por faturamento 29, Presumido por caixa 9, regime “inativo” 15. <span class="b pr">Premissa</span> A conta do plano de curso de 30/10 (204 clientes, filtrada por outro critério) dá percentuais parecidos.</p>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="kCtHYZuHFso" data-t="227" data-e="495"><summary>▶ Live Econet · 00:03:47 a 00:08:15 · Visão geral dos 5 tributos e transição</summary><p><a href="https://www.youtube.com/watch?v=kCtHYZuHFso&t=227s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="kCtHYZuHFso" data-t="1209" data-e="1600"><summary>▶ Live Econet · 00:20:09 a 00:26:40 · Cálculo por fora e alíquotas</summary><p><a href="https://www.youtube.com/watch?v=kCtHYZuHFso&t=1209s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="LZJ9f-Zyiyg" data-t="459" data-e="556"><summary>▶ CFC Módulo 18 · 00:07:39 a 00:09:16 · Cronograma oficial de implementação</summary><p><a href="https://www.youtube.com/watch?v=LZJ9f-Zyiyg&t=459s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="OVf0x7KKhnI" data-t="69" data-e="0"><summary>▶ g1 · Entenda como funciona a reforma tributária (5 min) · a partir de 00:01:09 · Novas tags e testes sem impacto financeiro; linha do tempo em 01:53</summary><p><a href="https://www.youtube.com/watch?v=OVf0x7KKhnI&t=69s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="UJSbZwSRklg" data-t="11" data-e="0"><summary>▶ Short · 6 mudanças da reforma para 2027 (1 min 45) · a partir de 00:00:11 · CBS, IS, split payment, Simples híbrido, profissionais liberais e CIB</summary><p><a href="https://www.youtube.com/watch?v=UJSbZwSRklg&t=11s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="uEI3lyDPous" data-t="0" data-e="0"><summary>▶ Estados podem incluir CBS/IBS na base do ICMS? (regra na transição) · vídeo inteiro · Controvérsia: fonte externa, trate como alerta de risco e não como regra</summary><p><a href="https://www.youtube.com/watch?v=uEI3lyDPous&t=0s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 1 DELPS ======================= -->
+<section class="bloco" id="delps">
+  <div class="rotulo">Bloco 1 · 25 min · caso 1</div>
+  <h2 class="t">DELPS Transportes e Logística: transportadora de carga</h2>
+  <p class="lede">A DELPS sai de um PIS/Cofins cumulativo de 3,65% sobre o faturamento para uma CBS não cumulativa a 11,2%. O resultado depende de quanto ela compra com crédito.</p>
+
+  <div class="ficha">
+    <div><small>CNAE</small><span>4930-2/02 · carga intermunicipal e interestadual</span></div>
+    <div><small>Regime</small><span>Presumido (7 por faturamento, 1 por caixa)</span></div>
+    <div><small>Estabelecimentos</small><span>8 no cadastro (matriz + 7 filiais), todos em GO</span></div>
+    <div><small>Sistemas</small><span>SSW (gestão de transporte) + Domínio</span></div>
+  </div>
+  <p><span class="b pr">Premissa</span> Dados do Database5 e do Score. A filial 9 (São Miguel do Araguaia) é Presumido por caixa. O Score marca algumas filiais como inativas para fins de monitoramento; no cadastro todas constam como cliente ativo.</p>
+
+  <h3>1. O que muda</h3>
+  <ul>
+    <li><b>Sem redução para carga.</b> A redução de 40% do módulo 10-4 vale para transporte <i>coletivo de passageiros</i> intermunicipal e interestadual. Para frete de carga não encontrei redução nas fontes: alíquota de 11,3% em 2027–2028. <span class="b ok">Conferido</span><span class="f">Mód. 10-4</span> A ausência de redução é leitura nossa da lista consultada.</li>
+    <li><b>PIS/Cofins cumulativo sai, CBS não cumulativa entra.</b> No Presumido a empresa nunca tomou crédito de PIS/Cofins. Em 2027 passa a tomar crédito de CBS sobre quase tudo que compra para operar.</li>
+    <li><b>ICMS do frete continua em 2027–2028</b> e só começa a ser substituído pelo IBS em 2029 (90/10). <span class="b ok">Conferido</span></li>
+    <li><b>Local da operação:</b> no transporte de carga é o local da entrega ou da disponibilização ao destinatário que consta no documento fiscal. Uma carga de Porangatu para Palmas leva o IBS para o destino, não para a filial que transportou. <span class="b ok">Conferido</span><span class="f">art. 11</span></li>
+    <li><b>Apuração consolidada:</b> os 8 estabelecimentos formam uma apuração única; a DELPS paga e pede ressarcimento por um único estabelecimento. <span class="f">art. 42</span> <span class="b ok">Conferido</span></li>
+    <li><b>Documento:</b> a calculadora oficial valida NF-e, CT-e e CT-e simplificado, então o grupo de IBS/CBS entra no CT-e. O SSW precisa entregar a atualização. <span class="b ok">Conferido</span><span class="f">Calculadora, novidades</span></li>
+  </ul>
+
+  <h3>2. Onde está o crédito</h3>
+  <table>
+    <tr><th>Gasto da DELPS</th><th>Dá crédito?</th><th>Observação</th></tr>
+    <tr><td>Óleo diesel</td><td>Sim, com limite</td><td>Combustível tem regime monofásico: o crédito do consumidor não revendedor fica limitado à quantidade comprada × alíquota específica da CBS monofásica, e é pedido por evento na NF-e (211140). Vedado para quem revende. <span class="f">art. 180 LC 214 · Mód. 16-1</span> <span class="b ok">Conferido</span></td></tr>
+    <tr><td>Pneus, peças, manutenção, seguro de carga</td><td>Sim</td><td>Crédito pleno se o fornecedor for do regime regular e o crédito não estiver vedado. <span class="b pr">Premissa</span></td></tr>
+    <tr><td>Caminhões e carretas</td><td>Sim, na compra</td><td>O crédito sobre ativo imobilizado vem na aquisição, não pela depreciação. <span class="b ck">A confirmar</span> no regulamento</td></tr>
+    <tr><td>Subcontratação de transportadora do regime regular</td><td>Sim</td><td>Com CT-e destacando IBS/CBS.</td></tr>
+    <tr><td>Subcontratação de autônomo pessoa física (TAC)</td><td>Só crédito presumido</td><td>TAC pessoa física não é contribuinte (pode optar). A lei prevê crédito presumido, só para abater CBS a pagar, com percentual ligado à CBS paga nas compras do TAC. <span class="b ok">Conferido</span><span class="f">Mód. 10-4</span> <b>Quem apropria é o tomador do frete</b> (a DELPS), pelo evento 211110 no CT-e, em vigor a partir de 16/11/2026 (NT 2026.004). <span class="b ok">Conferido</span><span class="f">Mód. 6-1, slide 19 · art. 47 § 2º, II</span> O percentual não está nos materiais: <span class="b ck">A confirmar</span></td></tr>
+    <tr><td>Folha, pró-labore, motoristas</td><td>Não</td><td>Salário não gera crédito de IBS/CBS.</td></tr>
+  </table>
+
+  <div class="caixa ex"><b class="tt">Ponto de equilíbrio para qualquer cliente do Presumido</b>
+    Hoje: 3,65% × receita. Em 2027: 11,2% × (receita − compras com crédito). As duas cargas empatam quando as compras creditáveis valem <b>cerca de 67% da receita</b> (1 − 3,65 ÷ 11,2 = 67,4%).<br>
+    Exemplo: receita de frete R$ 1.000.000. PIS/Cofins hoje: R$ 36.500. CBS bruta: R$ 112.000. Para pagar o mesmo, a DELPS precisa de R$ 75.500 de crédito, ou seja, R$ 674 mil de compras com CBS embutida. Transportadora com folha e TAC pesados costuma ficar abaixo disso. Nesse caso a CBS pesa mais que o PIS/Cofins, e o escritório precisa avisar antes de 2027.<br>
+    O cálculo não inclui o IBS de teste (0,1% = R$ 1.000) nem o ICMS, que segue como hoje.
+  </div>
+
+  <h3>3. Regime de caixa</h3>
+  <p>A filial 9 usa Presumido por caixa. Para fatos geradores até 31/12/2026, o PIS/Cofins continua sendo exigido quando o dinheiro entra, mesmo depois de 2026, e a CBS não incide sobre esse recebimento. De 2027 em diante a CBS segue o fato gerador, sem regime de caixa. <span class="b ok">Conferido</span><span class="f">Mód. 13-1, slides 66–71</span> Atenção ao fechamento: faturas de dez/2026 recebidas em 2027 pagam PIS/Cofins, não CBS.</p>
+
+  <h3>4. O que fazer</h3>
+  <ol>
+    <li>Pedir ao fornecedor do SSW o cronograma escrito do CT-e com IBS/CBS e a data de homologação.</li>
+    <li>Montar a tabela de compras da DELPS por tipo (diesel, pneus, peças, subcontratados PJ, TAC, folha) e calcular o ponto de equilíbrio acima com o faturamento de 2026.</li>
+    <li>Separar o diesel: litros por mês e posto. O crédito é limitado por litro.</li>
+    <li>Levantar quanto do frete é pago a TAC pessoa física.</li>
+    <li>Marcar o fechamento de dez/2026 da filial 9 (caixa).</li>
+  </ol>
+
+  <div class="sala"><b class="tt">Para discutir na sala</b>
+    A DELPS subcontrata 40% do frete de autônomos pessoa física. O que isso faz com o ponto de equilíbrio?
+    <details><summary>Resposta esperada</summary>Quase não gera crédito normal; entra só o crédito presumido, que ainda depende de regulamento. Reduz muito as compras creditáveis e empurra a DELPS para abaixo dos 67%, o que eleva a carga em relação ao PIS/Cofins.</details>
+  </div>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="kCtHYZuHFso" data-t="1209" data-e="1710"><summary>▶ Live Econet · 00:20:09 a 00:28:30 · Regra geral de serviços e não cumulatividade</summary><p><a href="https://www.youtube.com/watch?v=kCtHYZuHFso&t=1209s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="Woz3DsBKnAo" data-t="0" data-e="0"><summary>▶ Reforma Tributária e Transporte de cargas: subcontratação e redespacho · vídeo inteiro · Subcontratação de Simples por tomador do Lucro Real</summary><p><a href="https://www.youtube.com/watch?v=Woz3DsBKnAo&t=0s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="8VB5O7X625Y" data-t="0" data-e="0"><summary>▶ EntreModais #93: impacto da reforma no transporte de cargas · vídeo inteiro · Fato gerador no destino e crédito do diesel</summary><p><a href="https://www.youtube.com/watch?v=8VB5O7X625Y&t=0s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 2 LOCACAO ======================= -->
+<section class="bloco" id="locacao">
+  <div class="rotulo">Bloco 2 · 25 min · caso 2</div>
+  <h2 class="t">Prime e Campestre: empresas que alugam imóveis</h2>
+  <p class="lede">Pessoa jurídica que aluga imóvel passa a ser contribuinte do IBS e da CBS, com 70% de redução na alíquota. O ponto de atenção está em prazos que já venceram.</p>
+
+  <div class="ficha">
+    <div><small>Campestre</small><span>Empreendimentos Imobiliários · 6810-2/02 · Presumido por caixa</span></div>
+    <div><small>Prime</small><span>Prime Consultoria e Participações · 41.278.304/0001-00 · 6463-8/00 · Presumido por faturamento</span></div>
+    <div><small>Grupo</small><span>Eliar · Aparecida de Goiânia</span></div>
+  </div>
+  <div class="caixa aten"><b class="tt">O nome “consultoria” não dá os 30% do art. 127</b>
+    O art. 127 reduz em 30% o serviço de profissões regulamentadas, mas a pessoa jurídica só tem o direito se cumprir <b>todos</b> os requisitos do § 1º, II: sócios habilitados e sujeitos a conselho profissional; sem sócio pessoa jurídica; <b>não ser sócia de outra pessoa jurídica</b>; sem atividade diversa das habilitações dos sócios; serviço da atividade-fim prestado pelos sócios. <span class="b ok">Conferido</span><span class="f">texto da LC 214, art. 127 (Planalto)</span><br>
+    A Prime Consultoria e Participações tem CNAE de holding e é sócia de outras empresas do grupo, então falha no requisito “não ser sócia de outra PJ”. O que ela receber de aluguel entra no art. 261 (70%), não no art. 127. Se ela também presta consultoria, esse serviço fica a 11,3%, salvo se os sócios forem administradores com registro no conselho e a empresa cumprir os cinco requisitos, o que a participação societária impede. <span class="b pr">Premissa</span> Confirmar com o contrato social e com as notas dela se a Prime recebe aluguel de fato.
+  </div>
+
+  <h3>1. Regras que valem para os dois</h3>
+  <table>
+    <tr><th>Tema</th><th>Regra</th><th>Fonte</th></tr>
+    <tr><td>Contribuinte</td><td>Sujeito passivo é o locador, cedente ou arrendador. Os limites de receita e de número de imóveis servem para decidir se a <i>pessoa física</i> vira contribuinte; pessoa jurídica locadora é contribuinte sempre. <span class="b pr">Premissa</span> leitura dos slides; conferir art. 251 e 252 no texto.</td><td>art. 263 III · Mód. 13-1</td></tr>
+    <tr><td>Alíquota</td><td>Redução de 70% para locação, cessão onerosa e arrendamento: 11,3% × 30% = <b>3,39%</b> em 2027–2028. <span class="b ok">Conferido</span></td><td>art. 261, parágrafo único</td></tr>
+    <tr><td>Fato gerador</td><td>No pagamento: a CBS é devida a cada pagamento do aluguel recebido. <span class="b ok">Conferido</span></td><td>art. 254 III</td></tr>
+    <tr><td>Base</td><td>Valor do aluguel. Não entram tributos e emolumentos sobre o imóvel, condomínio, foro e taxa de ocupação, quando o locatário os suporta e paga comprovadamente. <span class="b ok">Conferido</span></td><td>art. 255 II · Dec. 12.955 art. 364</td></tr>
+    <tr><td>Local</td><td>Onde o imóvel está situado. <span class="b ok">Conferido</span></td><td>art. 11 II</td></tr>
+    <tr><td>Redutor social</td><td>R$ 600 por mês, por imóvel <i>residencial</i>, até o limite da base, atualizado pelo IPCA. Não vale para locação comercial. <span class="b ok">Conferido</span></td><td>art. 260 (LC 227/2026)</td></tr>
+    <tr><td>Locação por temporada</td><td>Até 90 dias segue as regras de hotelaria, não as de locação. <span class="b ok">Conferido</span></td><td>art. 253</td></tr>
+    <tr><td>Documento</td><td>NFS-e nacional, NBS 1.1002.10.00 (residencial) ou 1.1002.20.00 (não residencial), grupo de locação com CIB, percentual de copropriedade e ajustes da base (01 tributos, 02 emolumento, 03 condomínio, 04 redutor social, 99 outros). Suporta até 99 imóveis por nota. <span class="b ok">Conferido</span></td><td>Mód. 13-2 · NT SE/CGNFS-e 009</td></tr>
+    <tr><td>Crédito</td><td>O locador toma crédito nas despesas ligadas à atividade; o locatário PJ do regime regular toma crédito no aluguel que usa na atividade (galpão, loja, escritório). <span class="b ok">Conferido</span></td><td>Mód. 13-1, slide 42</td></tr>
+  </table>
+
+  <div class="caixa ex"><b class="tt">Exemplo: aluguel comercial de R$ 100.000 por mês</b>
+    IBS+CBS: 100.000 × 11,3% × 30% = <b>R$ 3.390</b>. Hoje, no Presumido, o PIS/Cofins cumulativo seria 3,65% = R$ 3.650. A carga bruta fica quase igual (R$ 260 a menos), e a Campestre ainda ganha crédito sobre despesas que hoje não dão crédito algum. O inquilino PJ do Lucro Real ou Presumido leva R$ 3.390 de crédito, então o custo líquido dele cai.<br>
+    Se o locatário for pessoa física ou optante do Simples, o crédito dele é nulo ou limitado e o preço do aluguel sente os 3,39%.
+  </div>
+
+  <h3>2. Contratos antigos: prazo vencido em 31/12/2025</h3>
+  <div class="caixa erro"><b class="tt">Ponto de atenção</b>
+    Há um regime opcional para contratos de locação anteriores. Para contrato <b>não residencial</b> firmado até 16/01/2025, era preciso, até <b>31/12/2025</b>, registrar o contrato em cartório (registro de imóveis ou títulos e documentos) ou disponibilizá-lo à Receita e ao CGIBS. A opção se manifesta no primeiro documento fiscal da locação, é irretratável durante o contrato e exige guarda do contrato. Para contrato <b>residencial</b>, o regime dura o que ocorrer primeiro entre o prazo original e 31/12/2028. <span class="b ok">Conferido</span><span class="f">Mód. 13-1, slides 54–64 · RIBS/RCBS art. 463</span><br>
+    A opção afasta o redutor social, veda crédito para quem opera com o imóvel no regime e exige estorno proporcional de custos indiretos. Eu não consegui ler a alíquota desse regime (está em imagem do slide 60). <span class="b ck">A confirmar</span><br>
+    <b>Ação:</b> perguntar à Campestre e à Prime quais contratos são anteriores a 16/01/2025 e se algum foi registrado ou disponibilizado até 31/12/2025. Se não foi, o regime geral (3,39%) é o que vale.
+  </div>
+
+  <h3>3. Se a Campestre vender imóvel</h3>
+  <ul>
+    <li>Qualquer alienação de imóvel por PJ passa a ter CBS, mesmo de ativo imobilizado, investimento ou imóvel para renda. Antes não incidia PIS/Cofins sobre essa venda. <span class="b ok">Conferido</span><span class="f">Mód. 13-1, slide 29</span></li>
+    <li>Alíquota reduzida em 50% (art. 261) e <b>redutor de ajuste</b> na base: valor de aquisição, ITBI, laudêmio e contrapartidas, para imóvel que o contribuinte tenha em 01/01/2027. <span class="b ok">Conferido</span><span class="f">art. 257 e 258</span></li>
+    <li>Documento: NF-e de alienação de bens imóveis (NF-e ABI), com CIB.</li>
+    <li>Incorporação com patrimônio de afetação e parcelamento de solo têm regime opcional (art. 485 e 486), com pedido antes de 01/01/2029.</li>
+  </ul>
+
+  <h3>4. O que fazer</h3>
+  <ol>
+    <li>Listar contratos de cada imóvel: data, residencial ou não, locatário (PJ regime regular, Simples, PF), valor, o que está embutido (condomínio, IPTU).</li>
+    <li>Conferir CIB de cada imóvel e a inscrição imobiliária na prefeitura.</li>
+    <li>Para a Campestre (caixa): o aluguel recebido em 2027 de competência 2026 paga PIS/Cofins; fechar a lista no inventário de recebíveis.</li>
+    <li>Testar a emissão da NFS-e nacional de locação no ambiente restrito antes de janeiro.</li>
+  </ol>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="esA8WZsj7O8" data-t="930" data-e="2700"><summary>▶ CFC Módulo 13 · 00:15:30 a 00:45:00 · Regime específico de imóveis e redução de 70%</summary><p><a href="https://www.youtube.com/watch?v=esA8WZsj7O8&t=930s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="t-4p8YFlIpk" data-t="1640" data-e="2110"><summary>▶ CFC Módulo 4 · 00:27:20 a 00:35:10 · Cadastro CIB e tributação imobiliária</summary><p><a href="https://www.youtube.com/watch?v=t-4p8YFlIpk&t=1640s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 3 CERRADO ======================= -->
+<section class="bloco" id="cerrado">
+  <div class="rotulo">Bloco 3 · 30 min · caso 3</div>
+  <h2 class="t">Cerrado Alimentos: atacado e varejo de alimentos</h2>
+  <p class="lede">Aqui o trabalho é de classificação: cada item da nota cai em um de cinco tratamentos diferentes, e erro de cadastro vira erro de imposto em milhares de linhas.</p>
+
+  <div class="ficha">
+    <div><small>Estabelecimentos</small><span>Cerrado Alimentos (matriz e filial 2) em Goiânia; Cerrado Quirinópolis</span></div>
+    <div><small>CNAE</small><span>4639-7/01 atacado de alimentos em geral</span></div>
+    <div><small>Regime</small><span>Lucro Real trimestral</span></div>
+    <div><small>ERP e marcas no Score</small><span>WinThor · PROTEGE · crédito outorgado</span></div>
+  </div>
+  <p><span class="b pr">Premissa</span> A Cerrado Serviços e Transportes (CNAE 8211-3/00) está no Simples e tem outro tratamento (bloco 7).</p>
+
+  <h3>1. Os cinco tratamentos</h3>
+  <table>
+    <tr><th>CST / cClassTrib</th><th>O que é</th><th class="n">Alíq. 2027</th><th>Exemplos da lista de supermercados</th></tr>
+    <tr><td>000 / 000001</td><td>Tributado integralmente (tudo que não está nos anexos)</td><td class="n">11,3%</td><td>Biscoito, molho, catchup, palete, limpeza fora do Anexo VIII</td></tr>
+    <tr><td>200 / 200003</td><td>Cesta Básica Nacional (Anexo I): alíquota zero</td><td class="n">0%</td><td>Arroz, leite, leite em pó, manteiga, margarina, fórmulas infantis</td></tr>
+    <tr><td>200 / 200014</td><td>Hortícolas, frutas e ovos (Anexo XV): redução de 100%</td><td class="n">0%</td><td>Ovos (0407.2), hortifrúti</td></tr>
+    <tr><td>200 / 200034</td><td>Alimentos fora da cesta (Anexo VII): redução de 60%</td><td class="n">4,52%</td><td>Crustáceos e moluscos, leite fermentado e bebidas lácteas, sucos naturais sem açúcar</td></tr>
+    <tr><td>200 / 200035</td><td>Higiene pessoal e limpeza (Anexo VIII): 60%</td><td class="n">4,52%</td><td>Sabonete, produtos de higiene de baixa renda</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)">Códigos conferidos contra a lista “Tributação CBS e IBS para varejista – supermercados”. <span class="b ok">Conferido</span> A lista é de supermercados: outras atividades pedem lista própria, e a lista não é legislação.</p>
+
+  <div class="caixa ex"><b class="tt">Amostra real: saídas de agosto/2026 de um cliente WinThor</b>
+    190 NCMs, R$ 288.880,94. Regra geral: 138 NCMs, R$ 141.842,54 (49,1%). Cesta básica: 22 NCMs, R$ 99.006,40 (34,3%). Alimentos Anexo VII: 19 NCMs, R$ 24.517,40. Higiene Anexo VIII: 7 NCMs, R$ 20.087,80. Hortifrúti: 2 NCMs. Insumos agro: 1. Dispositivo médico: 1.<br>
+    Somando as reduções, <b>50,9% do valor tinha alíquota reduzida ou zero</b>. Um ERP parametrizado com tudo em 000001 tributaria a mais, em média, metade do que vende. <span class="b pr">Premissa</span> A classificação é proposta da equipe (arquivo <code>classificacao_ncm_agosto2026.csv</code>); o cliente da amostra não está identificado no arquivo.
+  </div>
+
+  <h3>2. Pontos que a equipe erra</h3>
+  <ul>
+    <li><b>A mesma família de produto cai em tratamentos diferentes.</b> Na amostra, achocolatado pronto (Toddynho, NCM 2202.99.00) é 200034, e achocolatado em pó (NCM 1806.90.00) ficou em 000001. Classificação é por NCM e pelo texto do anexo, não pelo “tipo de produto”.</li>
+    <li><b>Adoçante</b> (2106.90.90) foi para a cesta (200003) na amostra, enquanto o refresco em pó (2106.90.10) ficou na regra geral. As duas NCMs começam igual. Conferir sempre as 8 posições.</li>
+    <li><b>Alíquota zero mantém o crédito das compras</b>; isenção e imunidade em regra o estornam. <span class="b ck">A confirmar</span> no texto dos arts. 47 e 51 antes de ensinar como regra. Para o atacadista que vende cesta básica a zero, isso é a diferença entre saldo credor ressarcível e custo.</li>
+    <li><b>Fornecedor que erra.</b> Na carga de XML de entrada, 152 divergências de cClassTrib eram fornecedor mandando 000001 em item de cesta (200003). O crédito que você toma é o destacado na nota; item mal classificado na entrada gera crédito errado e glosa depois. <span class="f">base-tributacao</span> <span class="b pr">Premissa</span></li>
+  </ul>
+
+  <h3>3. ICMS, crédito outorgado e PROTEGE</h3>
+  <ul>
+    <li>O ICMS segue integral em 2027 e 2028 (e a substituição tributária do ICMS junto com ele). A mudança do crédito outorgado começa em 2029, quando a alíquota do ICMS cai 10% ao ano e os benefícios caem na mesma proporção. <span class="b ok">Conferido</span><span class="f">Mód. 3-1 · ADCT art. 128</span></li>
+    <li><b>O Fundo de Compensação não cobre este caso.</b> Ele compensa benefícios onerosos por prazo certo e sob condição, concedidos até 31/05/2023. Ficam de fora os benefícios reinstituídos pela LC 160/2017 para manter ou aumentar atividades comerciais. O crédito outorgado do atacadista goiano é, em regra, desse segundo grupo. <span class="b ok">Conferido</span> o texto da exclusão; <span class="b pr">Premissa</span> o enquadramento do benefício da Cerrado.</li>
+    <li>Efeito prático: a margem líquida que o crédito outorgado dá hoje diminui de 2029 a 2032 e acaba em 2033, sem compensação. É assunto de preço, não só de apuração.</li>
+  </ul>
+
+  <h3>4. O que fazer</h3>
+  <ol>
+    <li>Exportar o cadastro de produtos do WinThor com NCM e rodar contra a lista de anexos. A tabela PCTRIBUTACAO da fase-teste já tem o roteiro de INSERT (<code>pctributacao_inserts_agosto2026.sql</code>); os itens marcados “[CONFIRMAR]” têm duas reduções possíveis e exigem decisão.</li>
+    <li>Conferir os fornecedores que mais erram o cClassTrib e pedir correção na origem.</li>
+    <li>Calcular, por mês, quanto o crédito outorgado representa da margem.</li>
+  </ol>
+
+  <div class="sala"><b class="tt">Para discutir na sala</b>
+    Um fardo de refresco em pó (2106.90.10) e um adoçante líquido (2106.90.90) têm a mesma NCM de seis dígitos. Como evitar o erro no cadastro?
+    <details><summary>Resposta esperada</summary>Classificar por NCM de oito dígitos e comparar com o texto do anexo, item por item, nunca por prefixo. Quando o anexo cita só alguns códigos de um grupo, os demais ficam na regra geral.</details>
+  </div>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="kCtHYZuHFso" data-t="227" data-e="440"><summary>▶ Live Econet · 00:03:47 a 00:07:20 · Anexos de redução e cesta básica</summary><p><a href="https://www.youtube.com/watch?v=kCtHYZuHFso&t=227s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 4 MED ======================= -->
+<section class="bloco" id="med">
+  <div class="rotulo">Bloco 4 · 35 min (junto com o bloco 7) · caso 4</div>
+  <h2 class="t">Med Fernandes: clínica médica no Simples</h2>
+  <p class="lede">A redução de 60% da saúde existe na lei, mas a empresa só a usa se sair do modelo unificado do Simples. Para quem fica no DAS, nada muda na alíquota por causa dela.</p>
+
+  <div class="ficha">
+    <div><small>CNPJ / CNAE</small><span>30.857.699/0001-71 · 8630-5/01</span></div>
+    <div><small>Regime</small><span>Simples Nacional</span></div>
+    <div><small>Município</small><span>Goiânia</span></div>
+    <div><small>Na lista de reduções</small><span>Sim, por CNAE (saúde, Anexo III)</span></div>
+  </div>
+  <p><span class="b pr">Premissa</span> O CNAE cadastrado indica atividade médica ambulatorial restrita a consultas. Conferir se há procedimentos, exames ou cirurgias, porque o Anexo III lista serviços específicos e o CNAE não comprova nada.</p>
+
+  <h3>1. A regra da saúde</h3>
+  <ul>
+    <li>Redução de 60% nas alíquotas de IBS e CBS sobre os serviços de saúde do Anexo III: serviços médicos especializados, clínica médica, cirúrgicos, laboratoriais, diagnóstico por imagem, odontológicos, de enfermagem, fisioterapia, psicologia, nutrição, entre outros. 11,3% × 40% = <b>4,52%</b>. <span class="b ok">Conferido</span><span class="f">apostila 09/2025 · art. 130</span></li>
+    <li>Só vale para a contraprestação desses serviços. Outras receitas da mesma clínica (venda de produto, aluguel de sala) seguem as próprias regras.</li>
+    <li>Valores <b>glosados pela auditoria médica</b> dos planos de saúde e não pagos não entram na base. <span class="b ok">Conferido</span></li>
+    <li>A redução de 60% da saúde <b>não se soma</b> à de 30% das profissões regulamentadas: o serviço enquadrado no Anexo III já tem o tratamento próprio.</li>
+  </ul>
+
+  <h3>2. No Simples, o que acontece</h3>
+  <table>
+    <tr><th>Caminho</th><th>Como o IBS/CBS é pago</th><th>Efeito da redução de 60%</th></tr>
+    <tr><td>Simples unificado (“puro”)</td><td>Dentro do DAS, a partir de 2027, com o PIS/Cofins saindo do DAS</td><td>Não reduz o DAS. O Fator R e os anexos continuam como hoje.</td></tr>
+    <tr><td>Simples com regime regular de IBS/CBS (“híbrido”)</td><td>IBS/CBS apurados por fora, pelas regras da LC 214; o resto segue no DAS</td><td>Aplica-se: 4,52% sobre a receita elegível, menos os créditos</td></tr>
+  </table>
+  <p>O termo “híbrido” é do uso corrente, não da lei: o art. 41, §§ 2º e 3º, da LC 123 (redação da reforma) submete o optante às regras do Simples e permite apurar IBS e CBS pelo regime regular. <span class="b pr">Premissa</span> Fonte: curso anterior do escritório; o texto do artigo não está na pasta REFORMA.</p>
+
+  <div class="caixa ex"><b class="tt">Exemplo: receita de R$ 120.000 por mês, só consultas</b>
+    Híbrido, 2027: débito = 120.000 × 11,3% × 40% = R$ 5.424. Compras com crédito: R$ 10.000 (aluguel de sala, material, software) × 11,3% = R$ 1.130. Saldo a pagar de IBS/CBS: <b>R$ 4.294 (3,6% da receita)</b>. Folha e pró-labore não geram crédito.<br>
+    Não dá para dizer se compensa sem a parcela de IBS/CBS dentro do DAS. A tabela do novo PGDAS-A (janeiro/2027) ainda não está nos materiais. O texto abaixo mostra como decidir.
+  </div>
+
+  <h3>3. Como decidir com o cliente</h3>
+  <ol>
+    <li><b>Quem compra o serviço.</b> A maioria é pessoa física? O consumidor final não usa crédito, então o crédito que a clínica entregaria no híbrido não tem valor para ele. Plano de saúde e empresas que compram em nome de empregados também não costumam aproveitar crédito integral.</li>
+    <li><b>O que a clínica compra com crédito.</b> Clínica enxuta e intensiva em folha compra pouco com crédito.</li>
+    <li><b>Custo de operar o regime regular</b> (apuração, conciliação, split payment).</li>
+    <li><b>Armadilha de saída:</b> quem receber ressarcimento de crédito no ano ou no anterior não pode sair do regime regular. Antes de entrar, pensar na saída. <span class="b pr">Premissa</span> art. 41, §§ 5º e 6º; conferir.</li>
+  </ol>
+  <p>Regra do escritório sugerida: <b>sem pedido formal assinado, o cliente fica no unificado</b>. Registrar no cadastro a janela usada, o protocolo e a autorização.</p>
+
+  <div class="sala"><b class="tt">Para discutir na sala</b>
+    Um médico do Simples pergunta: “Vi que saúde tem 60% de desconto. Meu DAS cai 60%?” O que responder?
+    <details><summary>Resposta esperada</summary>Não. A redução é de alíquota de IBS/CBS e só se aplica a quem apura esses tributos pelo regime regular. No DAS unificado a conta é a do Simples. Mostrar a matriz de compradores e compras com crédito antes de qualquer recomendação.</details>
+  </div>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="4nSAZW3IysM" data-t="760" data-e="2895"><summary>▶ CFC Módulo 11 · 00:12:40 a 00:48:15 · Regime de saúde, base por caixa e deduções</summary><p><a href="https://www.youtube.com/watch?v=4nSAZW3IysM&t=760s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="kCtHYZuHFso" data-t="1056" data-e="1209"><summary>▶ Live Econet · 00:17:36 a 00:20:09 · Serviços de saúde e Simples Nacional</summary><p><a href="https://www.youtube.com/watch?v=kCtHYZuHFso&t=1056s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="fMCKL4iPPf0" data-t="0" data-e="0"><summary>▶ EP 18: reforma tributária no setor da saúde (clínicas e hospitais) · vídeo inteiro · Reduções, folha de pagamento sem crédito, ISS fixo</summary><p><a href="https://www.youtube.com/watch?v=fMCKL4iPPf0&t=0s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="allWynMDbHI" data-t="0" data-e="0"><summary>▶ Impactos da reforma tributária para clínicas médicas · vídeo inteiro · Impacto em clínicas</summary><p><a href="https://www.youtube.com/watch?v=allWynMDbHI&t=0s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="3ZyHg_UtQFU" data-t="0" data-e="0"><summary>▶ Créditos de CBS/IBS: como vai pesar para quem presta serviços? · vídeo inteiro · Crédito para prestadores de serviço</summary><p><a href="https://www.youtube.com/watch?v=3ZyHg_UtQFU&t=0s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 5 HOLDING ======================= -->
+<section class="bloco" id="holding">
+  <div class="rotulo">Bloco 5 · 25 min · caso 5</div>
+  <h2 class="t">Holdings: como ficam os aluguéis</h2>
+  <p class="lede">Dividendo continua fora. Aluguel passa a ter IBS/CBS. O que a holding cede de graça a sócio ou a empresa do grupo também pode ser tributado.</p>
+
+  <p>O cadastro tem <b>18 empresas marcadas como holding</b> e ativas, quase todas no Presumido (uma no Presumido por caixa). Entre elas estão as holdings dos grupos Master, Eliar e GA Brasil. <span class="b pr">Premissa</span> Seleção por <code>HOLDING = Verdadeiro</code>; o plano de curso de 30/10 fala em 14, por critério de CNAE.</p>
+
+  <h3>1. O que continua de fora</h3>
+  <table>
+    <tr><th>Operação</th><th>Tratamento</th><th>Fonte</th></tr>
+    <tr><td>Dividendos e juros sobre capital próprio recebidos; resultado de equivalência patrimonial</td><td>Não incidência</td><td>art. 6º VI</td></tr>
+    <tr><td>Baixa, liquidação e alienação de participação societária</td><td>Não incidência</td><td>art. 6º III</td></tr>
+    <tr><td>Integralização e devolução de capital com bens; fusão, cisão e incorporação</td><td>Não incidência</td><td>art. 6º IV</td></tr>
+    <tr><td>Rendimentos financeiros (aplicação)</td><td>Não incidência</td><td>art. 6º V</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)"><span class="b ok">Conferido</span> Mód. 1-2. As ressalvas do art. 5º, III, existem: ler o texto antes de afirmar sobre casos de integralização.</p>
+
+  <h3>2. Aluguel que a holding cobra</h3>
+  <ul>
+    <li><b>Locação a preço de mercado:</b> operação onerosa, alíquota reduzida em 70% (3,39% em 2027–2028), CBS devida a cada pagamento. É igual ao caso do bloco 2. <span class="b ok">Conferido</span></li>
+    <li><b>Quem paga o aluguel importa para o preço.</b> Se for empresa do grupo no Lucro Real ou Presumido, ela toma o crédito de 3,39% e o custo do grupo não muda. Se for empresa do Simples puro, o crédito é limitado, e o grupo perde. Se for pessoa física, é custo.</li>
+    <li><b>Aluguel residencial para pessoa física</b> tem o redutor social de R$ 600 por mês por imóvel.</li>
+    <li><b>Locação de curta duração</b> (até 90 dias) é hotelaria, não locação.</li>
+  </ul>
+
+  <h3>3. Cessão sem aluguel ou abaixo do mercado</h3>
+  <div class="caixa aten"><b class="tt">Atenção: fornecimento não oneroso a parte relacionada</b>
+    O art. 5º coloca na incidência o fornecimento não oneroso ou abaixo do valor de mercado, por contribuinte, para: sócios e administradores pessoas físicas, empregados e parentes até o terceiro grau, quando o bem ou serviço permitiu crédito ao contribuinte; e, de forma geral, para <b>parte relacionada</b> (inciso IV). A tributação é sobre o valor de mercado. <span class="b ok">Conferido</span><span class="f">Mód. 1-2 · art. 5º, I e IV, §§ 7º e 9º</span><br>
+    Na prática: holding que cede imóvel de graça para o sócio morar, ou para a empresa operacional do grupo, pode ter que destacar IBS/CBS sobre um aluguel de mercado que nunca recebeu. O regulamento pode flexibilizar a verificação do valor de mercado em programas de conformidade (art. 5º, § 7º), se não houver vedação de crédito. Ainda não vi essa flexibilização regulamentada. <span class="b ck">A confirmar</span>
+  </div>
+
+  <h3>4. Venda de imóvel pela holding</h3>
+  <ul>
+    <li>Alienação de imóvel por PJ é tributada, qualquer que seja a classificação contábil (estoque, imobilizado, investimento, imóvel para renda). 50% de redução na alíquota, com <b>redutor de ajuste</b> na base. <span class="b ok">Conferido</span><span class="f">Mód. 13-1 · art. 257, 258, 261</span></li>
+    <li>O redutor de ajuste só existe para quem tem o imóvel em 01/01/2027 ou adquire de não contribuinte depois. Imóvel integralizado por sócio pessoa física entra com o valor da aquisição e custos, não com o valor de mercado atual. <span class="b pr">Premissa</span></li>
+    <li>Isso é a maior mudança para holding patrimonial: hoje, no Presumido, a venda do imobilizado não tem PIS/Cofins; a partir de 2027 tem CBS e IBS.</li>
+  </ul>
+
+  <h3>5. Juros de mútuo entre empresas do grupo</h3>
+  <p>Mútuo oneroso aparece na lista de operações onerosas (art. 4º, § 2º, IV), mas os rendimentos financeiros estão na não incidência (art. 6º V). A leitura combinada para juros de empréstimo entre holding e operacional ainda não está fechada nas fontes. <span class="b ck">A confirmar</span> Até fechar, não emitir parecer favorável nem contrário.</p>
+
+  <h3>6. O que fazer</h3>
+  <ol>
+    <li>Fazer a lista de imóveis de cada holding com quem usa, a que título, e se há aluguel e contrato.</li>
+    <li>Separar o que é usado por empresa operacional do grupo (preço de mercado, com crédito para o locatário) do que é usado pelo sócio (risco do art. 5º).</li>
+    <li>Registrar valor de aquisição, ITBI e custos de cada imóvel: formam o redutor de ajuste.</li>
+    <li>Conferir CIB e matrícula dos imóveis.</li>
+  </ol>
+
+  <div class="sala"><b class="tt">Para discutir na sala</b>
+    A holding cede uma casa para o sócio morar, sem cobrar aluguel. Isso gera IBS/CBS?
+    <details><summary>Resposta esperada</summary>Pode gerar. É fornecimento não oneroso a sócio pessoa física (art. 5º, I, a, 2), tributável sobre o valor de mercado se a holding tomou crédito na aquisição ou se o serviço é produzido por ela; e o inciso IV alcança parte relacionada. Falta ver a regulamentação do valor de mercado.</details>
+  </div>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="esA8WZsj7O8" data-t="2700" data-e="4520"><summary>▶ CFC Módulo 13 · 00:45:00 a 01:15:20 · Alienação de bens por PJ e ajuste de custo</summary><p><a href="https://www.youtube.com/watch?v=esA8WZsj7O8&t=2700s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 6 MARLON ======================= -->
+<section class="bloco" id="marlon">
+  <div class="rotulo">Bloco 6 · 30 min · caso 6</div>
+  <h2 class="t">Marlon (CNPJ final 171): estoques e saldos na reforma</h2>
+  <p class="lede">São quatro “saldos” diferentes, com regras diferentes. A confusão mais comum é tratar todos como “estoque”.</p>
+
+  <div class="ficha">
+    <div><small>Cliente</small><span>Marlon Atacarejo Ltda · 28.639.085/0001-71</span></div>
+    <div><small>CNAE / município</small><span>4639-7/01 · Senador Canedo</span></div>
+    <div><small>Regime</small><span>Lucro Real trimestral</span></div>
+    <div><small>Perfil no Score</small><span>WinThor · PROTEGE · crédito outorgado · 1 depósito (0002-52)</span></div>
+  </div>
+  <p><span class="b ok">Confirmado pelo James</span> em 04/11/2026. No Score o cliente aparece como “MARLOM 2”.</p>
+
+  <h3>1. Os quatro saldos</h3>
+  <table>
+    <tr><th>Saldo</th><th>O que é</th><th>Regra</th><th>Marlon</th></tr>
+    <tr><td><b>A. Estoque de abertura</b></td><td>Mercadoria em 31/12/2026</td><td>Crédito presumido de CBS (arts. 605 a 611 do Dec. 12.955), sem ressarcimento. Valorado pelo custo de aquisição. Bens nacionais: 9,25%. Apropriado até 30/06/2027 e usado em 12 parcelas mensais iguais a partir do mês seguinte.</td><td>Em regra <b>não</b> é o caso: estoque comprado com crédito de PIS/Cofins está fora. Só entra o que a lei lista.</td></tr>
+    <tr><td><b>B. Saldo credor de PIS/Cofins</b></td><td>Crédito acumulado do regime não cumulativo</td><td>Continua válido, com o prazo de 5 anos contado do período. Tem de estar escriturado na EFD-Contribuições de dez/2026, entregue até 17/02/2027. Uso por compensação com CBS (ressarcível: ressarcimento e compensação; não ressarcível: só compensação).</td><td><b>Sim.</b> Ver abaixo.</td></tr>
+    <tr><td><b>C. Saldo credor de ICMS e estoque de ST</b></td><td>ICMS acumulado; mercadoria com ST em estoque em 31/12/2032</td><td>Saldo homologado pelo Estado é compensado com IBS em até 240 parcelas mensais. Estoque de ST em 31/12/2032 gera crédito do imposto retido, em até 12 meses.</td><td>Depende de haver saldo. <span class="b pr">Premissa</span></td></tr>
+    <tr><td><b>D. Devolução em 2027 de venda de 2026</b></td><td>Cliente devolve mercadoria vendida com PIS/Cofins</td><td>Crédito de CBS igual ao PIS/Cofins que incidiu, informado em evento da NF-e; crédito não ressarcível. A EFD-Contribuições não é usada.</td><td>Atacarejo tem devolução. Conferir rotina do WinThor.</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)">Fontes: A, B, D: Mód. 5-4 (arts. 378 a 382 LC 214; Dec. 12.955 arts. 602, 603, 605–611) <span class="b ok">Conferido</span>. C: apostila 09/2025 (texto do PLP 108/24, antes da LC 227/2026) <span class="b pr">Premissa</span> conferir a redação final.</p>
+
+  <h3>2. Estoque de abertura: quem tem direito</h3>
+  <table>
+    <tr><th>Hipótese</th><th>Quem</th><th>Aplica ao Marlon?</th></tr>
+    <tr><td>I</td><td>Contribuinte no regime <b>cumulativo</b> (Lei 9.718/98), isto é, Presumido</td><td>Não: ele é Lucro Real.</td></tr>
+    <tr><td>II</td><td>Bens com <b>ST ou monofasia</b> na aquisição: medicamentos (Lei 10.147), veículos, autopeças e pneus (Lei 10.485), motocicletas (MP 2.158-35), cigarros e cigarrilhas</td><td>Só se vender algum desses itens. Bebida fria, higiene e perfumaria não constam da relação dos slides. <span class="b ck">A confirmar</span> no art. 381, II</td></tr>
+    <tr><td>III</td><td>Regime misto, com vedação parcial de crédito</td><td>Só para a parcela vedada (§§ 7º a 9º do art. 3º das Leis 10.637 e 10.833).</td></tr>
+  </table>
+  <p>Ficam de fora em qualquer regime: bens com alíquota zero, isenção, suspensão ou não incidência de PIS/Cofins na compra, uso e consumo, imobilizado e imóveis. Estoque de terceiros também não conta. O Marlon vende cesta básica, então boa parte do estoque entra nessa exclusão por outro motivo.</p>
+
+  <h3>3. O saldo credor de PIS/Cofins do Marlon, em números</h3>
+  <p>O Score importa os dados mensais das EFD-Contribuições. Para 2026 (janeiro a setembro) o Marlon mostra:</p>
+  <table>
+    <tr><th></th><th class="n">PIS</th><th class="n">Cofins</th><th class="n">Total</th></tr>
+    <tr><td>Créditos apropriados</td><td class="n">R$ 82.689,79</td><td class="n">R$ 380.874,16</td><td class="n">R$ 463.563,95</td></tr>
+    <tr><td>Débitos do mês</td><td class="n">R$ 61.944,07</td><td class="n">R$ 285.318,15</td><td class="n">R$ 347.262,22</td></tr>
+    <tr><td>Créditos acima dos débitos</td><td class="n">R$ 20.745,72</td><td class="n">R$ 95.556,01</td><td class="n"><b>R$ 116.301,73</b></td></tr>
+  </table>
+  <p>Em 7 dos 9 meses os créditos superaram os débitos, nos dois tributos. <span class="b pr">Premissa</span> São totais mensais do Score, antes de compensações e descontos de períodos anteriores. O saldo que vale é o da EFD-Contribuições escriturada. Conferir antes de usar o número com o cliente.</p>
+  <p>Por que isso acontece: o atacarejo compra com crédito e vende boa parte da receita a alíquota zero (cesta básica). Crédito sem débito a compensar vira saldo. Na reforma, esse saldo não some. Ele é compensado com CBS, e a empresa pode pedir ressarcimento quando o crédito for dessa natureza. O que se perde é a oportunidade de tratar o saldo como rotina: ele precisa estar na EFD de dez/2026, bem escriturado, até 17/02/2027.</p>
+
+  <h3>4. ICMS: o que não muda até 2032</h3>
+  <ul>
+    <li>Crédito de ICMS do estoque funciona como hoje enquanto o ICMS existir (até 2032), com a alíquota caindo a partir de 2029.</li>
+    <li>Saldo credor de ICMS homologado pelo Estado: compensado com IBS em 240 parcelas mensais, iguais e sucessivas; CIAP pelo prazo remanescente; se não houver como compensar, ressarcimento em espécie, também em 240 parcelas. Saldo homologado tacitamente só pode ser transferido a partir de 01/01/2038. <span class="b pr">Premissa</span></li>
+    <li>ST em estoque em 31/12/2032: inventário por estabelecimento, demonstrativo ao Estado, crédito usado em até 12 meses. Não vale para optante do Simples. <span class="b pr">Premissa</span></li>
+    <li>O Score marca RESSARC_ICMS = falso para o Marlon, sem sinal de saldo de ICMS a ressarcir. Não afirmar saldo sem conferir a EFD.</li>
+  </ul>
+
+  <h3>5. Onde o inventário aparece</h3>
+  <ul>
+    <li><b>Bloco H da EFD ICMS/IPI</b> (inventário em 31/12/2026) para contribuintes do ICMS ou IPI.</li>
+    <li><b>ECF</b>: registros L100, P100 e Y672, e o novo <b>Y673</b>, na conta referencial 1.01.03 (estoques).</li>
+    <li><b>EFD-Contribuições</b>: registro F150 para o crédito presumido do estoque; entrega a qualquer momento entre jan/27 e jun/27. O campo 13 passa a ser uma escolha entre as hipóteses legais, não texto livre.</li>
+  </ul>
+  <p style="font-size:14px;color:var(--cinza)"><span class="b ok">Conferido</span> Mód. 5-4.</p>
+
+  <div class="caixa ex"><b class="tt">Exemplo para cliente do Presumido (não é o Marlon)</b>
+    Estoque de R$ 1.200.000 de custo, todo elegível. Crédito presumido de CBS: 1.200.000 × 9,25% = <b>R$ 111.000</b>. Uso em 12 parcelas de R$ 9.250 a partir do mês seguinte à apropriação. Sem ressarcimento: se a empresa não tiver CBS a pagar, o crédito espera.
+  </div>
+
+  <h3>6. O que fazer</h3>
+  <ol>
+    <li>Fechar o inventário de 31/12/2026 por NCM, com custo e origem (compra com crédito, monofásico, ST, alíquota zero, importado).</li>
+    <li>Conferir o saldo credor de PIS/Cofins na EFD-Contribuições e preparar a de dez/2026 para entrega até 17/02/2027.</li>
+    <li>Decidir se há itens na hipótese II (confirmar o texto do art. 381).</li>
+    <li>Revisar a rotina de devolução do WinThor para o evento de crédito de CBS em 2027.</li>
+  </ol>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="kCtHYZuHFso" data-t="6533" data-e="7060"><summary>▶ Live Econet · 01:48:53 a 01:57:40 · Boletim Express nº 135: estoques e saldos credores</summary><p><a href="https://www.youtube.com/watch?v=kCtHYZuHFso&t=6533s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="mhc2aIK2iek" data-t="1330" data-e="3300"><summary>▶ CFC Módulo 7 · 00:22:10 a 00:55:00 · Procedimentos de compensação e ressarcimento</summary><p><a href="https://www.youtube.com/watch?v=mhc2aIK2iek&t=1330s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="X_idb1NnVqk" data-t="0" data-e="0"><summary>▶ Crédito acumulado: como compensar na CBS e o que precisa estar escriturado · vídeo inteiro · Saldo credor de PIS/Cofins e escrituração da EFD-Contribuições</summary><p><a href="https://www.youtube.com/watch?v=X_idb1NnVqk&t=0s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 7 SOFTWEB ======================= -->
+<section class="bloco" id="softweb">
+  <div class="rotulo">Bloco 7 · 35 min com o bloco 4 · caso 7</div>
+  <h2 class="t">Softweb: empresa do Simples e o regime híbrido</h2>
+  <p class="lede">O Simples não acaba, mas o cliente PJ do regime regular passa a perguntar ao fornecedor do Simples quanto de crédito ele entrega.</p>
+
+  <div class="ficha">
+    <div><small>CNPJ / CNAE</small><span>20.341.234/0001-00 · 8599-6/03</span></div>
+    <div><small>Atividade cadastrada</small><span>Treinamento em informática</span></div>
+    <div><small>Regime</small><span>Simples Nacional</span></div>
+    <div><small>Município</small><span>Goiânia</span></div>
+  </div>
+
+  <h3>1. O que muda no Simples em 2027</h3>
+  <ul>
+    <li>IBS e CBS entram no Simples: CBS “cheia” e IBS “teste-progressivo”. PIS/Cofins saem do Simples. <span class="b ok">Conferido</span><span class="f">Mód. 8-2</span></li>
+    <li>O Imposto Seletivo é cobrado <b>por fora</b> do Simples; IBS/CBS na importação também. Nas exportações, IBS/CBS são desconsiderados. <span class="b ok">Conferido</span></li>
+    <li><b>Crédito para o comprador:</b> quem compra de optante do Simples puro toma crédito igual ao IBS/CBS pago por dentro, destacado na nota. O comprador de optante do regime regular toma o crédito integral. <span class="b ok">Conferido</span></li>
+    <li>Sublimite de R$ 3,6 milhões continua para o IBS; o de R$ 1,8 milhão acaba. <span class="b ok">Conferido</span></li>
+    <li>Fim do regime de caixa no Simples; a RBT12 de dois meses atrás define a faixa. <span class="b ok">Conferido</span></li>
+    <li>PGDAS-D vira PGDAS-A (declaração assistida), com a nova versão em janeiro de 2027 e API gratuita. <span class="b ok">Conferido</span><span class="f">Mód. 8-1</span></li>
+  </ul>
+
+  <h3>2. Prazos de opção</h3>
+  <table>
+    <tr><th>Opção</th><th>Janela</th></tr>
+    <tr><td>Simples Nacional (constituídas)</td><td>Setembro de cada ano, com efeito a partir de 01/01 do ano seguinte; primeira aplicação até 30/09/2026. <span class="b ok">Conferido</span> <span class="f">Mód. 8-3</span></td></tr>
+    <tr><td>Regime regular de IBS/CBS</td><td>Duas janelas por ano, setembro e março, valendo para semestres iniciados em janeiro e julho. <span class="b ok">Conferido</span> <span class="f">Mód. 8-2</span></td></tr>
+    <tr><td>Regime regular para jan–jun/2027</td><td>De 01/09 a 30/10/2026 (Resolução CGSN 194/2026). <span class="b pr">Premissa</span> fonte: curso anterior. Um slide do Mód. 8-3 fala em “a partir de 01/10/2026”. <span class="b ck">A confirmar</span> no Portal do Simples</td></tr>
+    <tr><td>Cancelamento de opção</td><td>De 03/11 a 20/12/2026. <span class="b pr">Premissa</span></td></tr>
+  </table>
+  <div class="caixa erro"><b class="tt">Hoje é 04/11/2026</b>
+    A janela para entrar no regime regular em janeiro de 2027 fechou em 30/10. Quem não pediu fica no unificado: não há adesão automática. Para os clientes que pedirem a revisão, a próxima janela é março de 2027, para valer em julho. Dentro do prazo de 03/11 a 20/12, só há cancelamento de opção já feita.
+  </div>
+
+  <h3>3. A matriz de decisão da Softweb</h3>
+  <table>
+    <tr><th>Pergunta</th><th>Se a resposta for…</th><th>Tende a…</th></tr>
+    <tr><td>Quem compra: PJ do regime regular, outro Simples ou pessoa física?</td><td>Maioria PJ do regime regular que exige crédito integral</td><td>Híbrido merece simulação</td></tr>
+    <tr><td></td><td>Maioria pessoa física (aluno de curso livre, por exemplo)</td><td>Ficar no unificado</td></tr>
+    <tr><td>Quanto a empresa compra com crédito?</td><td>Licenças, nuvem, aluguel, serviços de terceiros</td><td>Ajuda o híbrido</td></tr>
+    <tr><td></td><td>Quase tudo é folha e pró-labore</td><td>Híbrido pesa</td></tr>
+    <tr><td>Quanto custa conciliar e apurar por fora?</td><td>Sem equipe fiscal</td><td>Pesa contra o híbrido</td></tr>
+  </table>
+
+  <div class="caixa ex"><b class="tt">Exemplo hipotético: receita de R$ 100.000, 80% para PJ do regime regular</b>
+    Híbrido, 2027: débito 100.000 × 11,3% = R$ 11.300. Créditos: R$ 15.000 de compras × 11,3% = R$ 1.695. A empresa paga <b>R$ 9.605 de IBS/CBS por fora</b> e o DAS fica só com o que não é IBS/CBS.<br>
+    No unificado, o cliente PJ toma crédito só da parcela de IBS/CBS que está dentro do DAS, que é bem menor que 11,3%. A diferença de crédito é o preço que o cliente pode cobrar da Softweb ou o motivo para trocar de fornecedor. O número da parcela do DAS depende da tabela do PGDAS-A, que ainda não está nos materiais.
+  </div>
+
+  <h3>4. Curso é educação com 60%?</h3>
+  <p>Educação tem redução de 60%, mas só sobre os serviços listados no Anexo II (educação infantil, fundamental, médio, superior e outros enquadrados). Treinamento de informática e curso livre não são automaticamente Anexo II. <span class="b pr">Premissa</span> conferir o anexo. O Prouni tem alíquota zero proporcional às bolsas, para graduação e cursos sequenciais. <span class="b ok">Conferido</span><span class="f">Mód. 10-4</span> Mesmo que o curso caiba no Anexo II, a redução só é usada no regime regular.</p>
+
+  <h3>5. O que fazer</h3>
+  <ol>
+    <li>Classificar a receita da Softweb por tipo de comprador nos últimos 12 meses (nota fiscal).</li>
+    <li>Listar compras com crédito possível (excluindo folha).</li>
+    <li>Registrar a decisão e quem a tomou no cadastro, com o protocolo.</li>
+    <li>Se o cliente quiser reavaliar, marcar março/2027.</li>
+  </ol>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="LZJ9f-Zyiyg" data-t="11179" data-e="11925"><summary>▶ CFC Módulo 18 · 03:06:19 a 03:18:45 · Simples puro vs. híbrido e créditos</summary><p><a href="https://www.youtube.com/watch?v=LZJ9f-Zyiyg&t=11179s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 8 REDUCOES ======================= -->
+<section class="bloco" id="reducoes">
+  <div class="rotulo">Bloco 8 · 15 min · caso 8</div>
+  <h2 class="t">Quais clientes têm redução de alíquota</h2>
+
+  <div class="caixa erro"><b class="tt">Não encontrei “a lista das 18”</b>
+    Não achei no projeto, na pasta REFORMA ou no Score nenhuma lista fechada com 18 clientes com redução. Em vez de adivinhar, fiz uma triagem por CNAE na carteira ativa. Se a lista de 18 for de vocês, comparem com a tabela abaixo e me mandem a diferença. Dois pontos pesam: <b>CNAE não comprova o direito</b> (a redução é por item ou serviço do anexo e depende de requisitos), e <b>no Simples a redução só aparece no regime regular</b>.
+  </div>
+
+  <h3>1. As reduções, por tema</h3>
+  <table>
+    <tr><th>Redução</th><th>Temas</th><th>Fonte</th></tr>
+    <tr><td><b>100% (alíquota zero)</b></td><td>Cesta Básica Nacional (Anexo I); hortícolas, frutas e ovos (Anexo XV); alguns medicamentos; Prouni</td><td>regimes diferenciados, arts. 126 a 171</td></tr>
+    <tr><td><b>70%</b></td><td>Locação, cessão onerosa e arrendamento de imóveis</td><td>art. 261, p. único</td></tr>
+    <tr><td><b>60%</b></td><td>Educação (Anexo II); saúde (Anexo III); dispositivos médicos (IV); acessibilidade (V); medicamentos (VI); alimentos (VII); higiene e limpeza (VIII); insumos agropecuários e aquícolas (IX); produtos agropecuários in natura; produções artísticas e culturais; segurança e soberania nacional</td><td>regimes diferenciados, arts. 126 a 171</td></tr>
+    <tr><td><b>50%</b></td><td>Operações imobiliárias: construção, alienação de imóvel, incorporação</td><td>art. 261</td></tr>
+    <tr><td><b>40%</b></td><td>Transporte coletivo rodoviário, ferroviário e hidroviário intermunicipal e interestadual de passageiros; transporte aéreo regional</td><td>Mód. 10-4</td></tr>
+    <tr><td><b>30%</b></td><td>Profissões regulamentadas (administradores, advogados, arquitetos, assistentes sociais, contabilistas, economistas, engenheiros, médicos veterinários, químicos, entre outras)</td><td>art. 127</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)"><span class="b ok">Conferido</span> apostila 09/2025 e módulos 10-4 e 13-1. Para a redução de 30% da <i>pessoa jurídica</i>, os requisitos são cumulativos: sócios habilitados e sujeitos a conselho profissional; sem sócio PJ; não ser sócia de outra PJ; sem atividade diversa das habilitações; serviços da atividade-fim prestados pelos sócios.</p>
+
+  <h3>2. Triagem da carteira por CNAE (04/11/2026)</h3>
+  <table>
+    <tr><th>Grupo</th><th class="n">CNPJs</th><th>Observação</th></tr>
+    <tr><td>Saúde (60%)</td><td class="n">8</td><td>7 no Simples e 1 no Presumido. Lista abaixo.</td></tr>
+    <tr><td>Profissões regulamentadas (30%)</td><td class="n">8</td><td>Advocacia (4), contabilidade, engenharia, consultoria em gestão e ensaios técnicos. Exige checar os requisitos da PJ.</td></tr>
+    <tr><td>Locação e gestão de imóveis (70%)</td><td class="n">4 ativos</td><td>Mais 1 CNPJ com regime “inativo”.</td></tr>
+    <tr><td>Construção civil e instalações (50%)</td><td class="n">8 ativos</td><td>6 no Presumido, 1 no Real e 1 no Simples; mais 1 inativo.</td></tr>
+    <tr><td>Alimentos, bebidas e atacado alimentício (por item)</td><td class="n">60</td><td>Atacado, varejo e indústria. O tratamento depende do NCM de cada produto.</td></tr>
+    <tr><td>Cursos e treinamento (verificar Anexo II)</td><td class="n">5</td><td>Todos no Simples ou SIMEI. A redução só vale se o serviço estiver no Anexo II.</td></tr>
+    <tr><td>Agropecuário (60%)</td><td class="n">3</td><td>Todos com regime “inativo”: fora do foco.</td></tr>
+  </table>
+
+  <h4>Saúde: os 8 CNPJs</h4>
+  <table>
+    <tr><th>Cliente</th><th>CNAE</th><th>Regime</th></tr>
+    <tr><td>Med Fernandes Ltda</td><td>8630-5/01</td><td>Simples</td></tr>
+    <tr><td>Med Grandi Ltda</td><td>8630-5/01</td><td>Simples</td></tr>
+    <tr><td>Clínica Afeto Ltda</td><td>8630-5/01</td><td>Presumido por faturamento</td></tr>
+    <tr><td>Clínica Baylão Ltda</td><td>8630-5/03</td><td>Simples</td></tr>
+    <tr><td>Odonto Crystal Ltda</td><td>8630-5/04</td><td>Simples</td></tr>
+    <tr><td>NGA Serviços Médicos Ltda</td><td>8630-5/99</td><td>Simples</td></tr>
+    <tr><td>Laboratório Análise Ltda</td><td>8640-2/02</td><td>Simples</td></tr>
+    <tr><td>BM Clínica Psicológica Ltda</td><td>8650-0/03</td><td>Simples</td></tr>
+  </table>
+
+  <h4>Locação, gestão imobiliária e construção</h4>
+  <table>
+    <tr><th>Cliente</th><th>CNAE</th><th>Regime</th></tr>
+    <tr><td>Campestre Empreendimentos Imobiliários</td><td>6810-2/02</td><td>Presumido por caixa</td></tr>
+    <tr><td>R3 Empreendimentos</td><td>6810-2/02</td><td>Presumido por caixa</td></tr>
+    <tr><td>JLG Gestão Empresarial</td><td>6822-6/00</td><td>Presumido por caixa</td></tr>
+    <tr><td>HL Ranulfo de Mendonça Gestão Imobiliária</td><td>6822-6/00</td><td>Presumido por faturamento</td></tr>
+    <tr><td>R1, R2, R4 e R5 Engenharia</td><td>4120-4/00</td><td>Presumido por caixa (R1, R4, R5); Real (R2)</td></tr>
+    <tr><td>Eliar Instalações e Construções; Eliar Construções e Instalações</td><td>4322-3/02</td><td>Presumido</td></tr>
+    <tr><td>Caeli Soluções em Engenharia</td><td>4399-1/03</td><td>Presumido por caixa</td></tr>
+    <tr><td>DJN Metalúrgica</td><td>4292-8/01</td><td>Simples</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)">Construção: a redução de 50% é do serviço de construção civil e da venda de imóvel; instalações e metalúrgica dependem de enquadramento. <span class="b pr">Premissa</span> A Freitas Barros Construtora e Incorporadora aparece com CNAE de engenharia (7112-0/00) e fica na triagem de profissões. Dá para classificar melhor com o contrato.</p>
+
+  <h3>3. Como usar essa triagem</h3>
+  <ol>
+    <li>Para cada cliente do quadro, ler o objeto real das notas dos últimos 12 meses e comparar com o anexo.</li>
+    <li>Nos 7 clientes de saúde do Simples, a redução só vira dinheiro se a empresa optar pelo regime regular (bloco 4).</li>
+    <li>Nas profissões de 30%, verificar se a PJ tem sócio PJ ou se é sócia de outra PJ: isso derruba o direito.</li>
+    <li>Registrar o resultado na ficha do cliente (campo de observações) para não refazer a análise.</li>
+  </ol>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="kCtHYZuHFso" data-t="243" data-e="630"><summary>▶ Live Econet · 00:04:03 a 00:10:30 · Apresentação detalhada das tabelas e alíquotas</summary><p><a href="https://www.youtube.com/watch?v=kCtHYZuHFso&t=243s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="mOfqkjocAhs" data-t="0" data-e="0"><summary>▶ IBS e CBS na construção civil · vídeo inteiro · Construção civil e incorporação</summary><p><a href="https://www.youtube.com/watch?v=mOfqkjocAhs&t=0s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="2-W-led2Ybs" data-t="0" data-e="0"><summary>▶ Sienge Podcast EP21: alíquota, crédito e cadeia produtiva na construção civil · vídeo inteiro · Construção civil: crédito e fornecedores</summary><p><a href="https://www.youtube.com/watch?v=2-W-led2Ybs&t=0s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 9 FILIAIS ======================= -->
+<section class="bloco" id="filiais">
+  <div class="rotulo">Bloco 9 · 25 min · caso 9</div>
+  <h2 class="t">Operações multifiliais: Hungria e Comercial CE</h2>
+  <p class="lede">A transferência entre filiais continua sem imposto, mas com nota. A diferença é que, a partir de 2027, a apuração é uma só e o imposto vai para o destino.</p>
+
+  <div class="ficha">
+    <div><small>Grupo Hungria</small><span>Matriz atacadista + filial indústria (Goiânia) + logística no Simples + holding</span></div>
+    <div><small>Comercial CE</small><span>13 estabelecimentos: GO (matriz + filiais 2 a 9), BA, MG, RJ e SP</span></div>
+    <div><small>Regime</small><span>Lucro Real</span></div>
+    <div><small>Perfil no Score</small><span>WinThor · 4 depósitos fechados no grupo CE · PROTEGE e crédito outorgado</span></div>
+  </div>
+  <p><span class="b pr">Premissa</span> A Hungria Indústria e Comércio (CNPJ 07.049.684/0001-65) tem filial industrial (0002-46, CNAE 1099-6/99). No Score, a matriz aparece como “MASTER ATACADISTA”. No grupo CE, quatro CNPJs de Goiânia estão marcados como depósito fechado (as filiais II, IV e VI e mais um); o Marlon também tem um depósito (0002-52).</p>
+
+  <h3>1. Cinco regras</h3>
+  <table>
+    <tr><th>#</th><th>Regra</th><th>Fonte</th></tr>
+    <tr><td>1</td><td><b>Transferência de bens entre estabelecimentos do mesmo contribuinte: não incidência.</b> Mas o documento fiscal eletrônico continua obrigatório.</td><td>art. 6º II · art. 60 § 2º II <span class="b ok">Conferido</span></td></tr>
+    <tr><td>2</td><td><b>A apuração consolida todos os estabelecimentos.</b> O pagamento e o pedido de ressarcimento são centralizados em um deles. O crédito de uma filial é aproveitado no débito de outra automaticamente.</td><td>art. 42 <span class="b ok">Conferido</span></td></tr>
+    <tr><td>3</td><td><b>A cobrança segue o destino.</b> Venda da filial de Goiânia para cliente na Bahia tem IBS para a Bahia. A filial que emitiu não muda o destino.</td><td>art. 11 <span class="b ok">Conferido</span></td></tr>
+    <tr><td>4</td><td><b>O CNPJ é o identificador único</b>, filiais incluídas, no cadastro da reforma. A inscrição estadual e municipal deixam de ser o eixo.</td><td>Mód. 4-1 <span class="b ok">Conferido</span></td></tr>
+    <tr><td>5</td><td><b>Quem recolhe o IBS é o Comitê Gestor</b> (CG-IBS), com repartição entre estados e municípios por destino. A SEFAZ deixa de ser o guichê do IBS.</td>Mód. 8-2 (citado para o Simples) <span class="b pr">Premissa</span></td></tr>
+  </table>
+
+  <h3>2. O que isso muda na prática</h3>
+  <ul>
+    <li><b>Saldo credor de uma filial deixa de ser problema local.</b> Hoje cada filial tem a sua apuração de ICMS, e o crédito parado em uma não ajuda a outra. Na CBS e no IBS isso acaba, o que é bom para a CE, que tem 13 estabelecimentos em 5 estados.</li>
+    <li><b>Depósito fechado.</b> A remessa para o depósito é transferência entre estabelecimentos do mesmo contribuinte (não incide); a venda que sai do depósito é a operação tributada, e o local é a entrega. O CST e o cClassTrib da remessa devem ser os de não incidência da tabela vigente. <span class="b ck">A confirmar</span> o código exato.</li>
+    <li><b>Filial industrial que abastece a matriz atacadista (Hungria).</b> A saída da filial para a matriz não gera débito. O insumo comprado pela filial gera crédito na apuração única. A venda pela matriz é o débito.</li>
+    <li><b>ICMS entre estados continua em 2027 e 2028</b> com as regras atuais de transferência. O que muda é a CBS e o IBS de teste. A partir de 2029 a repartição vai para o destino. <span class="b pr">Premissa</span> Cada UF tem a própria regra de ICMS na transferência; manter a regra atual.</li>
+    <li><b>Benefício por filial.</b> PROTEGE e crédito outorgado são por estabelecimento. O Score mostra PROTEGE ligado em umas e desligado em outras no mesmo grupo. A redução do benefício em 2029–2032 ocorre filial a filial, e a apuração de IBS/CBS não.</li>
+    <li><b>Ressarcimento.</b> O saldo credor de CBS do grupo é pedido de forma centralizada; a restituição vem em dinheiro. Em 2026 a apuração assistida mostra a visão por empresa, não por filial.</li>
+  </ul>
+
+  <div class="caixa aten"><b class="tt">Armadilha do dia a dia</b>
+    O pagamento centralizado vale para o IBS e a CBS, e não para o ICMS. Em 2027 e 2028 as filiais de estados diferentes seguem pagando ICMS na própria UF, e a EFD ICMS/IPI segue por estabelecimento. A consolidação do art. 42 não tira do grupo as obrigações do ICMS.
+  </div>
+
+  <h3>3. Comercial CE: depósito fechado e filial comercial, caso a caso</h3>
+  <p>Vale para os dois tipos de estabelecimento a mesma lógica: o contribuinte é a Comercial de Secos e Molhados CE (CNPJ raiz 06.299.297), a apuração é única e o estabelecimento só importa para <i>onde a mercadoria está</i>, <i>quem emite a nota</i> e <i>para onde ela vai</i>. <span class="b ok">Conferido</span><span class="f">arts. 6º II, 11 e 42</span> O fluxo de documentos abaixo depende dos CFOPs que o WinThor usa hoje e deve ser confirmado nos XMLs. <span class="b pr">Premissa</span></p>
+  <table>
+    <tr><th>Caso</th><th>IBS/CBS</th><th>Documento e crédito</th></tr>
+    <tr><td><b>1. Matriz ou filial comercial → depósito fechado</b> (reposição)</td><td>Não incide: é transferência entre estabelecimentos do mesmo titular.</td><td>NF-e de transferência obrigatória, com a classificação de não incidência. Não gera débito nem crédito.</td></tr>
+    <tr><td><b>2. Compra de fornecedor entregue direto no depósito</b></td><td>Crédito normal, do estabelecimento que consta como adquirente da nota.</td><td>O crédito entra na apuração única do grupo e abate o débito de qualquer filial. O crédito só aparece depois que o fornecedor extingue o débito dele (art. 27).</td></tr>
+    <tr><td><b>3. Venda a cliente com a mercadoria saindo do depósito</b></td><td>Débito na venda. O local da operação é onde a entrega termina, não o depósito nem a filial que faturou.</td><td>O depósito fechado não vende por conta própria: quem fatura é a filial comercial (ou a matriz), e a mercadoria sai do depósito com o documento de remessa que o WinThor já emite hoje. Conferir os CFOPs e o par de notas.</td></tr>
+    <tr><td><b>4. Filial comercial → outra filial comercial</b> (abastecimento de loja)</td><td>Não incide, mesmo sendo de municípios diferentes.</td><td>NF-e de transferência. A filial que recebe não toma crédito, porque não houve débito.</td></tr>
+    <tr><td><b>5. Filial de Goiânia → filial de BA, MG, RJ ou SP</b></td><td>Não incide IBS/CBS.</td><td>NF-e de transferência. O ICMS dessa remessa segue a regra de cada UF em 2027 e 2028. <span class="b pr">Premissa</span> Revisar o tratamento de ICMS de cada estado.</td></tr>
+    <tr><td><b>6. Filial de BA, MG, RJ ou SP vende a cliente local</b></td><td>IBS e CBS, com o IBS repartido para o estado e o município do destino.</td><td>Débito dessa filial consolida com as de GO. O ICMS continua pelo estado da filial.</td></tr>
+    <tr><td><b>7. Filial industrial (CE VIII, CNAE 1099-6/99) → matriz</b></td><td>Não incide na saída.</td><td>Insumos da fábrica geram crédito na apuração única; a venda pela matriz é o débito.</td></tr>
+    <tr><td><b>8. Inventário</b></td><td>O estoque de abertura de 31/12/2026 é por estabelecimento.</td><td>Depósito e filiais têm Bloco H próprio na EFD ICMS/IPI. Não esquecer os depósitos no inventário.</td></tr>
+  </table>
+  <div class="caixa aten"><b class="tt">Onde a consolidação não ajuda</b>
+    O art. 42 une IBS e CBS. O ICMS, o PROTEGE e o crédito outorgado continuam por estabelecimento. No Score, os depósitos do grupo CE estão com crédito outorgado ligado e PROTEGE desligado, enquanto matriz e filiais comerciais têm os dois ligados. A redução desses benefícios em 2029–2032 vai acontecer por estabelecimento, e o depósito não consegue usar o benefício de quem fatura.
+  </div>
+
+  <h3>4. O que fazer</h3>
+  <ol>
+    <li>Mapear os CFOPs de transferência no WinThor e o CST/cClassTrib correspondente.</li>
+    <li>Marcar, por CNPJ do grupo, quem recolhe PROTEGE, quem tem crédito outorgado e quem é depósito fechado.</li>
+    <li>Definir qual estabelecimento centraliza o pagamento do IBS e da CBS (normalmente a matriz).</li>
+    <li>Revisar com o time o texto do art. 60 para as hipóteses em que a transferência dispensa o documento. A resposta do curso anterior do escritório é “não dispensa”; <span class="b ck">A confirmar</span> antes de orientar cliente.</li>
+  </ol>
+
+  <div class="sala"><b class="tt">Para discutir na sala</b>
+    A filial de Bauru (CE, SP) tem crédito de CBS que a filial de Goiânia poderia usar. Como isso se resolve?
+    <details><summary>Resposta esperada</summary>Não precisa de transferência: a apuração consolida todos os estabelecimentos do contribuinte (art. 42). O crédito de Bauru abate o débito total, e o pagamento sai por um só estabelecimento.</details>
+  </div>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="kCtHYZuHFso" data-t="7086" data-e="7515"><summary>▶ Live Econet · 01:58:06 a 02:05:15 · Apuração por CNPJ raiz e operações intercompanhia</summary><p><a href="https://www.youtube.com/watch?v=kCtHYZuHFso&t=7086s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="t-4p8YFlIpk" data-t="1640" data-e="2280"><summary>▶ CFC Módulo 4 · 00:27:20 a 00:38:00 · Consolidação de estabelecimentos via CNPJ</summary><p><a href="https://www.youtube.com/watch?v=t-4p8YFlIpk&t=1640s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 10 NOTAS ======================= -->
+<section class="bloco" id="notas">
+  <div class="rotulo">Bloco 10 · 25 min · caso 10</div>
+  <h2 class="t">Notas de débito e de crédito: juros e descontos obtidos</h2>
+  <p class="lede">Juros de atraso e descontos deixam de ser lançamentos só do financeiro: viram documento fiscal, e o crédito do cliente depende dele.</p>
+
+  <h3>1. Como cada coisa entra na base</h3>
+  <table>
+    <tr><th>Item</th><th>Na base do IBS/CBS?</th><th>Efeito para quem comprou</th></tr>
+    <tr><td>Juros, multas, acréscimos e encargos cobrados do cliente</td><td><b>Entram</b></td><td>Geram débito para o fornecedor e crédito para o adquirente, quando o débito é extinto</td></tr>
+    <tr><td>Desconto incondicional (consta da nota e não depende de evento posterior)</td><td><b>Não entra</b>; reduz a base</td><td>O crédito já nasce menor</td></tr>
+    <tr><td>Desconto condicional (depende de evento posterior, como pagar antes)</td><td><b>Entra</b> na base</td><td>O crédito segue sobre o valor cheio</td></tr>
+    <tr><td>Bonificação que consta da nota e não depende de evento posterior</td><td>Não é tributada à parte</td><td>—</td></tr>
+    <tr><td>Rendimento de aplicação financeira recebido</td><td>Não incide</td><td>—</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)"><span class="b ok">Conferido</span> apostila 09/2025 (base de cálculo), arts. 12 e 13 da LC 214 e do regulamento da CBS, Mód. 1-2 (art. 5º, § 2º, bonificação), Mód. 6-1.</p>
+
+  <h3>2. Juros de mora: nota de débito tipo 04</h3>
+  <ol>
+    <li>O adquirente paga com atraso. O fornecedor recebe juros e multa.</li>
+    <li>O fornecedor emite <b>nota de débito tipo “04 – Multa e juros”</b> (finNFe = 6, tpNFDebito = 04), referenciando a nota original, com a mesma classificação e a mesma alíquota do item original.</li>
+    <li>A nota de débito gera débito para o fornecedor na apuração do mês em que é emitida. Quando o fornecedor extingue esse débito, o adquirente apropria o crédito correspondente.</li>
+  </ol>
+  <div class="caixa ex"><b class="tt">Exemplo do módulo da Receita</b>
+    Venda de 01/05 com CBS de R$ 100. O adquirente paga o valor em 10/06 com juros e multa. O fornecedor emite a nota de débito de 10/06 com CBS de R$ 20.<br>
+    Fornecedor: maio, débito de R$ 100 e saldo devedor zero. Junho, débito de R$ 20 e saldo devedor de R$ 20.<br>
+    Adquirente: maio, crédito apropriado de R$ 100. Junho, “crédito a apropriar” de R$ 20 até o fornecedor pagar o débito.
+  </div>
+
+  <h3>3. Fornecedor que esquece: nota de crédito tipo 01</h3>
+  <ul>
+    <li>O adquirente pode regularizar emitindo <b>nota de crédito</b> (finNFe = 5, tpNFCredito = 01 – Multa e juros), referenciando a nota do fornecimento.</li>
+    <li>O crédito só vem com o <b>aceite do fornecedor</b>, por evento “Aceite de débito na apuração por emissão de nota de crédito” (211128, indAceitacao = 1), <b>e</b> com a extinção do débito pelo fornecedor.</li>
+    <li>Enquanto isso, a apuração assistida mostra o valor em “Documentos fiscais aguardando aceite”.</li>
+  </ul>
+  <p><span class="b ok">Conferido</span> Mód. 6-1, slides 75 a 85.</p>
+
+  <h3>4. Outras notas do mesmo grupo</h3>
+  <table>
+    <tr><th>Situação</th><th>Documento</th></tr>
+    <tr><td>Cancelamento (antes do fornecimento) ou devolução (depois)</td><td>Evento de cancelamento (110111) ou NF de devolução. A base é a da operação original. No adquirente: estorno do crédito a apropriar, depois do apropriado não utilizado, depois débito se já utilizado. <span class="f">art. 57</span></td></tr>
+    <tr><td>Pagamento antecipado</td><td>Nota de débito de pagamento antecipado, ligada à operação futura</td></tr>
+    <tr><td>Perda de estoque após apropriação do crédito</td><td>Nota de débito tipo 07, que não tem reflexo no fornecedor. Se referencia um documento, o débito fica limitado à CBS do documento</td></tr>
+    <tr><td>Perda, roubo ou furto no transporte</td><td>Evento 112130 (fornecedor contratou) ou 211124 (adquirente contratou)</td></tr>
+    <tr><td>Recusa de entrega ou destinatário não localizado</td><td>Nota de crédito de retorno</td></tr>
+  </table>
+  <p><span class="b ok">Conferido</span> Mód. 6-1, slides 52 a 130; eventos listados na apostila.</p>
+
+  <h3>5. Juros e descontos <i>obtidos</i></h3>
+  <ul>
+    <li><b>Desconto incondicional obtido</b> aparece na nota e já reduz o crédito: nada a fazer além de lançar a nota como veio.</li>
+    <li><b>Desconto condicional obtido</b> (pagou antes, ganhou 2%): a base e o crédito ficam pelo valor cheio da nota. O desconto continua sendo desconto financeiro na contabilidade, mas não ajusta o crédito. Cuidado com o ERP que baixa o crédito pelo valor pago. <span class="b pr">Premissa</span> leitura da regra de base; conferir com o regulamento.</li>
+    <li><b>Juros pagos por atraso a fornecedor:</b> exigir a nota de débito. Sem ela, o crédito dos juros só existe por nota de crédito com aceite, o que demora.</li>
+    <li><b>Juros recebidos de cliente por atraso:</b> faturamento tributável. Emitir a nota de débito tipo 04 com a classificação do item original.</li>
+    <li><b>Juros de aplicação e de mútuo entre empresas:</b> ver bloco 5. <span class="b ck">A confirmar</span></li>
+  </ul>
+
+  <h3>6. O que fazer</h3>
+  <ol>
+    <li>Marcar no ERP do cliente quais baixas geram juros e multa e se há emissão de nota de débito.</li>
+    <li>Criar a rotina de conferência: toda baixa com juros no contas a pagar pede nota de débito do fornecedor.</li>
+    <li>Treinar o time do contas a receber: juros de atraso são nota, não só boleto.</li>
+    <li>Revisar a regra de desconto financeiro no ERP para não estornar crédito indevidamente.</li>
+  </ol>
+
+  <div class="sala"><b class="tt">Para discutir na sala</b>
+    O cliente pagou com 15 dias de atraso, e o fornecedor cobrou R$ 200 de juros por boleto, sem nota. O contador do cliente pode tomar crédito sobre esse valor?
+    <details><summary>Resposta esperada</summary>Ainda não. O crédito depende da nota de débito do fornecedor ou, na falta dela, de uma nota de crédito emitida pelo cliente, aceita pelo fornecedor, e da extinção do débito dele. Boleto não gera crédito.</details>
+  </div>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="v71xSBfdG7o" data-t="2110" data-e="4200"><summary>▶ CFC Módulo 5 · 00:35:10 a 01:10:00 · Novos documentos fiscais, ajuste e recusa</summary><p><a href="https://www.youtube.com/watch?v=v71xSBfdG7o&t=2110s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="kCtHYZuHFso" data-t="7086" data-e="7800"><summary>▶ Live Econet · 01:58:06 a 02:10:00 · Emissão prática de notas de crédito e débito</summary><p><a href="https://www.youtube.com/watch?v=kCtHYZuHFso&t=7086s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 11 HAXPAO ======================= -->
+<section class="bloco" id="haxpao">
+  <div class="rotulo">Bloco 11 · 15 min · caso 11</div>
+  <h2 class="t">Haxpao: refresco em pó e Imposto Seletivo</h2>
+  <p class="lede">Pela lista que está nas fontes, o pó para refresco não aparece no Imposto Seletivo. A conclusão tem três ressalvas importantes.</p>
+
+  <div class="ficha">
+    <div><small>Cadastros</small><span>Haxpao Indústria e Comércio de Produtos para Panificação (matriz) · filial baixada · Haxpao Alimentos</span></div>
+    <div><small>CNAE cadastrado</small><span>1091-1/01 (panificação)</span></div>
+    <div><small>Regime</small><span>Real (matriz) e Simples (Haxpao Alimentos)</span></div>
+    <div><small>Município</small><span>Trindade</span></div>
+  </div>
+  <p><span class="b pr">Premissa</span> O CNAE cadastrado é de panificação, não de bebidas. Confirmar com o cliente qual CNPJ fabrica o refresco em pó e qual é o NCM real.</p>
+
+  <h3>1. O que o Imposto Seletivo alcança</h3>
+  <table>
+    <tr><th>Grupo</th><th>NCM</th></tr>
+    <tr><td>Veículos</td><td>87.03 e 87.04</td></tr>
+    <tr><td>Embarcações</td><td>89.03</td></tr>
+    <tr><td>Aeronaves</td><td>88.02</td></tr>
+    <tr><td>Produtos fumígenos</td><td>Capítulo 24</td></tr>
+    <tr><td>Bebidas alcoólicas</td><td>22.03 a 22.08</td></tr>
+    <tr><td><b>Bebidas açucaradas</b></td><td><b>2202.10.00</b></td></tr>
+    <tr><td>Bens minerais</td><td>26.01, 27.09, 27.11 e carvão mineral</td></tr>
+    <tr><td>Concursos de prognósticos e fantasy sport</td><td>—</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)"><span class="b ok">Conferido</span> Anexo XVII da LC 214, conforme a apresentação do Mód. 17-1 (set/2026). O IS é federal, extrafiscal, e incide uma única vez.</p>
+
+  <h3>2. O pó para refresco entra?</h3>
+  <ul>
+    <li><b>NCM do produto.</b> Na amostra de agosto/2026 do escritório, o “refresco pó malva limão 1x1kg” está no NCM <b>2106.90.10</b> (preparações do tipo utilizado para elaboração de bebidas). Esse código <b>não aparece</b> na lista do Mód. 17-1, que cita só 2202.10.00 para bebidas açucaradas. Fontes de terceiros consultadas dizem o mesmo (Anexo XVII com apenas a subposição 2202.10.00, lista taxativa). <span class="b ok">Conferido</span> na apresentação; <span class="b ck">A confirmar</span> no texto do Anexo XVII, que não consegui abrir inteiro (o site do Planalto trunca antes dos anexos).</li>
+    <li><b>Alíquotas.</b> O IS depende de lei ordinária ainda não publicada nas fontes: o módulo mostra “XX%” e “R$ 0,xx/L” como proporções ilustrativas. Mesmo que o produto entrasse, não há número para calcular. <span class="b ok">Conferido</span><span class="f">Mód. 17-1</span></li>
+    <li><b>O produto final do consumidor.</b> O refresco reconstituído pronto, se for vendido por terceiro engarrafado com açúcar, é 2202.10.00. A Haxpao não vende isso; mas o cliente dela pode vender, e a lei trata diferente quem fabrica e quem revende. A regra sobre insumo para bebida açucarada não foi lida nas fontes. <span class="b ck">A confirmar</span></li>
+    <li><b>Simples.</b> Se o IS valesse para um optante do Simples, seria cobrado por fora do DAS. <span class="b ok">Conferido</span><span class="f">Mód. 8-2</span></li>
+    <li><b>A discussão no Congresso</b> sobre bebidas açucaradas (teto de 2% rejeitado pela Câmara em 16/12/2025) mostra que o escopo ainda é disputado. <span class="b pr">Premissa</span> notícia de terceiros.</li>
+  </ul>
+
+  <div class="caixa aten"><b class="tt">Resposta curta para o cliente hoje</b>
+    “Pelo que está publicado, o pó para refresco (NCM 2106.90.10) não está entre os produtos do Imposto Seletivo; bebida pronta açucarada do NCM 2202.10.00 está. A alíquota ainda não foi definida. Vamos conferir o NCM de cada produto da linha e o texto final do Anexo XVII antes de confirmar por escrito.”
+  </div>
+
+  <h3>3. O que muda para a Haxpao mesmo sem o IS</h3>
+  <ul>
+    <li><b>IBS/CBS.</b> Na amostra, o refresco em pó ficou na regra geral (000001), a 11,3% em 2027–2028. O que está na lista de alimentos do Anexo VII (60%) precisa de conferência item a item. <span class="b pr">Premissa</span></li>
+    <li><b>IPI.</b> A alíquota do IPI cai a zero em 2027 para quase todos os produtos. Quem fabrica perde o IPI como custo e como crédito. Se o produto é de IPI zero ou imune hoje, nada muda.</li>
+    <li><b>Crédito dos insumos.</b> A indústria toma crédito de IBS/CBS sobre embalagem, açúcar, corantes e energia. A Haxpao (Real) já toma crédito de PIS/Cofins; a mudança é de alíquota e de regra.</li>
+    <li><b>Efeito em duas empresas.</b> Haxpao Alimentos no Simples tem as regras do bloco 7; a matriz no Real segue o raciocínio do bloco 3.</li>
+  </ul>
+
+  <div class="sala"><b class="tt">Para discutir na sala</b>
+    O cliente pergunta: “Se o IS pegar refrigerante e eu faço o pó que vira refrigerante, estou dentro?”
+    <details><summary>Resposta esperada</summary>Pelo Anexo XVII conforme o curso da Receita, só o NCM 2202.10.00 está listado. Pó (2106.90.10) não consta. Não afirmar sem ler o texto final do Anexo XVII e esperar a lei ordinária de alíquotas.</details>
+  </div>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="Mogfot7DztM" data-t="1080" data-e="3930"><summary>▶ CFC Módulo 17 · 00:18:00 a 01:05:30 · Regras de incidência e lista do Imposto Seletivo</summary><p><a href="https://www.youtube.com/watch?v=Mogfot7DztM&t=1080s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="kCtHYZuHFso" data-t="234" data-e="370"><summary>▶ Live Econet · 00:03:54 a 00:06:10 · Introdução ao Imposto Seletivo</summary><p><a href="https://www.youtube.com/watch?v=kCtHYZuHFso&t=234s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ======================= 12 ACAO ======================= -->
+<section class="bloco" id="acao">
+  <div class="rotulo">Bloco 12 · 15 min</div>
+  <h2 class="t">Plano de ação e pendências</h2>
+
+  <h3>1. Ações por cliente</h3>
+  <table>
+    <tr><th>Cliente</th><th>Primeira ação</th><th>Prazo sugerido</th></tr>
+    <tr><td>DELPS</td><td>Montar tabela de compras e calcular ponto de equilíbrio; pedir cronograma do CT-e ao SSW</td><td>Até 30/11</td></tr>
+    <tr><td>Campestre e Prime</td><td>Levantar contratos anteriores a 16/01/2025 e se foram registrados até 31/12/2025</td><td>Até 20/11</td></tr>
+    <tr><td>Cerrado</td><td>Rodar o cadastro de produtos contra os anexos e decidir os itens “[CONFIRMAR]”</td><td>Até 15/12</td></tr>
+    <tr><td>Med Fernandes</td><td>Matriz de compradores e compras com crédito; confirmar se há procedimentos fora de consulta</td><td>Janela de cancelamento: até 20/12</td></tr>
+    <tr><td>Holdings</td><td>Lista de imóveis, uso e contrato; separar cessão a sócio</td><td>Até 31/01</td></tr>
+    <tr><td>Marlon</td><td>Fechar inventário de 31/12 e conferir o saldo de PIS/Cofins na EFD</td><td>Inventário em 31/12; EFD até 17/02/2027</td></tr>
+    <tr><td>Softweb</td><td>Classificar receita por tipo de comprador</td><td>Antes de março/2027</td></tr>
+    <tr><td>Hungria e CE</td><td>Mapear CFOP de transferência e depósito fechado; definir estabelecimento de pagamento</td><td>Até 15/12</td></tr>
+    <tr><td>Haxpao</td><td>Confirmar NCM do pó, CNPJ fabricante e esperar o texto final do Anexo XVII</td><td>Até 15/12</td></tr>
+  </table>
+
+  <h3>2. Pendências de conferência (o que eu não fechei)</h3>
+  <table>
+    <tr><th>Ponto</th><th>Onde conferir</th></tr>
+    <tr><td>Lista “das 18 com redução”</td><td>Com o James: se a lista existe, comparar com a triagem do bloco 8</td></tr>
+    <tr><td>Anexo XVII completo (NCM de bebidas açucaradas, regra de insumo)</td><td>Texto compilado da LC 214 com a LC 227/2026</td></tr>
+    <tr><td>Alíquota do regime de contratos de locação anteriores (art. 463 do regulamento)</td><td>Slide 60 do Mód. 13-1 (está em imagem) ou o regulamento</td></tr>
+    <tr><td>Art. 47 e 51 (crédito em alíquota zero, isenção e imunidade)</td><td>Texto da LC 214</td></tr>
+    <tr><td>Art. 381, II (rol de bens com ST ou monofasia no estoque de abertura)</td><td>Texto da LC 214 e do Dec. 12.955</td></tr>
+    <tr><td>Datas da Resolução CGSN 194/2026</td><td>Portal do Simples Nacional</td></tr>
+    <tr><td>Percentual do crédito presumido do tomador de frete de autônomo (o beneficiário já está confirmado: o tomador)</td><td>Regulamento da CBS (art. 169 e seguintes da LC 214)</td></tr>
+    <tr><td>Saldo de ICMS e ST em estoque (redação final)</td><td>LC 227/2026</td></tr>
+    <tr><td>Juros de mútuo entre empresas do grupo</td><td>Regulamento e orientação da Receita</td></tr>
+  </table>
+
+  <h3>3. Material de apoio na pasta REFORMA</h3>
+  <ul>
+    <li>Apostila do curso (09/2025) e módulos 1 a 17 (jul–set/2026).</li>
+    <li>Manuais: plataforma da CBS (maio/2026), piloto da reforma (v. 3, maio/2026), serviços da RTC, apuração assistida 1 e 2, cooperativas, XML da NF-e (nov/2025).</li>
+    <li>Apresentações do piloto: calculadora, apuração assistida, cashback, devoluções e transferências.</li>
+    <li>Arquivos do WinThor: <code>classificacao_ncm_agosto2026.csv</code>, <code>pctributacao_inserts_agosto2026.sql</code>, lista de supermercados.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Material interno da Conceitus Contabilidade, gerado em 04/11/2026 a partir do curso da Receita Federal (pasta REFORMA), do cadastro (Database5), do Score e de consulta a notícias de 28–30/10/2026 sobre a alíquota de referência. Cita a composição da carteira: não publicar fora do escritório. Não substitui o texto das leis nem parecer sobre caso concreto.
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ds=document.querySelectorAll('.videos details[data-v]');
+  for(var i=0;i<ds.length;i++){(function(d){
+    d.addEventListener('toggle',function(){
+      var q=d.querySelector('.quadro');
+      if(!d.open||q.getAttribute('data-ok'))return;
+      q.setAttribute('data-ok','1');
+      if(location.protocol==='file:'){q.innerHTML='<div class="nao">O YouTube não toca vídeo embutido em arquivo aberto do disco (erro 153). Use o link "Abrir no YouTube" acima, ou abra esta página pelo servidor do escritório.</div>';return;}
+      var f=document.createElement('iframe');
+      var e=d.getAttribute('data-e');
+      f.src='https://www.youtube-nocookie.com/embed/'+d.getAttribute('data-v')+'?start='+d.getAttribute('data-t')+(e&&e!=='0'?'&end='+e:'')+'&rel=0';
+      f.setAttribute('allowfullscreen','');f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+      f.setAttribute('allow','encrypted-media; picture-in-picture');
+      q.appendChild(f);
+    });
+  })(ds[i]);}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulação de nota fiscal e apuração assistida — IBS/CBS (treinamento Conceitus)</title>
+<style>
+:root{--azul:#1F5FA8;--azul-esc:#1F3F66;--azul-cl:#DDEBF7;--papel:#FBFCFE;--tinta:#1B2430;--cinza:#5B6675;--linha:#C9D5E3;--ok:#1E6B45;--ok-bg:#E3F3EA;--pr:#8A5A00;--pr-bg:#FFF1D6;--ck:#9B2C2C;--ck-bg:#FBE4E4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font:16px/1.6 "IBM Plex Sans","Segoe UI",system-ui,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+header.capa{background:var(--azul-esc);color:#fff;padding:52px 0 40px}
+header.capa .sel{display:inline-block;border:1px solid #6E92C0;color:#BFD4EE;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:2px}
+header.capa h1{font-size:36px;line-height:1.15;margin:18px 0 10px;font-weight:600;max-width:860px}
+header.capa p{margin:6px 0;color:#D6E3F4;max-width:780px}
+nav.toc{background:var(--azul-cl);border-bottom:1px solid var(--linha)}
+nav.toc .wrap{padding-top:16px;padding-bottom:16px}
+nav.toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:36px;font-size:15px}
+nav.toc li{padding:2px 0;break-inside:avoid}nav.toc a{color:var(--azul-esc);text-decoration:none}nav.toc a:hover{text-decoration:underline}nav.toc b{color:var(--azul);display:inline-block;min-width:26px}
+section.bloco{padding:42px 0 8px;border-top:1px solid var(--linha)}
+.rotulo{font-size:13px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--azul)}
+h2.t{font-size:28px;line-height:1.2;margin:4px 0 6px;color:var(--azul-esc);font-weight:600}
+h3{font-size:19px;margin:28px 0 8px;color:var(--azul-esc);font-weight:600}
+h4{font-size:16px;margin:18px 0 6px;color:var(--azul);font-weight:600}
+p{margin:8px 0}ul,ol{margin:8px 0 8px 22px;padding:0}li{margin:3px 0}
+.lede{font-size:18px;color:#2C3846;max-width:820px}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14.5px;background:#fff}
+th{background:var(--azul-esc);color:#fff;text-align:left;font-weight:600;padding:7px 9px}
+td{border-bottom:1px solid var(--linha);padding:6px 9px;vertical-align:top}
+tr:nth-child(even) td{background:#F5F8FC}
+td.n,th.n{text-align:right;white-space:nowrap}
+.caixa{border-left:4px solid var(--azul);background:var(--azul-cl);padding:12px 16px;margin:16px 0}
+.caixa.aten{border-color:#B7791F;background:#FFF6E0}.caixa.erro{border-color:#B83232;background:#FDECEC}.caixa.ex{border-color:var(--ok);background:#EAF6EF}
+.caixa b.tt{display:block;font-size:12px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:3px}
+.b{display:inline-block;font-size:11.5px;font-weight:600;padding:1px 7px;border-radius:2px;vertical-align:middle;white-space:nowrap}
+.b.ok{background:var(--ok-bg);color:var(--ok)}.b.pr{background:var(--pr-bg);color:var(--pr)}.b.ck{background:var(--ck-bg);color:var(--ck)}
+.f{display:inline-block;font:12px/1.4 "IBM Plex Mono",Consolas,monospace;background:#fff;border:1px solid var(--linha);color:var(--azul-esc);padding:0 6px;border-radius:2px;margin-left:3px;white-space:nowrap}
+.sala{border:1px dashed var(--azul);padding:12px 16px;margin:20px 0;background:#fff}
+.sala b.tt{color:var(--azul);font-size:12px;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:4px}
+details{margin:6px 0}summary{cursor:pointer;color:var(--azul);font-weight:600}
+code{font:13.5px "IBM Plex Mono",Consolas,monospace;background:#EEF3F9;padding:1px 5px;border-radius:2px}
+pre{font:12.5px/1.45 "IBM Plex Mono",Consolas,monospace;background:#0F1E33;color:#DCE8F7;padding:12px 14px;overflow:auto;border-radius:3px;margin:10px 0}
+.calc{background:#fff;border:1px solid var(--linha);padding:16px;margin:16px 0}
+.calc .barra{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:end;margin-bottom:12px}
+.calc label{font-size:12px;color:var(--cinza);text-transform:uppercase;letter-spacing:.05em;display:block}
+.calc input,.calc select{font:14px "IBM Plex Sans","Segoe UI",sans-serif;padding:5px 7px;border:1px solid #9FB3CC;border-radius:2px;background:#fff;color:var(--tinta)}
+.calc input[type=number]{width:110px}
+.calc button{font:600 13px "IBM Plex Sans","Segoe UI",sans-serif;padding:6px 11px;border:1px solid var(--azul);background:#fff;color:var(--azul);border-radius:2px;cursor:pointer}
+.calc button:hover{background:var(--azul);color:#fff}
+.calc button.sec{border-color:#9FB3CC;color:var(--cinza)}
+.calc table input[type=text]{width:100%;min-width:120px}
+.calc table input[type=number]{width:92px}
+.calc table select{max-width:210px}
+.calc td.al{font-size:12.5px;color:var(--ck);min-width:260px}
+.calc table td,.calc table th{white-space:nowrap}
+.calc table td.al{white-space:normal}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:1px;background:var(--linha);border:1px solid var(--linha);margin-top:12px}
+.res div{background:#fff;padding:8px 12px}.res small{display:block;color:var(--cinza);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}.res span{font-weight:600;color:var(--azul-esc);font-size:17px}
+.fluxo{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:14px 0}
+.fluxo div{background:#fff;border:1px solid var(--linha);border-top:3px solid var(--azul);padding:10px 12px;font-size:14px}
+.fluxo b{display:block;color:var(--azul-esc);margin-bottom:2px}
+footer{border-top:1px solid var(--linha);margin-top:48px;padding:28px 0 60px;color:var(--cinza);font-size:14px}
+@media (max-width:760px){nav.toc ol{columns:1}header.capa h1{font-size:27px}}
+@media print{@page{size:A4 landscape;margin:12mm}body{font-size:10.5pt;background:#fff}header.capa{background:#fff;color:#000;padding:0 0 8px;border-bottom:2px solid #1F3F66}header.capa h1,header.capa p,header.capa .sel{color:#1F3F66}nav.toc{background:#fff}section.bloco{page-break-before:always;border-top:0;padding-top:0}.caixa,.sala,table,.calc{break-inside:avoid}.wrap{max-width:none;padding:0}.calc button,.calc .barra{display:none}details{display:block}details>*{display:block}}
+.videos{margin:26px 0 10px;border:1px solid var(--linha);background:var(--azul-cl);padding:14px 18px}
+.videos h4{margin:0 0 6px;color:var(--azul-esc)}
+.videos .aviso{font-size:13.5px;color:var(--cinza);margin:0 0 10px}
+.videos details{background:#fff;border:1px solid var(--linha);margin:8px 0;padding:8px 12px}
+.videos summary{cursor:pointer;font-weight:600;color:var(--azul-esc)}
+.videos .quadro{position:relative;padding-bottom:56.25%;height:0;margin-top:10px;background:#0b1320}
+.videos .quadro iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.videos .quadro .nao{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;padding:16px;text-align:center}
+.videos a{color:var(--azul)}
+@media print{.videos .quadro{display:none}}
+</style>
+</head>
+<body>
+
+<header class="capa">
+  <div class="wrap">
+    <span class="sel">Conceitus Contabilidade · material interno · 04/11/2026 · parte 2</span>
+    <h1>Simulação de nota fiscal item a item e apuração assistida</h1>
+    <p>Calculadora que monta a composição de IBS e CBS por item (testada contra o XML oficial do manual da Receita), mais o passo a passo da apuração assistida da CBS: débitos, créditos, pagamentos, ajustes, prazos e a rotina mensal do escritório.</p>
+    <p style="font-size:14px;color:#A9C2E4">Complementa o material “Reforma Tributária do Consumo: o que muda para os nossos clientes”. Abre offline; as calculadoras funcionam no navegador, sem internet.</p>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <ol>
+      <li><b>1</b><a href="#normas">Normas e prazos que valem em novembro/2026</a></li>
+      <li><b>2</b><a href="#nota">Simulação de nota item a item (calculadora)</a></li>
+      <li><b>3</b><a href="#composicao">Como ler a composição: campos do XML</a></li>
+      <li><b>4</b><a href="#aa">Apuração assistida: como funciona</a></li>
+      <li><b>5</b><a href="#ajustes">Ajustes, notas e eventos</a></li>
+      <li><b>6</b><a href="#apcalc">Calculadora da apuração do mês</a></li>
+      <li><b>7</b><a href="#rotina">Rotina mensal do escritório</a></li>
+      <li><b>8</b><a href="#fontes">Fontes e o que não foi confirmado</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= 1 NORMAS ================= -->
+<section class="bloco" id="normas">
+  <div class="rotulo">Parte 1</div>
+  <h2 class="t">Normas e prazos que valem em novembro/2026</h2>
+  <p class="lede">Até 04/11/2026 não encontrei, em fonte confiável, nenhum ato normativo novo publicado em novembro. O que entra em vigor neste mês vem do pacote de notas técnicas publicado em 01/10/2026, com datas de produção em novembro e dezembro.</p>
+
+  <div class="caixa aten"><b class="tt">Como ler esta tabela</b>
+    As notas técnicas foram lidas em notícias de 02/10/2026 (Contábeis), que citam as notas e as datas. O texto das notas não está na pasta REFORMA. A própria SVRS avisa que algumas datas podem mudar: confirme no Portal da NF-e antes de orientar cliente. <span class="b pr">Premissa</span> fonte secundária
+  </div>
+
+  <h3>Notas técnicas de documentos fiscais</h3>
+  <table>
+    <tr><th>Norma</th><th>O que trata</th><th>Produção</th><th>Quem sente</th></tr>
+    <tr><td><b>NT 2025.002 v1.52</b> (NF-e e NFC-e)</td><td>Corrige a validação VC02-50 (referenciamento em devoluções). A regra VC02-14 sai de 05/10 para 03/11.</td><td>VC02-14: <b>03/11/2026</b></td><td>Cerrado, Marlon, CE, Hungria</td></tr>
+    <tr><td><b>NT 2026.007 v1.10</b></td><td>NF-e modelo 55 para contribuintes exclusivos de IBS/CBS, sem inscrição estadual (verificações no CCC e na LCC-RFB).</td><td><b>03/11/2026</b></td><td>Holdings e prestadores sem IE que emitam NF-e</td></tr>
+    <tr><td><b>NT 2026.008 v1.00</b></td><td>Novos campos de <b>valor líquido</b> (unitário, do produto ou serviço e total dos itens) e campo de ICMS para pagamento antecipado.</td><td>Principais alterações: <b>03/11/2026</b>. Validação do grupo de ICMS: 01/03/2027.</td><td>Todos que emitem NF-e (ERP)</td></tr>
+    <tr><td><b>NT 2026.010 v1.00</b></td><td>Como IBS, CBS e Imposto Seletivo aparecem no <b>DANFE</b> (papel e PDF).</td><td><b>01/12/2026</b></td><td>Todos os emissores de DANFE</td></tr>
+    <tr><td><b>NT 2026.002 v1.11</b></td><td>Venda com DANFE Simplificado tipo 2. Regras adiadas de 05/10 para 14/12.</td><td>14/12/2026</td><td>Varejo com DANFE simplificado</td></tr>
+    <tr><td><b>NT 2026.004 v1.00</b> (Ato Técnico Conjunto nº 8/2026)</td><td>CT-e, NFCom, BP-e, NF3e, NFAg e NFGas. IBS e CBS calculados “por fora”; campo de valor líquido; destaque de IBS/CBS informativo em 2026. No CT-e: contingência offline vira o método formal, e o evento 211110 permite ao tomador do frete apropriar crédito presumido.</td><td>Homologação 13/10. Produção <b>16/11/2026</b>.</td><td><b>DELPS</b> (CT-e)</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)">Regra do total do documento na NT 2026.004: <b>em 2026</b> o total repete o valor-base (para não cobrar em duplicidade); <b>em 2027</b> o total soma a prestação com o IBS e a CBS. <span class="b pr">Premissa</span> Para a NF-e, a regra equivalente deve estar nas NT 2026.008 e 2026.010; não li o texto.</p>
+
+  <h3>Apuração assistida: cronograma de funcionalidades</h3>
+  <table>
+    <tr><th>Quando</th><th>O que fica disponível</th></tr>
+    <tr><td>Início de outubro/2026</td><td>Consulta de débitos e créditos de CBS (API da Receita)</td></tr>
+    <tr><td>Início de novembro/2026</td><td>Consulta de pagamentos e de recolhimentos pelo adquirente</td></tr>
+    <tr><td>Fim de novembro/2026</td><td>Emissão de DARF para recolhimento pelo adquirente (RAD) e para pagamento pelo contribuinte (Pcont)</td></tr>
+    <tr><td>IBS, Comitê Gestor</td><td>API etapa 1 (habilitação, webhook, arquivo): teste desde 28/09/2026, produção sem data. Etapas 2 a 4 (solicitações, saldo, documento de arrecadação) sem data.</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)"><span class="b pr">Premissa</span> Cronograma divulgado pela Receita em 14/09/2026 e reproduzido pelo Taxcel (atualizado em 28/09). O Manual da Plataforma da CBS (maio/2026) avisa que pagamentos, ressarcimentos e devoluções do portal ainda são <b>simulados, sem efeito jurídico ou financeiro</b>. <span class="b ok">Conferido</span> no manual.</p>
+
+  <h3>Regulamentos em vigor</h3>
+  <table>
+    <tr><th>Ato</th><th>Papel</th></tr>
+    <tr><td>Decreto nº 12.955/2026</td><td>Regulamento da CBS. Seus arts. 43 a 47 e 53 dão as regras da apuração assistida. <span class="b ok">Conferido</span> nos slides do Mód. 6-1</td></tr>
+    <tr><td>Resolução CGIBS nº 6/2026</td><td>Regulamento do IBS (aprovado em 27/04/2026). Um guia jurídico informa que, até 02/11/2026, a única alteração é a Resolução CGIBS nº 13, de 22/07/2026. <span class="b pr">Premissa</span></td></tr>
+    <tr><td>Portaria Conjunta MF/CGIBS nº 7/2026</td><td>Reconhece as disposições comuns aos dois regulamentos, sem estender o reconhecimento às alterações futuras. <span class="b pr">Premissa</span></td></tr>
+    <tr><td>Ato Conjunto RFB/CGIBS nº 4/2026</td><td>Campos de IBS e CBS obrigatórios desde 03/08/2026 em NF-e, NFC-e, CT-e e outros; NFS-e desde 01/10/2026. <span class="b pr">Premissa</span></td></tr>
+    <tr><td>LC 214/2025 e LC 227/2026</td><td>Leis de base. A LC 227 foi publicada no DOU de 14/01/2026.</td></tr>
+  </table>
+
+  <div class="caixa erro"><b class="tt">Não confirmei</b>
+    <b>LC 238/2026:</b> uma notícia cita a publicação em edição extra do DOU, mas não achei nenhuma outra fonte com número, ementa ou conteúdo. Não use até ler no DOU.<br>
+    <b>Decreto nº 13.075/2026:</b> um artigo de novembro o cita como adiamento, para 01/01/2027, de exigências a pessoas físicas contribuintes, em trecho fragmentado. Conferir no DOU.<br>
+    Para qualquer ato de novembro, os caminhos são o Diário Oficial da União, o portal do CGIBS e o site da Receita.
+  </div>
+
+  <h3>O que isso pede do escritório já em novembro</h3>
+  <ol>
+    <li><b>DELPS:</b> perguntar ao fornecedor do SSW se o CT-e já está na versão da NT 2026.004 antes de 16/11. Testar também o evento 211110 de crédito presumido do tomador.</li>
+    <li><b>Cerrado, Marlon, CE e Hungria (WinThor):</b> confirmar com a Winthor a versão com a NT 2026.008 (valor líquido) e o DANFE da NT 2026.010 (01/12).</li>
+    <li><b>Todos:</b> abrir o portal consumo.tributos.gov.br com o CNPJ do cliente e conferir se a consulta de débitos e créditos já mostra as notas do mês.</li>
+    <li><b>Aviso ao time:</b> pagamentos e DARF do portal ainda são simulação; não orientar cliente a pagar por ele.</li>
+  </ol>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="v71xSBfdG7o" data-t="615" data-e="2700"><summary>▶ CFC Módulo 5 · 00:10:15 a 00:45:00 · Estruturação dos documentos fiscais e leiautes</summary><p><a href="https://www.youtube.com/watch?v=v71xSBfdG7o&t=615s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ================= 2 NOTA ================= -->
+<section class="bloco" id="nota">
+  <div class="rotulo">Parte 2</div>
+  <h2 class="t">Simulação de nota item a item</h2>
+  <p class="lede">Escolha o ano, o tratamento de cada item e o valor. A calculadora mostra, por item, a base, a alíquota efetiva e o valor de IBS e CBS, e fecha os totais como na nota.</p>
+
+  <div class="calc" id="calcNota">
+    <div class="barra">
+      <div><label>Ano</label>
+        <select id="ano"><option value="2026">2026 (ano-teste)</option><option value="2027" selected>2027</option><option value="2028">2028</option></select></div>
+      <div><label>CBS de referência (%)</label><input type="number" id="cbsRef" value="11.3" step="0.1" min="0" max="30"></div>
+      <div><label>Casos prontos</label>
+        <select id="preset">
+          <option value="">— escolher —</option>
+          <option value="oficial">Exemplo oficial do manual (2026)</option>
+          <option value="atacado">Atacado: 10 itens reais do WinThor</option>
+          <option value="frete">DELPS: frete de carga</option>
+          <option value="aluguel">Campestre: aluguel comercial</option>
+          <option value="clinica">Med Fernandes: consultas (híbrido)</option>
+          <option value="haxpao">Haxpao: refresco em pó e suco</option>
+        </select></div>
+      <div><button type="button" id="btnAdd">+ item</button> <button type="button" class="sec" id="btnLimpa">Limpar</button></div>
+    </div>
+    <div style="overflow-x:auto">
+    <table id="tbItens">
+      <thead><tr><th>Descrição</th><th>NCM / NBS</th><th>Tratamento</th><th class="n">Valor do item (R$)</th><th class="n">ICMS %</th><th class="n">Base IBS/CBS</th><th class="n">CBS ef. %</th><th class="n">IBS ef. %</th><th class="n">vIBS</th><th class="n">vCBS</th><th>Alerta</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+    </div>
+    <div class="res" id="resNota"></div>
+    <p style="font-size:13px;color:var(--cinza);margin-top:10px">O valor do item é o preço <b>sem</b> IBS e CBS. O ICMS % é ilustrativo: troque pelo ICMS destacado no XML real. Cada item é arredondado em centavos; IBS estadual e municipal são arredondados separadamente. Lógica testada contra o XML do manual (22,90 com ICMS de 18% dá base 18,78, IBS 0,02 e CBS 0,17).</p>
+  </div>
+
+  <h4>Esboço do grupo IBSCBS do primeiro item</h4>
+  <pre id="xmlItem"></pre>
+  <p style="font-size:13px;color:var(--cinza)">Esboço didático com a mesma estrutura do XML do manual. Nos itens com redução, o leiaute traz também o grupo de redução de alíquota (gRed), que a calculadora não monta. <span class="b pr">Premissa</span> Para campos exatos, siga a NT 2025.002 e o schema vigente.</p>
+
+  <h3>Resultado do preset “Atacado”, 2027, referência 11,3%</h3>
+  <p>Dez itens reais da amostra de agosto/2026 do WinThor (NCM e classificação são da proposta do escritório; valores e ICMS são ilustrativos).</p>
+  <table>
+    <tr><th>Item</th><th>NCM</th><th>cClassTrib</th><th class="n">Valor</th><th class="n">ICMS</th><th class="n">Base</th><th class="n">vIBS</th><th class="n">vCBS</th></tr>
+    <tr><td>Açúcar refinado 10x1 kg</td><td>1701.99.00</td><td>200003 (100%)</td><td class="n">5.000,00</td><td class="n">0,00</td><td class="n">5.000,00</td><td class="n">0,00</td><td class="n">0,00</td></tr>
+    <tr><td>Leite em pó 400 g</td><td>0402.21.10</td><td>200003 (100%)</td><td class="n">3.000,00</td><td class="n">0,00</td><td class="n">3.000,00</td><td class="n">0,00</td><td class="n">0,00</td></tr>
+    <tr><td>Biscoito recheado</td><td>1905.31.00</td><td>000001 (0%)</td><td class="n">2.000,00</td><td class="n">340,00</td><td class="n">1.660,00</td><td class="n">1,66</td><td class="n">185,92</td></tr>
+    <tr><td>Achocolatado Toddynho 27x200 ml</td><td>2202.99.00</td><td>200034 (60%)</td><td class="n">4.000,00</td><td class="n">0,00</td><td class="n">4.000,00</td><td class="n">1,60</td><td class="n">179,20</td></tr>
+    <tr><td>Óleo de soja 20x900 ml</td><td>1507.90.11</td><td>200034 (60%)</td><td class="n">3.000,00</td><td class="n">0,00</td><td class="n">3.000,00</td><td class="n">1,20</td><td class="n">134,40</td></tr>
+    <tr><td>Sabonete 12x90 g</td><td>3401.11.90</td><td>200035 (60%)</td><td class="n">1.500,00</td><td class="n">0,00</td><td class="n">1.500,00</td><td class="n">0,60</td><td class="n">67,20</td></tr>
+    <tr><td>Coco ralado 50x50 g</td><td>0801.11.00</td><td>200014 (100%)</td><td class="n">800,00</td><td class="n">0,00</td><td class="n">800,00</td><td class="n">0,00</td><td class="n">0,00</td></tr>
+    <tr><td>Refresco em pó 1 kg</td><td>2106.90.10</td><td>000001 (0%)</td><td class="n">1.200,00</td><td class="n">204,00</td><td class="n">996,00</td><td class="n">1,00</td><td class="n">111,55</td></tr>
+    <tr><td>Suco Dafruta caju 12x500 ml</td><td>2202.10.00</td><td>000001 (0%)</td><td class="n">1.000,00</td><td class="n">170,00</td><td class="n">830,00</td><td class="n">0,84</td><td class="n">92,96</td></tr>
+    <tr><td>Preservativo 12x3</td><td>4014.10.00</td><td>200030 (60%)</td><td class="n">500,00</td><td class="n">0,00</td><td class="n">500,00</td><td class="n">0,20</td><td class="n">22,40</td></tr>
+    <tr><td><b>Total da nota</b></td><td></td><td></td><td class="n"><b>22.000,00</b></td><td class="n"><b>714,00</b></td><td class="n"><b>21.286,00</b></td><td class="n"><b>7,10</b></td><td class="n"><b>793,63</b></td></tr>
+  </table>
+  <ul>
+    <li><b>Total a cobrar:</b> em 2027 o IBS e a CBS vão “por fora”: R$ 22.000,00 + R$ 7,10 + R$ 793,63 = <b>R$ 22.800,73</b>. Em 2026 o mesmo conjunto dá IBS de R$ 7,09 e CBS de R$ 63,77, que aparecem informativos, e o total da nota fica em R$ 22.000,00.</li>
+    <li><b>Carga efetiva:</b> R$ 800,73 sobre R$ 22.000,00, ou 3,64% do valor dos itens, contra 11,3% na regra geral. A diferença vem de 40% do valor (cesta e hortifrúti) com carga zero e de 36% com redução de 60%.</li>
+    <li><b>Metade da CBS vem de três itens</b> da regra geral (biscoito, refresco e suco): R$ 390,43 de R$ 793,63.</li>
+    <li><b>Alerta de Imposto Seletivo:</b> o suco no NCM 2202.10.00 é o código que o curso da Receita lista para bebidas açucaradas. Na amostra ele ficou na regra geral sem marcação de IS. Conferir a composição do produto e o texto do Anexo XVII. <span class="b ck">A confirmar</span></li>
+  </ul>
+
+  <div class="caixa ex"><b class="tt">Outros três casos do preset</b>
+    <b>Frete de R$ 10.000</b> (ICMS hipotético de 12%), 2027: ICMS R$ 1.200, base R$ 8.800, IBS R$ 8,80, CBS R$ 985,60, total do CT-e R$ 10.994,40. O frete de carga não tem redução.<br>
+    <b>Aluguel comercial de R$ 100.000</b>, redução de 70%: IBS+CBS de R$ 3.390,00.<br>
+    <b>Consultas de R$ 120.000</b>, redução de 60%, clínica no regime regular de IBS/CBS: IBS R$ 48,00 e CBS R$ 5.376,00, ou R$ 5.424,00 no total (o mesmo valor do exemplo do bloco 4 do material principal).
+  </div>
+
+  <div class="sala"><b class="tt">Para discutir na sala</b>
+    No preset do atacado, por que o total da nota em 2026 é R$ 22.000,00 e em 2027 é R$ 22.800,73, se o preço dos itens não mudou?
+    <details><summary>Resposta esperada</summary>Em 2026 o destaque é informativo: o total repete o valor-base, porque a CBS é compensada com o PIS/Cofins. Em 2027 o IBS e a CBS são cobrados por fora e somados ao valor, e o PIS/Cofins deixa de existir. O cliente do atacado precisa saber disso na tabela de preços de janeiro.</details>
+  </div>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="kCtHYZuHFso" data-t="1209" data-e="1920"><summary>▶ Live Econet · 00:20:09 a 00:32:00 · Preenchimento da nota fiscal e cálculo por item</summary><p><a href="https://www.youtube.com/watch?v=kCtHYZuHFso&t=1209s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="yretyoIIJTk" data-t="973" data-e="0"><summary>▶ 11,3% de CBS em 2027: cálculo e prática · a partir de 00:16:13 · Alíquota de referência de 11,3%</summary><p><a href="https://www.youtube.com/watch?v=yretyoIIJTk&t=973s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="yretyoIIJTk" data-t="1795" data-e="0"><summary>▶ 11,3% de CBS em 2027: cálculo e prática · a partir de 00:29:55 · Nota técnica 2026.008: cálculo por fora</summary><p><a href="https://www.youtube.com/watch?v=yretyoIIJTk&t=1795s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="uEI3lyDPous" data-t="0" data-e="0"><summary>▶ Estados podem incluir CBS/IBS na base do ICMS? (regra na transição) · vídeo inteiro · Controvérsia sobre a base do ICMS</summary><p><a href="https://www.youtube.com/watch?v=uEI3lyDPous&t=0s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ================= 3 COMPOSICAO ================= -->
+<section class="bloco" id="composicao">
+  <div class="rotulo">Parte 3</div>
+  <h2 class="t">Como ler a composição: campos do XML</h2>
+  <p class="lede">Cada item da NF-e ganha um grupo <code>IBSCBS</code>. O total da nota ganha o grupo <code>IBSCBSTot</code>. Os dois reproduzem a mesma conta que a calculadora faz.</p>
+
+  <h3>A conta, em seis passos</h3>
+  <ol>
+    <li><b>Valor do item</b> (<code>vProd</code>, menos desconto incondicional, mais frete e seguro cobrados pelo fornecedor).</li>
+    <li><b>Menos o que fica fora da base:</b> ICMS, ISS, PIS, Cofins, IPI e os próprios IBS e CBS. Resultado: <code>vBC</code> do grupo IBSCBS. <span class="b ok">Conferido</span><span class="f">art. 12 · slide da apostila</span></li>
+    <li><b>Alíquota nominal:</b> em 2026, CBS 0,9% e IBS 0,1% (0,1% estadual e 0,00% municipal no XML do manual). Em 2027–2028, IBS 0,05% estadual e 0,05% municipal, e CBS de referência menos 0,1 ponto.</li>
+    <li><b>Redução</b> do <code>cClassTrib</code> (30%, 40%, 50%, 60%, 70% ou 100%) aplicada às duas alíquotas.</li>
+    <li><b>Valor de cada tributo:</b> <code>vBC × alíquota efetiva</code>, arredondado em centavos; <code>vIBS = vIBSUF + vIBSMun</code>.</li>
+    <li><b>Total:</b> em 2026 só informativo; em 2027, somado ao valor.</li>
+  </ol>
+
+  <h3>O XML oficial do manual, linha por linha</h3>
+  <p>Exemplo do “Documento XML NF-e” (nov/2025), versão NT 2025.002 v1.30, com dois itens: R$ 22,90 e R$ 3,00, ICMS de 18%.</p>
+  <table>
+    <tr><th>Campo</th><th>O que é</th><th class="n">Item 1</th><th class="n">Totais</th></tr>
+    <tr><td><code>CST</code> / <code>cClassTrib</code></td><td>Situação tributária e classificação do item</td><td class="n">000 / 000001</td><td class="n">—</td></tr>
+    <tr><td><code>vBC</code> (item) · <code>vBCIBSCBS</code> (total)</td><td>Base do IBS e da CBS</td><td class="n">18,78</td><td class="n">21,24</td></tr>
+    <tr><td colspan="4" style="color:var(--cinza);font-size:13px">Item 1: 22,90 − ICMS 4,12 = 18,78. Total: 25,90 − ICMS 4,66 = 21,24. A base do IBS/CBS exclui o ICMS.</td></tr>
+    <tr><td><code>pIBSUF</code> · <code>vIBSUF</code></td><td>IBS estadual</td><td class="n">0,1000% · 0,02</td><td class="n">0,02</td></tr>
+    <tr><td><code>pIBSMun</code> · <code>vIBSMun</code></td><td>IBS municipal</td><td class="n">0,0000% · 0,00</td><td class="n">0,00</td></tr>
+    <tr><td><code>vIBS</code></td><td>IBS total do item</td><td class="n">0,02</td><td class="n">0,02</td></tr>
+    <tr><td><code>pCBS</code> · <code>vCBS</code></td><td>CBS</td><td class="n">0,9000% · 0,17</td><td class="n">0,19</td></tr>
+    <tr><td><code>vCredPres</code> · <code>vCredPresCondSus</code></td><td>Crédito presumido (apropriado ou com condição suspensiva), IBS e CBS</td><td class="n">—</td><td class="n">0,00</td></tr>
+    <tr><td><code>vDif</code> · <code>vDevTrib</code></td><td>Diferimento e devolução de tributo</td><td class="n">—</td><td class="n">0,00</td></tr>
+    <tr><td><code>vNF</code> · <code>vNFTot</code></td><td>Total da nota</td><td class="n">—</td><td class="n">25,90</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)"><span class="b ok">Conferido</span> no arquivo XML do manual. A leitura de <code>vDif</code> e <code>vDevTrib</code> como diferimento e devolução de tributo é nossa. <span class="b pr">Premissa</span> Em 2026, <code>vNF</code> não soma o IBS e a CBS (25,90 = soma de <code>vProd</code>), como a regra do ano-teste prevê.</p>
+
+  <h3>Regras que mexem no resultado</h3>
+  <table>
+    <tr><th>Regra</th><th>Efeito</th><th>Etiqueta</th></tr>
+    <tr><td>Desconto incondicional (consta da nota, sem evento posterior)</td><td>Reduz o valor do item e, por isso, a base.</td><td><span class="b ok">Conferido</span></td></tr>
+    <tr><td>Desconto condicional</td><td>Entra na base: o item é calculado pelo valor cheio.</td><td><span class="b ok">Conferido</span></td></tr>
+    <tr><td>Juros e multas cobrados do cliente</td><td>Entram na base, mas saem em <b>nota de débito</b> própria (tipo 04), não na nota original.</td><td><span class="b ok">Conferido</span></td></tr>
+    <tr><td>Frete cobrado pelo próprio fornecedor</td><td>Integra o valor do item.</td><td><span class="b ok">Conferido</span></td></tr>
+    <tr><td>Bonificação que consta da nota e não depende de evento posterior</td><td>Não é tributada à parte.</td><td><span class="b ok">Conferido</span></td></tr>
+    <tr><td>Arredondamento</td><td>Item a item, em centavos. Para a NFS-e, a NT 007/2026 adota arredondamento bancário com tolerância de R$ 0,01 nas diferenças de cálculo.</td><td><span class="b pr">Premissa</span> NFS-e: fonte secundária</td></tr>
+    <tr><td>Item de bebida alcoólica, açucarada, fumígeno, veículo, mineral</td><td>Pode ter também Imposto Seletivo. O IS tem alíquota própria, ainda não fixada nas fontes, e a calculadora só sinaliza.</td><td><span class="b ok">Conferido</span> o alcance; <span class="b ck">A confirmar</span> o NCM do pó</td></tr>
+  </table>
+
+  <h3>Crédito do adquirente, no mesmo documento</h3>
+  <ul>
+    <li>O IBS e a CBS destacados são <b>crédito em potencial</b> do comprador do regime regular. O crédito só vira “apropriado” quando o débito do fornecedor é extinto (Parte 4). <span class="b ok">Conferido</span><span class="f">art. 47 § 2º</span></li>
+    <li>Comprador do <b>Simples unificado</b> não aproveita o destaque: a compra aparece em “Não aproveitados”. <span class="b ok">Conferido</span><span class="f">Mód. 6-1, slide 21</span></li>
+    <li>Quem compra de fornecedor optante do Simples toma crédito igual ao IBS/CBS pago por dentro, destacado na nota. <span class="b ok">Conferido</span><span class="f">Mód. 8-2</span></li>
+    <li>Na compra de transporte de carga de <b>autônomo pessoa física</b>, o <b>tomador</b> apropria crédito presumido, pelo evento 211110 no CT-e. <span class="b ok">Conferido</span><span class="f">Mód. 6-1, slide 19; NT 2026.004</span> O percentual não está nos materiais.</li>
+  </ul>
+</section>
+
+<!-- ================= 4 AA ================= -->
+<section class="bloco" id="aa">
+  <div class="rotulo">Parte 4</div>
+  <h2 class="t">Apuração assistida da CBS: como funciona</h2>
+  <p class="lede">A Receita monta a apuração do contribuinte a partir dos documentos fiscais e dos pagamentos. O contribuinte confere, ajusta e confirma. A confirmação e o silêncio têm o mesmo efeito: constituem o crédito tributário.</p>
+
+  <div class="fluxo">
+    <div><b>1. Documento autorizado</b>O fornecedor emite a NF-e. A CBS destacada vira débito dele e crédito em potencial do comprador.</div>
+    <div><b>2. Processamento</b>A apuração assistida recebe o documento. No piloto, o processamento ocorria a cada 10 minutos.</div>
+    <div><b>3. Ordenação</b>Débitos são ordenados pelo momento de autorização, em lotes de até 48 horas.</div>
+    <div><b>4. Extinção</b>Pcont, split, RAD ou créditos extinguem o débito, em ordem cronológica.</div>
+    <div><b>5. Crédito apropriado</b>O comprador só apropria o crédito depois que o débito é extinto.</div>
+    <div><b>6. Resultado</b>Débitos menos créditos, com ajustes: saldo a recolher ou a recuperar.</div>
+  </div>
+
+  <h3>A equação do período (art. 44)</h3>
+  <div class="caixa"><b class="tt">Decreto 12.955/2026, art. 44</b>
+    Saldo = <b>débitos</b> dos fatos geradores do período − <b>créditos apropriados</b> no período (inclusive presumidos) − <b>saldo a recuperar</b> de períodos anteriores ainda não usado ± <b>ajustes</b> (§ 1º, positivos ou negativos).<br>
+    Desse saldo saem os valores já extintos por <b>split, RAD e pagamento por responsável</b> (art. 26, III a V). Positivo: <b>saldo a recolher</b>. Negativo: <b>saldo a recuperar</b>, que pode ser compensado ou ressarcido. <span class="b ok">Conferido</span><span class="f">Mód. 6-1, slide 11</span>
+  </div>
+
+  <h3>Prazos</h3>
+  <table>
+    <tr><th>O que</th><th>Prazo</th><th>Fonte</th></tr>
+    <tr><td>Período de apuração</td><td>Mensal: do primeiro dia à zero hora ao último às 23:59:59 (horário de Brasília)</td><td>art. 43 <span class="b ok">Conferido</span></td></tr>
+    <tr><td>Pagamento do saldo a recolher</td><td>Até o último dia útil do mês seguinte</td><td>arts. 27 e 45 <span class="b ok">Conferido</span></td></tr>
+    <tr><td>Ajustes e confirmação</td><td>Até o último dia útil do mês seguinte (o “período de ajuste”)</td><td>art. 46 § 3º <span class="b ok">Conferido</span></td></tr>
+    <tr><td>Intenção de pedir ressarcimento</td><td>Até o último dia útil do <b>próprio período de apuração</b>. Feita a manifestação, o saldo a recuperar não compensa débitos do período seguinte.</td><td>art. 39 §§ 4º e 5º <span class="b ok">Conferido</span></td></tr>
+    <tr><td>Apresentação do saldo pela Receita</td><td>Até o dia 15 do mês seguinte (dia 20 para obrigados à DeRE)</td><td><span class="b pr">Premissa</span> guia secundário</td></tr>
+    <tr><td>Ajustes do contribuinte, prazo geral</td><td>5 anos, como hoje</td><td>Mód. 6-1 <span class="b ok">Conferido</span></td></tr>
+  </table>
+
+  <div class="caixa erro"><b class="tt">Confirmar ou ajustar é confissão de dívida; silêncio também</b>
+    O contribuinte que confirma ou ajusta confessa a dívida e constitui o crédito tributário (art. 46 § 6º). Se não se manifesta até o último dia útil do mês seguinte, <b>presume-se correto</b> o saldo e o crédito é considerado constituído (§ 7º). Depois do vencimento, a apuração assistida é título suficiente para cobrar (§ 8º). A Receita ainda pode lançar de ofício diferenças vistas depois (§ 9º). <span class="b ok">Conferido</span><span class="f">Mód. 6-1, slide 12</span><br>
+    Consequência para o escritório: <b>ninguém deixa a apuração vencer sem conferência</b>. O prazo é o mesmo do pagamento.
+  </div>
+
+  <h3>As fases no portal</h3>
+  <table>
+    <tr><th>Fase</th><th>Quando</th><th>O que dá para fazer</th></tr>
+    <tr><td>Em andamento</td><td>O mês da apuração</td><td>Documentos entram e são processados; pagamentos podem ser feitos.</td></tr>
+    <tr><td>Período de ajuste</td><td>Do começo do mês seguinte até o último dia útil</td><td>Ajustes, confirmação, pedido de ressarcimento.</td></tr>
+    <tr><td>Concluída</td><td>Depois do último dia útil do mês seguinte</td><td>Só “saldo atualizado”: novos débitos, devoluções e usos posteriores aparecem em registros posteriores à conclusão.</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)"><span class="b ok">Conferido</span> Manual da Plataforma da CBS (maio/2026), que dá como exemplo de janeiro/2026: em andamento de 01/01 a 31/01, ajuste de 01/02 a 25/02 e concluída a partir de 26/02. As datas de 2026 são do piloto.</p>
+
+  <h3>As abas da apuração</h3>
+  <table>
+    <tr><th>Aba</th><th>O que mostra</th></tr>
+    <tr><td><b>Resultado / Apuração</b></td><td>Débitos processados, créditos apropriados, ajustes, pagamentos e o saldo. “Resultado da operação” é a diferença entre débitos e créditos apropriados, não o total de débitos.</td></tr>
+    <tr><td><b>Em processamento</b></td><td>Débitos aguardando ordenação; débitos e créditos futuros; <b>documentos aguardando aceite</b>; documentos aguardando o referenciamento ser processado.</td></tr>
+    <tr><td><b>Eventos</b></td><td>Eventos emitidos e aguardados; devoluções; cancelamentos.</td></tr>
+    <tr><td><b>Não aproveitados</b></td><td>Documentos que não geram crédito nem débito (comprador sem direito) e documentos com valores excedentes, que impedem o processamento completo.</td></tr>
+    <tr><td><b>Outras informações</b></td><td>Créditos ainda não apropriados, créditos condicionados e <b>pagamentos não utilizados</b>.</td></tr>
+    <tr><td><b>Saldo atualizado</b></td><td>A apuração depois de concluída, com registros posteriores.</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)"><span class="b ok">Conferido</span> Mód. 6-1, slide 13, e Primeiros Passos 1 e 2.</p>
+
+  <h3>Ciclo de vida do crédito</h3>
+  <table>
+    <tr><th>Estado</th><th>Significa</th><th>Onde aparece</th></tr>
+    <tr><td>Não aproveitado</td><td>A compra não gera crédito (ex.: comprador do Simples unificado)</td><td>Não aproveitados</td></tr>
+    <tr><td>Passível de apropriação</td><td>O débito do fornecedor ainda não foi extinto; o valor não pode ser usado</td><td>Outras informações</td></tr>
+    <tr><td>Inapropriável</td><td>Estornado antes da apropriação (ex.: cancelamento)</td><td>Outras informações</td></tr>
+    <tr><td>Apropriado</td><td>O débito foi extinto, total ou em parte; o valor pode ser usado</td><td>Resultado, créditos apropriados</td></tr>
+    <tr><td>Inutilizável</td><td>Estornado depois de apropriado e antes de usado</td><td>Resultado, redutores de créditos, estornos</td></tr>
+    <tr><td>Não utilizado</td><td>Apropriado e não usado no período: vai para o período seguinte</td><td>Saldo atualizado</td></tr>
+    <tr><td>Utilizado</td><td>Usado para extinguir débito ou em pedido de ressarcimento</td><td>Confronto de débito e crédito; saldo atualizado</td></tr>
+  </table>
+
+  <h3>Ordem de uso dos créditos (art. 53)</h3>
+  <ol>
+    <li>Compensação com o <b>saldo a recolher vencido</b>, não extinto e não inscrito em dívida ativa, de períodos anteriores, com os acréscimos legais.</li>
+    <li>Compensação com os <b>débitos do mesmo período</b>, em ordem cronológica.</li>
+    <li>Compensação com os débitos de <b>períodos seguintes</b>, em ordem cronológica. Em vez disso, o contribuinte pode pedir <b>ressarcimento</b> (art. 39).</li>
+  </ol>
+  <p><span class="b ok">Conferido</span> Mód. 6-1, slides 35 e 36. Quem manifesta intenção de ressarcimento não compensa o período seguinte.</p>
+
+  <h3>As formas de pagamento</h3>
+  <table>
+    <tr><th>Forma</th><th>Como funciona</th></tr>
+    <tr><td><b>Pcont</b> (pagamento pelo contribuinte)</td><td>Paga o saldo a recolher até o vencimento. Extingue todos os débitos do período <b>em ordem cronológica</b>.</td></tr>
+    <tr><td><b>Split</b> (recolhimento na liquidação financeira)</td><td>O prestador de pagamento segrega IBS e CBS na liquidação. Vinculado à operação.</td></tr>
+    <tr><td><b>RAD</b> (recolhimento pelo adquirente)</td><td>Opcional. O comprador paga a CBS da operação quando o meio de pagamento não permite split. Vinculado à operação, com DARF que indica o CNPJ do fornecedor e a nota. No piloto, o valor mínimo era R$ 10,00.</td></tr>
+    <tr><td><b>Valores não utilizados</b></td><td>Excesso de Pcont, split ou RAD é devolvido por <b>transferência em até 3 dias úteis</b>, sem pedido.</td></tr>
+  </table>
+  <p><span class="b ok">Conferido</span> Mód. 6-1, slides 42 a 49; Dia 04 do piloto; Primeiros Passos 1.</p>
+
+  <h3>Exemplos do manual da Receita</h3>
+  <h4>A. Ordem cronológica do Pcont</h4>
+  <table>
+    <tr><th>Operação</th><th class="n">Débito de CBS</th><th class="n">Pcont R$ 400</th><th class="n">Em aberto</th></tr>
+    <tr><td>1 · emitida em 07/07</td><td class="n">500,00</td><td class="n">400,00</td><td class="n">100,00</td></tr>
+    <tr><td>2 · emitida em 08/07</td><td class="n">250,00</td><td class="n">0,00</td><td class="n">250,00</td></tr>
+    <tr><td><b>Saldo a pagar</b></td><td class="n">750,00</td><td></td><td class="n"><b>350,00</b></td></tr>
+  </table>
+  <p>Os R$ 400 foram todos para a operação mais antiga, e o saldo a pagar caiu de R$ 750 para R$ 350. A data de emissão do XML define a antiguidade. <span class="b ok">Conferido</span> Primeiros Passos 2.</p>
+
+  <h4>B. Quem autoriza primeiro tem crédito primeiro</h4>
+  <p>Fornecedor com débito de R$ 10.000 em quatro notas e Pcont de R$ 4.500. A ordem vale pelo momento de autorização, não pelo de recepção:</p>
+  <table>
+    <tr><th>NF</th><th>Autorização</th><th>Adquirente</th><th class="n">vCBS</th><th class="n">Extinto</th><th>Crédito do adquirente</th></tr>
+    <tr><td>123</td><td>12:10</td><td>Alfa</td><td class="n">1.000</td><td class="n">1.000</td><td>1.000 apropriado</td></tr>
+    <tr><td>789</td><td>12:30</td><td>Gama</td><td class="n">3.000</td><td class="n">3.000</td><td>3.000 apropriado</td></tr>
+    <tr><td>222</td><td>12:40</td><td>Delta</td><td class="n">4.000</td><td class="n">500</td><td>500 apropriado</td></tr>
+    <tr><td>456</td><td>12:50</td><td>Beta</td><td class="n">2.000</td><td class="n">0</td><td>0, ainda “passível”</td></tr>
+  </table>
+  <p>Dentro de um mesmo documento, os débitos que geram crédito ao adquirente são extintos primeiro. <span class="b ok">Conferido</span> Mód. 6-1, slides 44 e 45 (art. 26 § 2º). <b>Ponto de conversa:</b> o cliente que paga parcial a CBS não escolhe qual comprador recebe o crédito; quem emitiu antes recebe antes.</p>
+
+  <h4>C. RAD: comprador paga a CBS da própria compra</h4>
+  <p>Fornecedor com débito de R$ 10.000 em duas notas: Alpha (R$ 3.000, nota 1234) e Beta (R$ 7.000, nota 9876). Beta recolhe RAD de R$ 7.000.</p>
+  <ul>
+    <li>Fornecedor: débito R$ 10.000, RAD R$ 7.000, <b>saldo devedor R$ 3.000</b>.</li>
+    <li>Beta: crédito apropriado de R$ 7.000.</li>
+    <li>Alpha: segue com R$ 3.000 “a apropriar”, com o botão de emitir DARF de RAD disponível.</li>
+  </ul>
+  <p>O RAD é sempre vinculado à operação e não serve para outros débitos. O art. 48 da LC 214 só dispensa a extinção do débito para apropriar crédito se nenhuma das duas modalidades (split, RAD) tiver sido implementada. <span class="b ok">Conferido</span> Mód. 6-1, slides 46 e 47.</p>
+
+  <div class="sala"><b class="tt">Para discutir na sala</b>
+    A Cerrado paga um fornecedor em boleto, sem split. O fornecedor atrasa o recolhimento da CBS. Como a Cerrado protege o crédito?
+    <details><summary>Resposta esperada</summary>Entra na apuração assistida, aba Outras informações, e vê o crédito “a apropriar”. Pode emitir o DARF de RAD para aquela nota e recolher a CBS da própria compra: o crédito passa a apropriado na hora, e o débito correspondente do fornecedor é extinto. O valor mínimo do RAD no piloto era R$ 10,00.</details>
+  </div>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="N5dKpUHWjz0" data-t="10525" data-e="10620"><summary>▶ CFC Módulo 6 · 02:55:25 a 02:57:00 · APIs da Receita Federal e automação do Pcont</summary><p><a href="https://www.youtube.com/watch?v=N5dKpUHWjz0&t=10525s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="LZJ9f-Zyiyg" data-t="12422" data-e="12515"><summary>▶ CFC Módulo 18 · 03:27:02 a 03:28:35 · Mecanismos PeCont e recolhimento no RAD</summary><p><a href="https://www.youtube.com/watch?v=LZJ9f-Zyiyg&t=12422s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="VNPABWT8KtU" data-t="1120" data-e="0"><summary>▶ Reforma Tributária: Apuração Assistida (2h10) · a partir de 00:18:40 · Conceitos do modelo assistido</summary><p><a href="https://www.youtube.com/watch?v=VNPABWT8KtU&t=1120s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="VNPABWT8KtU" data-t="4530" data-e="0"><summary>▶ Reforma Tributária: Apuração Assistida (2h10) · a partir de 01:15:30 · Crédito a apropriar só após a quitação pelo fornecedor</summary><p><a href="https://www.youtube.com/watch?v=VNPABWT8KtU&t=4530s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><details data-v="yretyoIIJTk" data-t="2078" data-e="0"><summary>▶ 11,3% de CBS em 2027: cálculo e prática · a partir de 00:34:38 · Nota técnica 2026.005 e apuração assistida do Simples</summary><p><a href="https://www.youtube.com/watch?v=yretyoIIJTk&t=2078s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ================= 5 AJUSTES ================= -->
+<section class="bloco" id="ajustes">
+  <div class="rotulo">Parte 5</div>
+  <h2 class="t">Ajustes, notas e eventos</h2>
+  <p class="lede">A apuração assistida só corrige o que o documento fiscal conta. Cancelamento, devolução, juros, perda e recusa entram por nota de débito, nota de crédito ou evento, e cada um mexe no débito do fornecedor e no crédito do comprador.</p>
+
+  <h3>Quadro geral</h3>
+  <table>
+    <tr><th>Situação</th><th>Documento ou evento</th><th>Efeito na apuração</th></tr>
+    <tr><td><b>Ajuste do contribuinte</b></td><td>Lançamento no portal, positivo ou negativo</td><td>Soma ou subtrai do saldo apurado. Dentro do período de ajuste. Confirmar ou ajustar constitui o crédito. <span class="f">art. 44 § 1º, art. 46</span></td></tr>
+    <tr><td><b>Estorno de crédito de período anterior</b></td><td>Ajuste</td><td>Inclui-se entre os ajustes, mesmo para crédito presumido, com acréscimos desde a apropriação indevida ou desde que o estorno se tornou exigível. <span class="f">art. 44 § 2º</span></td></tr>
+    <tr><td><b>Cancelamento</b> (antes do fornecimento)</td><td>Evento 110111</td><td>Comprador: estorna o crédito a apropriar; depois o apropriado não utilizado; se já usado, gera débito do mesmo valor. Fornecedor: estorna a parcela não extinta. <span class="f">art. 57</span></td></tr>
+    <tr><td><b>Devolução</b> (depois do fornecimento)</td><td>NF de devolução</td><td>A base é a da operação original. Mesmas consequências do cancelamento. <span class="f">art. 57</span></td></tr>
+    <tr><td><b>Devolução em 2027 de venda de 2026</b></td><td>NF de devolução + evento</td><td>Crédito de CBS igual ao PIS/Cofins que incidiu; crédito não ressarcível; a EFD-Contribuições não é usada. <span class="f">Dec. art. 603</span></td></tr>
+    <tr><td><b>Juros e multa de mora</b></td><td>Nota de débito tipo 04 (finNFe = 6), do fornecedor</td><td>Débito do fornecedor no mês da nota; crédito do comprador quando o fornecedor extingue o débito. Mesma classificação e alíquota do item original.</td></tr>
+    <tr><td><b>Fornecedor não emitiu a nota de débito</b></td><td>Nota de crédito tipo 01 (finNFe = 5), do comprador + evento 211128 de aceite</td><td>Crédito só depois do aceite do fornecedor e da extinção do débito dele. Enquanto isso: “Documentos fiscais aguardando aceite”.</td></tr>
+    <tr><td><b>Pagamento antecipado</b></td><td>Nota de débito de pagamento antecipado</td><td>Débito do fornecedor e crédito do comprador antes do fornecimento. Evento 112140 se o fornecimento não ocorrer.</td></tr>
+    <tr><td><b>Perda de estoque após crédito apropriado</b></td><td>Nota de débito tipo 07, do comprador</td><td>Débito do comprador; sem reflexo no fornecedor. Se referencia um documento, o débito fica limitado à CBS dele; o excedente vai para “Lançamentos excedentes não processados”.</td></tr>
+    <tr><td><b>Perda, roubo ou furto no transporte</b></td><td>Evento 112130 (fornecedor contratou) ou 211124 (comprador contratou)</td><td>Ajusta o crédito conforme quem pagou o transporte.</td></tr>
+    <tr><td><b>Recusa de entrega ou destinatário não localizado</b></td><td>Nota de crédito de retorno</td><td>Desfaz a operação com a base original.</td></tr>
+    <tr><td><b>Uso e consumo pessoal, imobilização</b></td><td>Eventos 211120 e 211130</td><td>Retiram o direito ao crédito ou o reclassificam.</td></tr>
+    <tr><td><b>Pedido de crédito presumido, de combustível, de bens dependentes de atividade do adquirente</b></td><td>Eventos 211110, 211140 e 211150</td><td>Disparam o crédito correspondente na apuração.</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--cinza)"><span class="b ok">Conferido</span> Mód. 6-1 (slides 52 a 130), Mód. 5-3 e lista de eventos da apostila. Os códigos de evento são os listados nesses materiais.</p>
+
+  <h3>Exemplo do módulo: juros por atraso</h3>
+  <table>
+    <tr><th>Data</th><th>Fato</th><th>Fornecedor</th><th>Adquirente</th></tr>
+    <tr><td>01/05</td><td>Venda com CBS de R$ 100; o adquirente recolhe R$ 100 por RAD no mesmo dia e esquece de pagar o fornecedor</td><td>Débito 100; pago 100; saldo devedor 0</td><td>Crédito apropriado 100</td></tr>
+    <tr><td>10/06</td><td>Adquirente paga a nota com juros e multa; fornecedor emite a ND tipo 04 com CBS de R$ 20</td><td>Débito 20; saldo devedor 20</td><td>“Crédito a apropriar” 20</td></tr>
+    <tr><td>Se o fornecedor não emitir</td><td>20/06: adquirente emite NC tipo 01 de R$ 20</td><td>“Aguardando aceite” 20</td><td>Sem crédito até o aceite</td></tr>
+  </table>
+
+  <h3>O que sobra “fora” da apuração</h3>
+  <ul>
+    <li><b>Não aproveitados:</b> comprador sem direito a crédito; documentos que não geram nem crédito nem débito; valores excedentes que travam o processamento completo.</li>
+    <li><b>Documentos aguardando referenciamento:</b> devolução ou nota de ajuste cujo documento original ainda não foi processado. A NT 2025.002 v1.52 mexe justamente na validação do referenciamento em devoluções (VC02-50).</li>
+    <li><b>Débitos extemporâneos:</b> a API lista o mês corrente, o mês anterior (período de ajuste) e débitos mais antigos processados no mês corrente. <span class="b ok">Conferido</span> Manual da Plataforma da CBS.</li>
+  </ul>
+
+  <div class="sala"><b class="tt">Para discutir na sala</b>
+    Um cliente pagou R$ 200 de juros por boleto, sem nota. Pode tomar crédito sobre esse valor?
+    <details><summary>Resposta esperada</summary>Não por boleto. O crédito vem da nota de débito tipo 04 do fornecedor. Se ele não emitir, o cliente emite nota de crédito tipo 01 e espera o evento de aceite (211128) e a extinção do débito pelo fornecedor.</details>
+  </div>
+</section>
+
+<!-- ================= 6 CALC AA ================= -->
+<section class="bloco" id="apcalc">
+  <div class="rotulo">Parte 6</div>
+  <h2 class="t">Calculadora da apuração do mês</h2>
+  <p class="lede">Preencha os valores como aparecem na apuração assistida. A conta segue o art. 44 do Decreto 12.955/2026. Abaixo, o Pcont em ordem cronológica sobre os débitos.</p>
+
+  <div class="calc" id="calcAA">
+    <div class="barra">
+      <div><label>Débitos do período</label><input type="number" id="aDeb" value="12000" step="0.01"></div>
+      <div><label>Créditos apropriados</label><input type="number" id="aCre" value="7000" step="0.01"></div>
+      <div><label>Saldo a recuperar anterior</label><input type="number" id="aAnt" value="0" step="0.01"></div>
+      <div><label>Ajuste positivo (+)</label><input type="number" id="aPos" value="300" step="0.01"></div>
+      <div><label>Ajuste negativo (−)</label><input type="number" id="aNeg" value="0" step="0.01"></div>
+    </div>
+    <div class="barra">
+      <div><label>Split</label><input type="number" id="aSpl" value="2000" step="0.01"></div>
+      <div><label>RAD</label><input type="number" id="aRad" value="0" step="0.01"></div>
+      <div><label>Pago por responsável</label><input type="number" id="aRes" value="0" step="0.01"></div>
+      <div><button type="button" id="btnAA">Calcular</button> <button type="button" class="sec" id="btnAAex">Exemplo com saldo anterior</button></div>
+    </div>
+    <div class="res" id="resAA"></div>
+    <h4>Pcont em ordem cronológica</h4>
+    <div class="barra">
+      <div><label>Débito 1 (mais antigo)</label><input type="number" id="pc1" value="500" step="0.01"></div>
+      <div><label>Débito 2</label><input type="number" id="pc2" value="250" step="0.01"></div>
+      <div><label>Débito 3</label><input type="number" id="pc3" value="0" step="0.01"></div>
+      <div><label>Pcont pago</label><input type="number" id="pcPago" value="400" step="0.01"></div>
+      <div><button type="button" id="btnPC">Distribuir</button></div>
+    </div>
+    <table id="tbPC"><thead><tr><th>Débito</th><th class="n">Valor</th><th class="n">Extinto pelo Pcont</th><th class="n">Em aberto</th></tr></thead><tbody></tbody></table>
+  </div>
+
+  <h3>Conferência do exemplo-padrão</h3>
+  <ul>
+    <li>Débitos 12.000 − créditos 7.000 + estorno 300 − split 2.000 = <b>R$ 3.300 a recolher</b>. Com saldo a recuperar anterior de 500: <b>R$ 2.800</b>.</li>
+    <li>Débitos 1.000 e créditos 1.500: <b>R$ 500 a recuperar</b>, que pode compensar período seguinte ou ser objeto de ressarcimento, mas não os dois ao mesmo tempo para o mesmo valor.</li>
+  </ul>
+  <p style="font-size:14px;color:var(--cinza)">A calculadora mostra a lógica do art. 44; o saldo oficial é o da apuração assistida. Não considera acréscimos legais, compensação de saldo vencido (art. 53, I), nem as regras do IBS, que o Comitê Gestor ainda detalha.</p>
+</section>
+
+<!-- ================= 7 ROTINA ================= -->
+<section class="bloco" id="rotina">
+  <div class="rotulo">Parte 7</div>
+  <h2 class="t">Rotina mensal do escritório</h2>
+  <p class="lede">Uma sequência que evita a confissão por silêncio. Os prazos são os do Decreto 12.955/2026; a divisão por dias é sugestão do escritório. <span class="b pr">Premissa</span></p>
+
+  <table>
+    <tr><th>Quando</th><th>O que fazer</th><th>Por quê</th></tr>
+    <tr><td><b>Último dia útil do mês de apuração</b></td><td>Decidir, cliente a cliente, se há <b>saldo a recuperar</b> que será pedido em ressarcimento. Manifestar a intenção no portal.</td><td>A intenção vale só até o fim do próprio período; depois dela, o saldo não compensa o mês seguinte (art. 39).</td></tr>
+    <tr><td><b>Dia 1 ao 5 do mês seguinte</b></td><td>Entrar na apuração assistida do período anterior. Exportar os extratos. Conferir o resultado contra o ERP: débitos de CBS das notas emitidas e créditos das notas recebidas.</td><td>É o início do período de ajuste.</td></tr>
+    <tr><td><b>Dia 5 ao 10</b></td><td>Olhar as abas: <b>Em processamento</b> (documentos aguardando aceite ou referenciamento); <b>Não aproveitados</b> (valores excedentes); <b>Outras informações</b> (créditos a apropriar, créditos condicionados, pagamentos não utilizados).</td><td>São as pendências que não aparecem no saldo.</td></tr>
+    <tr><td><b>Dia 10 ao 15</b></td><td>Cobrar fornecedor das notas de débito de juros. Decidir se emite nota de crédito. Avaliar o RAD nas compras em que o fornecedor não extinguiu o débito.</td><td>Crédito só vale depois da extinção do débito.</td></tr>
+    <tr><td><b>Dia 15 ao 20</b></td><td>Lançar os ajustes com evidência: estorno de crédito, perda, devolução fora do prazo. Guardar o documento que sustenta cada ajuste.</td><td>Ajuste do contribuinte é confissão; prazo geral de 5 anos.</td></tr>
+    <tr><td><b>Antes do último dia útil do mês seguinte</b></td><td>Pagar o saldo a recolher (Pcont). Confirmar a apuração ou registrar os ajustes. Registrar no cadastro do cliente quem conferiu e quando.</td><td>Mesmo prazo para pagar e para ajustar. Silêncio = saldo presumido correto e crédito constituído.</td></tr>
+    <tr><td><b>Depois da conclusão</b></td><td>Acompanhar “Saldo atualizado” para novos débitos e devoluções. Verificar transferências de pagamento não utilizado (3 dias úteis).</td><td>Eventos posteriores aparecem em registros posteriores à conclusão.</td></tr>
+  </table>
+
+  <h3>Quem acessa e como</h3>
+  <ul>
+    <li>Portal “Tributos sobre Bens e Serviços”: <code>consumo.tributos.gov.br</code>, por computador ou celular. <span class="b ok">Conferido</span> Manual da Plataforma da CBS.</li>
+    <li>O portal gera <b>credencial de acesso para API</b>; o uso da API é opcional e gratuito. <span class="b ok">Conferido</span> Manual e Taxcel.</li>
+    <li>Quem pode acessar pelo CNPJ do cliente e com que procuração: <span class="b ck">A confirmar</span> no portal e na regra de representação (o portal cita representante no CNPJ, matriz e sucessora). Ver como fica o procurador do escritório antes de janeiro.</li>
+  </ul>
+
+  <h3>Por cliente</h3>
+  <table>
+    <tr><th>Cliente</th><th>O que conferir primeiro na apuração</th></tr>
+    <tr><td>DELPS</td><td>Créditos de diesel e de CT-e de subcontratados; evento 211110 do frete de autônomo; pagamentos não utilizados.</td></tr>
+    <tr><td>Campestre e Prime</td><td>Débito mensal dos aluguéis recebidos (fato gerador no pagamento) e créditos de despesas do imóvel.</td></tr>
+    <tr><td>Cerrado, Marlon e CE</td><td>Notas de entrada de fornecedores que erram o cClassTrib; devoluções referenciadas; créditos “a apropriar” de fornecedores que atrasam; saldo a recuperar da cesta básica e pedido de ressarcimento.</td></tr>
+    <tr><td>Hungria e CE (filiais)</td><td>Apuração única do CNPJ raiz: conferir se todas as filiais e depósitos aparecem; documentos de transferência não geram débito.</td></tr>
+    <tr><td>Holdings</td><td>Se houver aluguel a empresa do grupo: débito do locador e crédito do locatário no mesmo mês.</td></tr>
+    <tr><td>Med Fernandes e Softweb</td><td>Só no regime regular (híbrido). No Simples unificado a apuração de IBS/CBS vai dentro do DAS.</td></tr>
+  </table>
+<div class="videos"><h4>Vídeo de apoio</h4><p class="aviso">Cortes dos mapeamentos enviados pelo James (Live Econet, curso CFC e vídeos complementares). Os vídeos foram conferidos pelo título; o minuto e o canal <b>não foram conferidos assistindo</b>, e os vídeos complementares são de fontes externas: o que eles dizem não substitui o texto desta página. Confirme antes de usar em sala.</p><details data-v="mhc2aIK2iek" data-t="2400" data-e="4800"><summary>▶ CFC Módulo 7 · 00:40:00 a 01:20:00 · Fluxo de liquidação e pedidos de ressarcimento</summary><p><a href="https://www.youtube.com/watch?v=mhc2aIK2iek&t=2400s" target="_blank" rel="noopener">Abrir no YouTube neste ponto</a></p><div class="quadro"></div></details><p class="aviso">Playlist: <a href="https://www.youtube.com/playlist?list=PLw2ZKoI7RG_csmR4mhKQ840wwG_QEL4gn" target="_blank" rel="noopener">Reforma Tributária do Consumo (YouTube)</a></p></div>
+</section>
+
+<!-- ================= 8 FONTES ================= -->
+<section class="bloco" id="fontes">
+  <div class="rotulo">Parte 8</div>
+  <h2 class="t">Fontes e o que não foi confirmado</h2>
+
+  <h3>Fontes usadas</h3>
+  <ul>
+    <li><b>Manual “Documento XML NF-e” (nov/2025):</b> o XML de exemplo que a calculadora reproduz.</li>
+    <li><b>Curso da Receita, módulo 6 (jun/2026):</b> apuração assistida, arts. 26, 27, 39, 43 a 48, 53 e 57 do Decreto 12.955/2026; notas de débito e de crédito; eventos.</li>
+    <li><b>Manuais Primeiros Passos 1 e 2 da apuração assistida (jul/2025)</b>, <b>Manual da Plataforma da CBS (maio/2026)</b>, apresentação do Dia 04 (devoluções, transferências, ressarcimento).</li>
+    <li><b>Módulos 5-3, 5-4, 8-2 e 10-4</b> e lista de supermercados (cClassTrib).</li>
+    <li><b>Notícias de 02/10/2026 (Contábeis)</b> sobre as notas técnicas; <b>Taxcel</b> (28/09/2026) sobre o cronograma; guias jurídicos sobre as resoluções do CGIBS.</li>
+  </ul>
+
+  <h3>Pendências</h3>
+  <table>
+    <tr><th>Ponto</th><th>Onde conferir</th></tr>
+    <tr><td>Texto das notas técnicas 2025.002 v1.52, 2026.004, 2026.007, 2026.008 e 2026.010 e datas finais</td><td>Portal da NF-e / portal dos DF-e; confirmar com a SVRS</td></tr>
+    <tr><td>Total da NF-e em 2027 (soma por fora) e campos de valor líquido</td><td>NT 2026.008 e 2026.010</td></tr>
+    <tr><td>Grupo gRed e códigos cClassTrib de locação, saúde, profissões e transporte</td><td>Tabela de CST e cClassTrib vigente</td></tr>
+    <tr><td>LC 238/2026 e Decreto 13.075/2026</td><td>Diário Oficial da União</td></tr>
+    <tr><td>Prazo do dia 15 (dia 20 para DeRE) para a Receita apresentar o saldo</td><td>Texto do art. 46 do Decreto 12.955/2026</td></tr>
+    <tr><td>Percentual do crédito presumido do tomador de frete de autônomo</td><td>Regulamento da CBS</td></tr>
+    <tr><td>Quem pode acessar a apuração pelo CNPJ do cliente</td><td>Portal e regra de representação</td></tr>
+    <tr><td>Apuração assistida do IBS (Comitê Gestor)</td><td>Resolução CGIBS 6/2026 e manual das APIs do IBS</td></tr>
+  </table>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Material interno da Conceitus Contabilidade, gerado em 04/11/2026. Calculadoras com finalidade didática: o valor oficial é o do documento fiscal e o da apuração assistida. Não substitui o texto das normas nem parecer sobre caso concreto.</div>
+</footer>
+
+<script>
+// ===== Núcleo de cálculo (ES5), testado com cscript contra o XML do manual =====
+function r2(x){ var s = x < 0 ? -1 : 1; return s * Math.round((Math.abs(x) + 1e-9) * 100) / 100; }
+function paramsAno(ano, cbsRef){
+  if (ano === '2026') return { ibsUF: 0.10, ibsMun: 0.00, cbs: 0.90, somaNoTotal: false };
+  return { ibsUF: 0.05, ibsMun: 0.05, cbs: Math.round((cbsRef - 0.1) * 10000) / 10000, somaNoTotal: true };
+}
+function calcItem(it, p){
+  var icms = r2(it.valor * it.icmsPct / 100);
+  var base = r2(it.valor - icms);
+  var f = 1 - it.red / 100;
+  var vUF  = r2(base * (p.ibsUF  * f) / 100);
+  var vMun = r2(base * (p.ibsMun * f) / 100);
+  var vCBS = r2(base * (p.cbs    * f) / 100);
+  return { icms: icms, base: base, vUF: vUF, vMun: vMun, vIBS: r2(vUF + vMun), vCBS: vCBS, efCBS: p.cbs * f, efIBS: (p.ibsUF + p.ibsMun) * f };
+}
+function calcNota(itens, p){
+  var t = { valor:0, icms:0, base:0, vUF:0, vMun:0, vIBS:0, vCBS:0, linhas:[] };
+  for (var i = 0; i < itens.length; i++){
+    var c = calcItem(itens[i], p); t.linhas.push(c);
+    t.valor += itens[i].valor; t.icms += c.icms; t.base += c.base;
+    t.vUF += c.vUF; t.vMun += c.vMun; t.vIBS += c.vIBS; t.vCBS += c.vCBS;
+  }
+  t.valor = r2(t.valor); t.icms = r2(t.icms); t.base = r2(t.base);
+  t.vUF = r2(t.vUF); t.vMun = r2(t.vMun); t.vIBS = r2(t.vIBS); t.vCBS = r2(t.vCBS);
+  t.total = p.somaNoTotal ? r2(t.valor + t.vIBS + t.vCBS) : t.valor;
+  return t;
+}
+function apurar(a){
+  var saldo = r2(a.debitos - a.creditos - a.saldoAnterior + a.ajustePos - a.ajusteNeg - a.split - a.rad - a.responsavel);
+  return { saldo: saldo, recolher: saldo > 0 ? saldo : 0, recuperar: saldo < 0 ? -saldo : 0 };
+}
+function pcont(debitos, pago){
+  var out = [], resto = pago;
+  for (var i = 0; i < debitos.length; i++){
+    var usa = Math.min(resto, debitos[i].valor);
+    out.push({ id: debitos[i].id, valor: debitos[i].valor, extinto: r2(usa), aberto: r2(debitos[i].valor - usa) });
+    resto = r2(resto - usa);
+  }
+  return { linhas: out, sobra: resto };
+}
+
+// ===== Interface =====
+var TRAT = [
+  {id:'geral', nome:'Regra geral', cst:'000', cc:'000001', red:0},
+  {id:'cesta', nome:'Cesta Básica (Anexo I) 100%', cst:'200', cc:'200003', red:100},
+  {id:'hort',  nome:'Hortícolas, frutas e ovos (Anexo XV) 100%', cst:'200', cc:'200014', red:100},
+  {id:'a7',    nome:'Alimentos (Anexo VII) 60%', cst:'200', cc:'200034', red:60},
+  {id:'a8',    nome:'Higiene e limpeza (Anexo VIII) 60%', cst:'200', cc:'200035', red:60},
+  {id:'a9',    nome:'Insumos agropecuários (Anexo IX) 60%', cst:'200', cc:'200038', red:60},
+  {id:'a4',    nome:'Dispositivos médicos (Anexo IV) 60%', cst:'200', cc:'200030', red:60},
+  {id:'saude', nome:'Serviço de saúde (Anexo III) 60%', cst:'200', cc:'(conferir)', red:60},
+  {id:'prof',  nome:'Profissão regulamentada (art. 127) 30%', cst:'200', cc:'(conferir)', red:30},
+  {id:'loc',   nome:'Locação de imóvel (art. 261, p.ú.) 70%', cst:'200', cc:'(conferir)', red:70},
+  {id:'imob',  nome:'Operação imobiliária (art. 261) 50%', cst:'200', cc:'(conferir)', red:50},
+  {id:'pass',  nome:'Transporte coletivo de passageiros 40%', cst:'200', cc:'(conferir)', red:40}
+];
+function trat(id){ for (var i=0;i<TRAT.length;i++){ if (TRAT[i].id===id) return TRAT[i]; } return TRAT[0]; }
+function fmt(x){ var s = (Math.round(x*100)/100).toFixed(2).split('.'); s[0] = s[0].replace(/\B(?=(\d{3})+(?!\d))/g,'.'); return s[0]+','+s[1]; }
+function fmtP(x){ return (Math.round(x*10000)/10000).toFixed(4).replace('.',','); }
+function alerta(ncm){
+  var n = (ncm||'').replace(/\D/g,'');
+  if (n.indexOf('220210')===0) return 'IS possível: bebida açucaradas (2202.10.00, Anexo XVII). Alíquota não fixada.';
+  if (/^22(03|04|05|06|07|08)/.test(n)) return 'IS possível: bebida alcoólica (22.03 a 22.08).';
+  if (/^24/.test(n)) return 'IS possível: fumígeno (cap. 24).';
+  if (/^(8703|8704)/.test(n)) return 'IS possível: veículo (87.03 e 87.04).';
+  if (n.indexOf('21069010')===0) return 'Pó para bebida: não consta do Anexo XVII no curso da Receita. Conferir.';
+  return '';
+}
+var itens = [];
+var PRESETS = {
+  oficial:{ano:'2026', itens:[
+    {d:'Barbante de malha círculo premium',ncm:'60033000',t:'geral',v:22.90,i:18},
+    {d:'Item 2 (R$ 3,00)',ncm:'',t:'geral',v:3.00,i:18}]},
+  atacado:{ano:'2027', itens:[
+    {d:'Açúcar refinado 10x1 kg',ncm:'17019900',t:'cesta',v:5000,i:0},
+    {d:'Leite em pó 1x400 g',ncm:'04022110',t:'cesta',v:3000,i:0},
+    {d:'Biscoito recheado',ncm:'19053100',t:'geral',v:2000,i:17},
+    {d:'Achocolatado Toddynho 27x200 ml',ncm:'22029900',t:'a7',v:4000,i:0},
+    {d:'Óleo de soja 20x900 ml',ncm:'15079011',t:'a7',v:3000,i:0},
+    {d:'Sabonete 12x90 g',ncm:'34011190',t:'a8',v:1500,i:0},
+    {d:'Coco ralado 50x50 g',ncm:'08011100',t:'hort',v:800,i:0},
+    {d:'Refresco em pó 1 kg',ncm:'21069010',t:'geral',v:1200,i:17},
+    {d:'Suco Dafruta caju 12x500 ml',ncm:'22021000',t:'geral',v:1000,i:17},
+    {d:'Preservativo 12x3',ncm:'40141000',t:'a4',v:500,i:0}]},
+  frete:{ano:'2027', itens:[{d:'Frete rodoviário de carga (CT-e)',ncm:'NBS transporte',t:'geral',v:10000,i:12}]},
+  aluguel:{ano:'2027', itens:[{d:'Aluguel comercial mensal',ncm:'NBS 1.1002.20.00',t:'loc',v:100000,i:0}]},
+  clinica:{ano:'2027', itens:[{d:'Consultas médicas (regime regular de IBS/CBS)',ncm:'NBS saúde',t:'saude',v:120000,i:0}]},
+  haxpao:{ano:'2027', itens:[
+    {d:'Refresco em pó 1 kg',ncm:'21069010',t:'geral',v:1200,i:17},
+    {d:'Suco com açúcar 12x500 ml',ncm:'22021000',t:'geral',v:1000,i:17}]}
+};
+function opts(sel){ var h=''; for (var i=0;i<TRAT.length;i++){ h += '<option value="'+TRAT[i].id+'"'+(TRAT[i].id===sel?' selected':'')+'>'+TRAT[i].nome+'</option>'; } return h; }
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+function render(){
+  var tb = document.getElementById('tbItens').getElementsByTagName('tbody')[0];
+  var h = '';
+  for (var i=0;i<itens.length;i++){
+    var it = itens[i];
+    h += '<tr data-i="'+i+'">'+
+      '<td><input type="text" class="d" value="'+esc(it.d)+'"></td>'+
+      '<td><input type="text" class="ncm" value="'+esc(it.ncm)+'" style="width:110px;min-width:90px"></td>'+
+      '<td><select class="t">'+opts(it.t)+'</select></td>'+
+      '<td class="n"><input type="number" class="v" value="'+it.v+'" step="0.01" min="0"></td>'+
+      '<td class="n"><input type="number" class="i" value="'+it.i+'" step="0.5" min="0" max="40" style="width:70px"></td>'+
+      '<td class="n bs"></td><td class="n ec"></td><td class="n ei"></td><td class="n vi"></td><td class="n vc"></td><td class="al"></td>'+
+      '<td><button type="button" class="sec rm">×</button></td></tr>';
+  }
+  tb.innerHTML = h;
+  var rows = tb.getElementsByTagName('tr');
+  for (var k=0;k<rows.length;k++){ (function(row){
+    var idx = parseInt(row.getAttribute('data-i'),10);
+    var f = function(){
+      itens[idx].d = row.querySelector('.d').value; itens[idx].ncm = row.querySelector('.ncm').value;
+      itens[idx].t = row.querySelector('.t').value;
+      itens[idx].v = parseFloat(row.querySelector('.v').value) || 0;
+      itens[idx].i = parseFloat(row.querySelector('.i').value) || 0;
+      calcular();
+    };
+    var els = row.querySelectorAll('input,select');
+    for (var e=0;e<els.length;e++){ els[e].addEventListener('input', f); els[e].addEventListener('change', f); }
+    row.querySelector('.rm').addEventListener('click', function(){ itens.splice(idx,1); render(); calcular(); });
+  })(rows[k]); }
+  calcular();
+}
+function calcular(){
+  var ano = document.getElementById('ano').value;
+  var ref = parseFloat(document.getElementById('cbsRef').value) || 0;
+  var p = paramsAno(ano, ref);
+  var lista = [];
+  for (var i=0;i<itens.length;i++){ lista.push({valor:itens[i].v, icmsPct:itens[i].i, red:trat(itens[i].t).red}); }
+  var t = calcNota(lista, p);
+  var rows = document.getElementById('tbItens').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+  for (var k=0;k<rows.length;k++){
+    var c = t.linhas[k];
+    rows[k].querySelector('.bs').innerHTML = fmt(c.base);
+    rows[k].querySelector('.ec').innerHTML = fmtP(c.efCBS);
+    rows[k].querySelector('.ei').innerHTML = fmtP(c.efIBS);
+    rows[k].querySelector('.vi').innerHTML = fmt(c.vIBS);
+    rows[k].querySelector('.vc').innerHTML = fmt(c.vCBS);
+    rows[k].querySelector('.al').innerHTML = alerta(itens[k].ncm);
+  }
+  var carga = t.valor > 0 ? ((t.vIBS + t.vCBS) / t.valor * 100) : 0;
+  document.getElementById('resNota').innerHTML =
+    '<div><small>Valor dos itens</small><span>R$ '+fmt(t.valor)+'</span></div>'+
+    '<div><small>ICMS (fora da base)</small><span>R$ '+fmt(t.icms)+'</span></div>'+
+    '<div><small>Base IBS/CBS</small><span>R$ '+fmt(t.base)+'</span></div>'+
+    '<div><small>IBS estadual</small><span>R$ '+fmt(t.vUF)+'</span></div>'+
+    '<div><small>IBS municipal</small><span>R$ '+fmt(t.vMun)+'</span></div>'+
+    '<div><small>CBS</small><span>R$ '+fmt(t.vCBS)+'</span></div>'+
+    '<div><small>Carga IBS+CBS / valor</small><span>'+fmt(carga)+'%</span></div>'+
+    '<div><small>'+(p.somaNoTotal?'Total da nota (por fora)':'Total da nota (informativo)')+'</small><span>R$ '+fmt(t.total)+'</span></div>';
+  // XML do primeiro item
+  var x = '';
+  if (itens.length){
+    var tr = trat(itens[0].t), c0 = t.linhas[0];
+    x = '<IBSCBS>\n  <CST>'+tr.cst+'</CST>\n  <cClassTrib>'+tr.cc+'</cClassTrib>\n  <gIBSCBS>\n    <vBC>'+c0.base.toFixed(2)+'</vBC>\n'+
+        '    <gIBSUF>\n      <pIBSUF>'+fmtP(p.ibsUF).replace(',','.')+'</pIBSUF>\n      <vIBSUF>'+c0.vUF.toFixed(2)+'</vIBSUF>\n    </gIBSUF>\n'+
+        '    <gIBSMun>\n      <pIBSMun>'+fmtP(p.ibsMun).replace(',','.')+'</pIBSMun>\n      <vIBSMun>'+c0.vMun.toFixed(2)+'</vIBSMun>\n    </gIBSMun>\n'+
+        '    <vIBS>'+c0.vIBS.toFixed(2)+'</vIBS>\n    <gCBS>\n      <pCBS>'+fmtP(p.cbs).replace(',','.')+'</pCBS>\n      <vCBS>'+c0.vCBS.toFixed(2)+'</vCBS>\n    </gCBS>\n  </gIBSCBS>\n</IBSCBS>';
+    if (tr.red > 0) x += '\n<!-- redução de '+tr.red+'%: o leiaute traz o grupo gRed, não montado aqui -->';
+  }
+  document.getElementById('xmlItem').textContent = x;
+}
+function carrega(nome){
+  var P = PRESETS[nome]; if (!P) return;
+  document.getElementById('ano').value = P.ano;
+  itens = [];
+  for (var i=0;i<P.itens.length;i++){ var s=P.itens[i]; itens.push({d:s.d,ncm:s.ncm,t:s.t,v:s.v,i:s.i}); }
+  render();
+}
+document.getElementById('preset').addEventListener('change', function(){ carrega(this.value); });
+document.getElementById('ano').addEventListener('change', calcular);
+document.getElementById('cbsRef').addEventListener('input', calcular);
+document.getElementById('btnAdd').addEventListener('click', function(){ itens.push({d:'',ncm:'',t:'geral',v:0,i:0}); render(); });
+document.getElementById('btnLimpa').addEventListener('click', function(){ itens = []; render(); });
+
+// ===== Apuração =====
+function num(id){ return parseFloat(document.getElementById(id).value) || 0; }
+function calcAA(){
+  var r = apurar({debitos:num('aDeb'),creditos:num('aCre'),saldoAnterior:num('aAnt'),ajustePos:num('aPos'),ajusteNeg:num('aNeg'),split:num('aSpl'),rad:num('aRad'),responsavel:num('aRes')});
+  document.getElementById('resAA').innerHTML =
+    '<div><small>Saldo do período</small><span>R$ '+fmt(r.saldo)+'</span></div>'+
+    '<div><small>Saldo a recolher</small><span>R$ '+fmt(r.recolher)+'</span></div>'+
+    '<div><small>Saldo a recuperar</small><span>R$ '+fmt(r.recuperar)+'</span></div>';
+}
+function calcPC(){
+  var d = [], v = [num('pc1'), num('pc2'), num('pc3')];
+  for (var i=0;i<3;i++){ if (v[i] > 0) d.push({id:'Débito '+(i+1), valor:v[i]}); }
+  var r = pcont(d, num('pcPago'));
+  var h = '';
+  for (var k=0;k<r.linhas.length;k++){ var l=r.linhas[k]; h += '<tr><td>'+l.id+'</td><td class="n">'+fmt(l.valor)+'</td><td class="n">'+fmt(l.extinto)+'</td><td class="n">'+fmt(l.aberto)+'</td></tr>'; }
+  if (r.sobra > 0) h += '<tr><td colspan="4">Sobra de R$ '+fmt(r.sobra)+': pagamento não utilizado, devolvido por transferência em até 3 dias úteis.</td></tr>';
+  document.getElementById('tbPC').getElementsByTagName('tbody')[0].innerHTML = h;
+}
+document.getElementById('btnAA').addEventListener('click', calcAA);
+document.getElementById('btnAAex').addEventListener('click', function(){ document.getElementById('aAnt').value = 500; calcAA(); });
+document.getElementById('btnPC').addEventListener('click', calcPC);
+carrega('atacado'); calcAA(); calcPC();
+document.getElementById('preset').value = 'atacado';
+</script>
+<script>
+(function(){
+  var ds=document.querySelectorAll('.videos details[data-v]');
+  for(var i=0;i<ds.length;i++){(function(d){
+    d.addEventListener('toggle',function(){
+      var q=d.querySelector('.quadro');
+      if(!d.open||q.getAttribute('data-ok'))return;
+      q.setAttribute('data-ok','1');
+      if(location.protocol==='file:'){q.innerHTML='<div class="nao">O YouTube não toca vídeo embutido em arquivo aberto do disco (erro 153). Use o link "Abrir no YouTube" acima, ou abra esta página pelo servidor do escritório.</div>';return;}
+      var f=document.createElement('iframe');
+      var e=d.getAttribute('data-e');
+      f.src='https://www.youtube-nocookie.com/embed/'+d.getAttribute('data-v')+'?start='+d.getAttribute('data-t')+(e&&e!=='0'?'&end='+e:'')+'&rel=0';
+      f.setAttribute('allowfullscreen','');f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+      f.setAttribute('allow','encrypted-media; picture-in-picture');
+      q.appendChild(f);
+    });
+  })(ds[i]);}
+})();
+</script>
+</body>
+</html>
