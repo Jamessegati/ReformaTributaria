@@ -71,6 +71,21 @@ a{color:var(--blue)}
 .acoes strong{display:block;color:var(--head);margin-bottom:2px}
 .acoes span{color:var(--ink2);font-size:.95rem}
 
+/* players de áudio */
+.player{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.p-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.p-ic{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:10px;background:var(--head);color:var(--bg)}
+.p-tx{min-width:0}
+.p-tx b{display:block;font:600 1.02rem/1.3 var(--sans);color:var(--head);overflow-wrap:anywhere}
+.p-tx span{font:500 .8rem/1.4 var(--mono);color:var(--ink2)}
+.player audio{display:block;width:100%;height:44px;color-scheme:light dark}
+.p-vel{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:12px}
+.p-vel span{font:600 .72rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-right:2px}
+.p-vel button{min-height:36px;min-width:48px;padding:0 12px;font:500 .85rem/1 var(--sans);border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink2);cursor:pointer}
+.p-vel button[aria-pressed="true"]{background:var(--head);border-color:var(--head);color:var(--bg)}
+.p-nota{margin:12px 0 0;color:var(--ink2);font-size:.92rem}
+@media (max-width:380px){.player{padding:14px 12px}.p-ic{width:38px;height:38px}}
+
 /* busca e filtros */
 .controles{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0 10px;margin-top:34px;border-bottom:1px solid var(--line)}
 .busca{display:flex;gap:8px}
@@ -143,6 +158,15 @@ footer b{color:var(--head)}
   </div>
 </header>
 <main class="wrap">
+  <section class="bloco" aria-labelledby="h-au1">
+    <h2 id="h-au1">Ouça a explicação completa</h2>
+    <div class="player" data-player>
+      <div class="p-top"><span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></span><div class="p-tx"><b>Proteja seu estoque na Reforma Tributária</b><span>Áudio · 20 min</span></div></div>
+      <audio controls preload="metadata" src="audio/proteja-seu-estoque-reforma-tributaria.m4a">Seu navegador não toca áudio. <a href="audio/proteja-seu-estoque-reforma-tributaria.m4a">Baixe o arquivo</a>.</audio>
+      <div class="p-vel" role="group" aria-label="Velocidade do áudio"><span>Velocidade</span><button type="button" data-v="1" aria-pressed="true">1x</button><button type="button" data-v="1.25" aria-pressed="false">1,25x</button><button type="button" data-v="1.5" aria-pressed="false">1,5x</button></div>
+      <p class="p-nota">Prefere ouvir? Dê o play e, se quiser, acompanhe as respostas logo abaixo.</p>
+    </div>
+  </section>
   <section class="bloco" aria-labelledby="h-datas">
     <h2 id="h-datas">Datas que importam</h2>
     <ol class="datas">
@@ -160,9 +184,17 @@ footer b{color:var(--head)}
       <li><div><strong>Produtos de alíquota zero</strong><span>Levante com a Conceitus os produtos de alíquota zero e o estoque que será vendido depois da virada.</span></div></li>
     </ol>
   </section>
+  <section class="bloco" aria-labelledby="h-au2">
+    <h2 id="h-au2">Resumo em áudio</h2>
+    <div class="player" data-player>
+      <div class="p-top"><span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></span><div class="p-tx"><b>Regularize notas e estoque para a CBS</b><span>Áudio · 1 min 43 s</span></div></div>
+      <audio controls preload="metadata" src="audio/regularize-notas-e-estoque-cbs.m4a">Seu navegador não toca áudio. <a href="audio/regularize-notas-e-estoque-cbs.m4a">Baixe o arquivo</a>.</audio>
+      <p class="p-nota">O essencial do que fazer com as notas e o estoque antes da virada de 2027.</p>
+    </div>
+  </section>
   <div class="controles">
     <div class="busca">
-      <input id="busca" type="search" placeholder="Buscar: crédito de estoque, cerveja, omissão…" aria-label="Buscar nas perguntas" autocomplete="off">
+      <input id="busca" type="search" placeholder="Buscar: estoque, cerveja…" aria-label="Buscar nas perguntas" autocomplete="off">
       <button class="btn" id="tudo" type="button">Abrir todas</button>
     </div>
     <div class="chips" role="group" aria-label="Filtrar por assunto"><button class="chip on" data-g="todas" type="button">Todas <span>29</span></button><button class="chip" data-g="a-reforma-e-a-cbs" type="button">A reforma e a CBS <span>5</span></button><button class="chip" data-g="omissoes-de-entradas-na-malha-estadual" type="button">Omiss&#245;es de entradas na Malha estadual <span>6</span></button><button class="chip" data-g="caixa-negativo-e-estoque" type="button">Caixa negativo e estoque <span>6</span></button><button class="chip" data-g="credito-de-estoque-na-cbs" type="button">Cr&#233;dito de estoque na CBS <span>5</span></button><button class="chip" data-g="produtos-com-aliquota-zero-hoje" type="button">Produtos com al&#237;quota zero hoje <span>5</span></button><button class="chip" data-g="como-a-conceitus-pode-ajudar" type="button">Como a Conceitus pode ajudar <span>2</span></button></div>
@@ -195,6 +227,12 @@ footer b{color:var(--head)}
   function porHash(){var m=/^#p(\d+)$/.exec(location.hash);if(m){var d=document.getElementById('p'+m[1]);if(d){d.hidden=false;d.open=true;d.scrollIntoView();}}}
   window.addEventListener('hashchange',porHash);
   window.addEventListener('beforeprint',function(){qs.forEach(function(d){d.open=true})});
+  var tocadores=[].slice.call(document.querySelectorAll('[data-player] audio'));
+  tocadores.forEach(function(a){a.addEventListener('play',function(){tocadores.forEach(function(o){if(o!==a)o.pause()})})});
+  [].slice.call(document.querySelectorAll('[data-player]')).forEach(function(p){
+    var a=p.querySelector('audio'),bs=[].slice.call(p.querySelectorAll('.p-vel button'));
+    bs.forEach(function(b){b.addEventListener('click',function(){a.playbackRate=parseFloat(b.dataset.v);bs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})});
+  });
   aplica();porHash();
 })();
 </script>
