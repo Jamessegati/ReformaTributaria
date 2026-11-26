@@ -193,6 +193,52 @@ table.dp{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
   .dp-c{display:flex;flex-direction:column}
 }
 @media print{.dp-filtros{display:none}.dp-g{display:table-row-group!important}}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.c-aliq{margin:0;padding:16px 18px;border:0;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;background:var(--bg)}
+.c-aliq legend{float:left;width:100%;margin-bottom:8px;padding:0;font:600 .92rem/1.3 var(--sans);color:var(--head)}
+.c-aliq label{position:relative;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.c-aliq input[type=radio]{position:absolute;opacity:0;width:1px;height:1px}
+.c-aliq span{display:inline-flex;align-items:baseline;gap:6px;min-height:40px;align-items:center;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font:500 .9rem/1 var(--sans);color:var(--ink)}
+.c-aliq small{font-size:.78rem;color:var(--ink2)}
+.c-aliq input[type=radio]:checked+span{background:var(--head);border-color:var(--head);color:var(--bg)}
+.c-aliq input[type=radio]:checked+span small{color:inherit;opacity:.8}
+.c-aliq input[type=radio]:focus-visible+span{outline:3px solid var(--amber);outline-offset:2px}
+.c-outra input[type=text]{width:74px;min-height:40px;padding:0 10px;font:500 .95rem/1 var(--mono);border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+.c-outra input[type=text]:disabled{opacity:.5}
+.c-passos{display:grid;grid-template-columns:1fr 1fr}
+.c-passo{padding:18px 18px 20px}
+.c-passo+.c-passo{border-left:1px solid var(--line)}
+.c-passo h3{margin:0 0 12px;font:600 1.15rem/1.3 var(--serif);color:var(--head)}
+.c-campo{display:block}
+.c-campo>span{display:block;margin-bottom:6px;font-size:.9rem;color:var(--ink2)}
+.c-campo b{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.c-campo b:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px var(--tint)}
+.c-campo i{padding:0 4px 0 14px;font:500 1rem/1 var(--mono);font-style:normal;color:var(--ink2)}
+.c-campo input{flex:1;min-width:0;padding:12px 14px 12px 6px;border:0;outline:0;background:transparent;color:var(--ink);font:500 1.25rem/1.2 var(--mono)}
+.c-passo dl{margin:16px 0 0}
+.c-passo dl div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;font-size:.95rem}
+.c-passo dt{color:var(--ink2)}
+.c-passo dd{margin:0;font:500 .95rem/1.4 var(--mono);color:var(--ink);white-space:nowrap}
+.c-tot{border-top:1px solid var(--line);margin-top:2px}
+.c-tot dt,.c-tot dd{font-weight:600;color:var(--ink)}
+.c-ap{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:14px 0 0;padding:12px 14px;border-radius:10px;font-weight:600}
+.c-ap b{font:600 1.1rem/1.2 var(--mono);white-space:nowrap}
+.c-cr{background:var(--ok-tint);color:var(--ok)}
+.c-db{background:var(--amber-tint);color:var(--amber-ink)}
+.c-res{padding:18px;border-top:1px solid var(--line);background:var(--tint)}
+.c-conta{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;margin:0;color:var(--ink2);font-size:.92rem}
+.c-conta b{font:500 .95rem/1 var(--mono);color:var(--ink)}
+.c-pagar{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin:6px 0 0}
+.c-pagar span{font:600 1.3rem/1.2 var(--serif);color:var(--head)}
+.c-pagar b{font:600 2rem/1.1 var(--mono);color:var(--head)}
+.c-res.neg .c-pagar b{color:var(--ok)}
+.c-obs{margin:8px 0 0;font-size:.9rem;color:var(--ink2)}
+@media (max-width:640px){
+  .c-passos{grid-template-columns:1fr}
+  .c-passo+.c-passo{border-left:0;border-top:1px solid var(--line)}
+  .c-aliq,.c-passo,.c-res{padding-left:14px;padding-right:14px}
+  .c-pagar b{font-size:1.6rem}
+}
 .vazio{display:none;margin-top:22px;padding:18px;border:1px dashed var(--line);border-radius:12px;color:var(--ink2);text-align:center}
 
 /* rodape */
@@ -261,6 +307,47 @@ footer b{color:var(--head)}
     </table></div>
     <p class="dp-rodape">Fontes: Lei 10.925/2004, art. 1º; Lei 10.865/2004, art. 28; Lei 10.147/2000; LC 214/2025, Anexos I, VII, VIII e XV. Cada linha reúne vários NCM e tem exceções. Confira o NCM exato do seu produto com a Conceitus (<a href="#p28">pergunta 28</a>).</p>
   </section>
+  <section class="bloco" id="calculadora" aria-labelledby="h-calc">
+    <h2 id="h-calc">Calculadora da CBS</h2>
+    <p class="dp-lead">Digite quanto você pagou no produto e por quanto vai vender. A calculadora mostra o crédito da compra, o débito da venda e quanto sobra de CBS para pagar.</p>
+    <div class="calc">
+      <fieldset class="c-aliq">
+        <legend>Alíquota da CBS do produto</legend>
+        <label><input type="radio" name="c-al" value="11.3" checked><span>11,3% <small>cheia</small></span></label>
+        <label><input type="radio" name="c-al" value="4.52"><span>4,52% <small>redução de 60%</small></span></label>
+        <label><input type="radio" name="c-al" value="0"><span>0% <small>alíquota zero</small></span></label>
+        <label class="c-outra"><input type="radio" name="c-al" value="outra"><span>Outra</span><input type="text" id="c-al-v" inputmode="decimal" placeholder="%" aria-label="Outra alíquota, em %" disabled></label>
+      </fieldset>
+      <div class="c-passos">
+        <div class="c-passo">
+          <h3>Na compra</h3>
+          <label class="c-campo"><span>Valor do produto</span><b><i>R$</i><input type="text" id="c-compra" inputmode="decimal" value="100,00" autocomplete="off"></b></label>
+          <dl>
+            <div><dt>Valor do produto</dt><dd id="c-r1">R$ 100,00</dd></div>
+            <div><dt>+ CBS (<span class="c-pct">11,3%</span>)</dt><dd id="c-r2">R$ 11,30</dd></div>
+            <div class="c-tot"><dt>= Total da nota</dt><dd id="c-r3">R$ 111,30</dd></div>
+          </dl>
+          <p class="c-ap c-cr"><span>Crédito apurado</span><b id="c-cred">R$ 11,30</b></p>
+        </div>
+        <div class="c-passo">
+          <h3>Na venda</h3>
+          <label class="c-campo"><span>Valor do produto na venda</span><b><i>R$</i><input type="text" id="c-venda" inputmode="decimal" value="150,00" autocomplete="off"></b></label>
+          <dl>
+            <div><dt>Valor do produto</dt><dd id="c-v1">R$ 150,00</dd></div>
+            <div><dt>+ CBS (<span class="c-pct">11,3%</span>)</dt><dd id="c-v2">R$ 16,95</dd></div>
+            <div class="c-tot"><dt>= Total da nota</dt><dd id="c-v3">R$ 166,95</dd></div>
+          </dl>
+          <p class="c-ap c-db"><span>Débito apurado</span><b id="c-deb">R$ 16,95</b></p>
+        </div>
+      </div>
+      <div class="c-res" aria-live="polite">
+        <p class="c-conta"><span>Débito <b id="c-x1">R$ 16,95</b></span><span aria-hidden="true">−</span><span>Crédito <b id="c-x2">R$ 11,30</b></span></p>
+        <p class="c-pagar"><span id="c-rot">CBS a pagar</span><b id="c-pag">R$ 5,65</b></p>
+        <p class="c-obs" id="c-obs">Na prática, você paga CBS só sobre o valor que acrescentou ao produto.</p>
+      </div>
+    </div>
+    <p class="dp-rodape">Cálculo simplificado: a CBS é calculada sobre o valor do produto e somada na nota. O crédito vale o CBS destacado na nota de compra. A alíquota de 11,3% é a referência do TCU; a definitiva é fixada pelo Senado.</p>
+  </section>
   <div class="controles">
     <div class="busca">
       <input id="busca" type="search" placeholder="Buscar: estoque, cerveja…" aria-label="Buscar nas perguntas" autocomplete="off">
@@ -305,6 +392,30 @@ footer b{color:var(--head)}
     bs.forEach(function(b){b.addEventListener('click',function(){a.playbackRate=parseFloat(b.dataset.v);bs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})});
   });
   aplica();porHash();
+  var cc=document.getElementById('c-compra');
+  if(cc){
+    var cv=document.getElementById('c-venda'),co=document.getElementById('c-al-v'),rs=[].slice.call(document.querySelectorAll('input[name="c-al"]'));
+    var brl=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+    function num(s){s=(s||'').replace(/[^\d,.-]/g,'');if(s.indexOf(',')>-1)s=s.replace(/\./g,'').replace(',','.');else if(/^\d{1,3}(\.\d{3})+$/.test(s))s=s.replace(/\./g,'');var n=parseFloat(s);return isFinite(n)&&n>0?n:0}
+    function r2(n){return Math.round(n*100)/100}
+    function put(id,v){document.getElementById(id).textContent=brl.format(v)}
+    function calc(){
+      var sel=rs.filter(function(r){return r.checked})[0].value;co.disabled=sel!=='outra';
+      var al=sel==='outra'?num(co.value):parseFloat(sel),pct=al.toLocaleString('pt-BR',{maximumFractionDigits:2})+'%';
+      [].slice.call(document.querySelectorAll('.c-pct')).forEach(function(e){e.textContent=pct});
+      var c=num(cc.value),v=num(cv.value),cr=r2(c*al/100),db=r2(v*al/100),pg=r2(db-cr);
+      put('c-r1',c);put('c-r2',cr);put('c-r3',c+cr);put('c-cred',cr);
+      put('c-v1',v);put('c-v2',db);put('c-v3',v+db);put('c-deb',db);
+      put('c-x1',db);put('c-x2',cr);
+      var neg=pg<0,res=document.querySelector('.c-res');res.classList.toggle('neg',neg);
+      document.getElementById('c-rot').textContent=neg?'Sobra de crédito':'CBS a pagar';put('c-pag',Math.abs(pg));
+      document.getElementById('c-obs').textContent=al===0?'Com alíquota zero não há crédito nem débito.':neg?'O crédito foi maior que o débito. A sobra fica para abater a CBS dos próximos meses.':'Na prática, você paga CBS só sobre o valor que acrescentou ao produto.';
+    }
+    function fmt(e){var n=num(e.target.value);e.target.value=n?n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}):''}
+    [cc,cv,co].forEach(function(i){i.addEventListener('input',calc)});[cc,cv].forEach(function(i){i.addEventListener('blur',fmt)});
+    rs.forEach(function(r){r.addEventListener('change',function(){calc();if(r.value==='outra')co.focus()})});
+    calc();
+  }
 })();
 </script>
 </body>
